@@ -10,6 +10,7 @@
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7",
+        "league/flysystem-aws-s3-v3": "^3.10",
         "php-open-source-saver/jwt-auth": "^2.0"
     },
     "require-dev": {
@@ -28,7 +29,9 @@
             "Database\\Seeders\\": "database/seeders/"
         },
         "files": [
-            "app/Helpers/date.php"
+            "app/Helpers/date.php",
+            "app/Helpers/data.php",
+            "app/Helpers/resolvers.php"
         ]
     },
     "autoload-dev": {
