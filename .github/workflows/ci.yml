@@ -1,0 +1,43 @@
+name: CI
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened, ready_for_review]
+    branches:
+      - "*"
+  push:
+    branches:
+      - main
+
+env:
+  DB_DATABASE: database/database.sqlite
+  DB_CONNECTION: sqlite
+
+jobs:
+  tests:
+    name: Run tests and verfication
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.0
+
+      - name: Copy .env.testing
+        run: php -r "file_exists('.env') || copy('.env.testing', '.env');"
+
+      - name: Install Laravel dependencies
+        run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+
+      - name: Create sqlite dummy database (PHPUnit db)
+        run: |
+          mkdir -p database
+          touch ${{ env.DB_DATABASE }}
+
+      - name: Execute tests before allow merges
+        env:
+          DB_CONNECTION: ${{ env.DB_CONNECTION }}
+          DB_DATABASE: ${{ env.DB_DATABASE }}
+        run: ./vendor/bin/tests
