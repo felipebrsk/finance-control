@@ -2,11 +2,12 @@
 
 namespace App\Models;
 
+use App\Traits\HasSlug;
 use App\Helpers\SlugOptions;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\{Model, SoftDeletes};
 use App\Interfaces\Eloquent\ShouldBelongsToSpaceInterface;
-use App\Traits\HasSlug;
+use App\Events\Category\{CategoryCreated, CategoryDeleted};
 use Illuminate\Database\Eloquent\Relations\{BelongsTo, HasMany};
 
 class Category extends Model implements ShouldBelongsToSpaceInterface
@@ -26,7 +27,7 @@ class Category extends Model implements ShouldBelongsToSpaceInterface
     /**
      * The attributes that should be date.
      * 
-     * @var array<string>
+     * @var array<int, string>
      */
     protected $dates = [
         'deleted_at',
@@ -35,6 +36,16 @@ class Category extends Model implements ShouldBelongsToSpaceInterface
     use HasFactory;
     use SoftDeletes;
     use HasSlug;
+
+    /**
+     * Create model dispatchable events.
+     * 
+     * @var array<string, string>
+     */
+    protected $dispatchesEvents = [
+        'created' => CategoryCreated::class,
+        'deleted' => CategoryDeleted::class
+    ];
 
     /**
      * Get the options for generating the slug.

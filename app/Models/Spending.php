@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\{Model, SoftDeletes};
 use App\Interfaces\Eloquent\ShouldBelongsToSpaceInterface;
 use Illuminate\Database\Eloquent\Relations\{BelongsTo, MorphMany};
+use App\Events\Transaction\{TransactionCreated, TransactionDeleted};
 
 class Spending extends Model implements ShouldBelongsToSpaceInterface
 {
@@ -34,6 +35,16 @@ class Spending extends Model implements ShouldBelongsToSpaceInterface
 
     use HasFactory;
     use SoftDeletes;
+
+    /**
+     * Create model dispatchable events.
+     * 
+     * @var array<string, string>
+     */
+    protected $dispatchesEvents = [
+        'created' => TransactionCreated::class,
+        'deleted' => TransactionDeleted::class
+    ];
 
     /**
      * Get the space that owns the Spending

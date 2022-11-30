@@ -6,6 +6,7 @@ use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\{Model, SoftDeletes};
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use App\Interfaces\Eloquent\ShouldBelongsToSpaceInterface;
+use App\Events\Recurring\{RecurringCreated, RecurringDeleted};
 use Illuminate\Database\Eloquent\Relations\{BelongsTo, HasMany, MorphMany};
 
 class Recurring extends Model implements ShouldBelongsToSpaceInterface
@@ -41,6 +42,16 @@ class Recurring extends Model implements ShouldBelongsToSpaceInterface
 
     use HasFactory;
     use SoftDeletes;
+
+    /**
+     * Create model dispatchable events.
+     * 
+     * @var array<string, string>
+     */
+    protected $dispatchesEvents = [
+        'created' => RecurringCreated::class,
+        'deleted' => RecurringDeleted::class
+    ];
 
     /**
      * Get the due date attribute.
