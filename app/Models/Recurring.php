@@ -101,16 +101,6 @@ class Recurring extends Model implements ShouldBelongsToSpaceInterface
     }
 
     /**
-     * Get the currency that owns the Recurring
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function currency(): BelongsTo
-    {
-        return $this->belongsTo(Currency::class);
-    }
-
-    /**
      * Get all of the earnings for the Recurring
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany

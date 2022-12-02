@@ -5,16 +5,15 @@ use App\Http\Controllers\Auth\AuthController;
 
 /*
 |--------------------------------------------------------------------------
-| API Routes
+| AUTH Routes
 |--------------------------------------------------------------------------
 |
 | Here is where you can register API routes for your application. These
 | routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
+| is assigned the "api" and "auth:api" middleware group. Enjoy building your API!
 |
 */
 
 Route::controller(AuthController::class)->group(function () {
-    Route::post('login', 'login')->name('login');
-    Route::post('register', 'register')->name('register');
+    Route::post('refresh', 'refresh')->name('refresh');
 });

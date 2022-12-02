@@ -9,14 +9,14 @@ class SlugOptions
      * 
      * @var array|\Closure
      */
-    public $generateSlugFrom;
+    public $generateSlugFrom = 'name';
 
     /**
      * The slug field.
      * 
      * @var string
      */
-    public string $slugField = 'name';
+    public string $slugField = 'slug';
 
     /**
      * The slug max lenght.

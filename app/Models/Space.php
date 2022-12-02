@@ -124,8 +124,8 @@ class Space extends Model
      */
     public function getMonthlyEarningRecurrings(int $year = null, int $month = null): int
     {
-        $year = getCurrentYear($year);
-        $month = getCurrentMonth($month);
+        $year = getYear($year);
+        $month = getMonth($month);
 
         return Recurring::whereType('earning')
             ->whereYear('start_date', '<=', $year)
@@ -146,8 +146,8 @@ class Space extends Model
      */
     public function getMonthlyBalance(int $year = null, int $month = null): int
     {
-        $year = getCurrentYear($year);
-        $month = getCurrentMonth($month);
+        $year = getYear($year);
+        $month = getMonth($month);
 
         $earnings = Earning::whereYear('when', $year)->whereMonth('when', $month);
         $spendings = Spending::whereYear('when', $year)->whereMonth('when', $month);
@@ -166,8 +166,8 @@ class Space extends Model
      */
     public function getMonthlySpendingRecurrings(int $year = null, int $month = null): int
     {
-        $year = getCurrentYear($year);
-        $month = getCurrentMonth($month);
+        $year = getYear($year);
+        $month = getMonth($month);
 
         return Recurring::whereType('spending')
             ->whereYear('start_date', '<=', $year)
@@ -188,8 +188,8 @@ class Space extends Model
      */
     public function calculateMonthlyRecurrings(int $year = null, int $month = null): int
     {
-        $year = getCurrentYear($year);
-        $month = getCurrentMonth($month);
+        $year = getYear($year);
+        $month = getMonth($month);
 
         return ($this->getMonthlyEarningRecurrings($year, $month) - $this->getMonthlySpendingRecurrings($year, $month));
     }

@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\Currency;
-use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
 
 class CurrencySeeder extends Seeder
@@ -16,8 +15,7 @@ class CurrencySeeder extends Seeder
     public function run()
     {
         Currency::create([
-            'name' => $name = 'Real brasileiro',
-            'slug' => Str::slug($name),
+            'name' => 'Real brasileiro',
             'iso' => 'BRL',
             'symbol' => 'R$',
         ]);

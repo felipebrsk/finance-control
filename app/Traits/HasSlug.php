@@ -94,11 +94,29 @@ trait HasSlug
     {
         $this->ensureValidSlugService();
 
-        $slug = $this->makeSlugUnique(
-            Str::slug($this->getSlugSourceString())
-        );
+        $slug = $this->generateNonUniqueSlug();
 
-        $this->slugOptions->slugField = $slug;
+        $slug = $this->makeSlugUnique($slug);
+
+        $slugField = $this->slugOptions->slugField;
+
+        $this->$slugField = $slug;
+    }
+
+    /**
+     * Generate a non unique slug.
+     * 
+     * @return string
+     */
+    protected function generateNonUniqueSlug(): string
+    {
+        $slugField = $this->slugOptions->slugField;
+
+        if ($this->hasCustomSlugBeenUsed() && !empty($this->$slugField)) {
+            return $this->$slugField;
+        }
+
+        return Str::slug($this->getSlugSourceString());
     }
 
     /**

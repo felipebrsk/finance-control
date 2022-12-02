@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\{Currency, User};
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,9 @@ class SpaceFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => fake()->country(),
+            'user_id' => User::factory()->create(),
+            'currency_id' => Currency::factory()->create(),
         ];
     }
 }

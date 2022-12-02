@@ -51,7 +51,6 @@ class UserSeeder extends Seeder
                     'interval' => 'monthly',
                     'day' => 1,
                     'start_date' => Carbon::today()->toDateString(),
-                    'currency_id' => $brlCurrencyId,
                 ]);
 
                 $category->earnings()->create([
