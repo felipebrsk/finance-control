@@ -15,5 +15,6 @@ use App\Http\Controllers\Auth\AuthController;
 */
 
 Route::controller(AuthController::class)->group(function () {
+    Route::get('me', 'me')->name('me');
     Route::post('refresh', 'refresh')->name('refresh');
 });

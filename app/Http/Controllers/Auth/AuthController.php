@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Resources\UserResource;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\RegisterRequest;
 use Illuminate\Http\{Request, JsonResponse};
@@ -54,9 +55,9 @@ class AuthController extends Controller implements AuthControllerInterface
      * Attempt to log the user into the application.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return bool
+     * @return string
      */
-    protected function attemptLogin(Request $request): bool
+    protected function attemptLogin(Request $request): string
     {
         return Auth::guard('api')->attempt(
             $this->credentials($request)
@@ -94,6 +95,16 @@ class AuthController extends Controller implements AuthControllerInterface
         $token = Auth::guard('api')->refresh();
 
         return $this->responseToken($token);
+    }
+
+    /**
+     * Get the auth user info.
+     * 
+     * @return \App\Http\Resources\UserResource
+     */
+    public function me(): UserResource
+    {
+        return UserResource::make(Auth::user());
     }
 
     /**
