@@ -226,4 +226,21 @@ class RegisterTest extends TestCase
 
         Storage::disk('amazonAws')->assertExists('avatars/' . $file->hashName());
     }
+
+    /**
+     * Test if can create a default user space on user creation.
+     * 
+     * @return void
+     */
+    public function test_if_can_create_a_default_user_space_on_user_creation(): void
+    {
+        $this->postJson(route('register'), $data = $this->getRegisterCredentials());
+
+        $user = User::whereEmail($data['email'])->firstOrFail();
+
+        $this->assertDatabaseHas('spaces', [
+            'user_id' => $user->id,
+            'name' => 'Primeiro espaço de ' . $data['username'],
+        ]);
+    }
 }

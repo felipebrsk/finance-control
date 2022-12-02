@@ -18,7 +18,7 @@ class CurrencyFactory extends Factory
     {
         return [
             'name' => fake()->name(),
-            'iso' => fake()->currencyCode(),
+            'iso' => fake()->unique()->currencyCode(),
             'symbol' => fake()->randomElement(['R$', '$', '€']),
         ];
     }
