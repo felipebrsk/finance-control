@@ -5,9 +5,9 @@ namespace App\Http\Controllers\Auth;
 use App\Jobs\PasswordChangedJob;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
-use App\Services\UserService;
 use Illuminate\Http\{Request, JsonResponse};
 use Illuminate\Foundation\Auth\ResetsPasswords;
+use App\Interfaces\Services\UserServiceInterface;
 
 class ResetPasswordController extends Controller
 {
@@ -32,21 +32,21 @@ class ResetPasswordController extends Controller
     protected $redirectTo = RouteServiceProvider::HOME;
 
     /**
-     * The user service.
+     * The user service interface.
      * 
-     * @var \App\Services\UserService
+     * @var \App\Interfaces\Services\UserServiceInterface
      */
-    private $userService;
+    private $userServiceInterface;
 
     /**
      * Create new class instance.
      * 
-     * @param \App\Services\UserService $userService
+     * @param \App\Interfaces\Services\UserServiceInterface $userService
      * @return void
      */
-    public function __construct(UserService $userService)
+    public function __construct(UserServiceInterface $userServiceInterface)
     {
-        $this->userService = $userService;
+        $this->userServiceInterface = $userServiceInterface;
     }
 
     /**
@@ -60,7 +60,7 @@ class ResetPasswordController extends Controller
         Request $request,
         string $response
     ): JsonResponse {
-        $notifiable = $this->userService->findByEmail($request->email);
+        $notifiable = $this->userServiceInterface->findByEmail($request->email);
 
         PasswordChangedJob::dispatch($notifiable);
 

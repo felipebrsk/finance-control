@@ -2,28 +2,18 @@
 
 namespace App\Services;
 
+use App\Interfaces\Services\UserServiceInterface;
 use App\Models\User;
 use App\Repositories\UserRepository;
 
-class UserService
+class UserService extends AbstractService implements UserServiceInterface
 {
     /**
      * The user repository.
      * 
      * @var \App\Repositories\UserRepository
      */
-    protected $userRepository;
-
-    /**
-     * Create a new class instance.
-     * 
-     * @param \App\Repositories\UserRepository $userRepository
-     * @return void
-     */
-    public function __construct(UserRepository $userRepository)
-    {
-        $this->userRepository = $userRepository;
-    }
+    protected $repository = UserRepository::class;
 
     /**
      * Find the user by email.
@@ -33,6 +23,6 @@ class UserService
      */
     public function findByEmail(string $email): User
     {
-        return $this->userRepository->findByEmail($email);
+        return $this->repository->findByEmail($email);
     }
 }

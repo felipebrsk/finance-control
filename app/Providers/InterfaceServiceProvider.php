@@ -2,9 +2,15 @@
 
 namespace App\Providers;
 
-use App\Services\S3Service;
 use Illuminate\Support\ServiceProvider;
-use App\Interfaces\Services\S3ServiceInterface;
+use App\Services\{
+    S3Service,
+    UserService
+};
+use App\Interfaces\Services\{
+    S3ServiceInterface,
+    UserServiceInterface
+};
 
 class InterfaceServiceProvider extends ServiceProvider
 {
@@ -15,9 +21,16 @@ class InterfaceServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        # Find better way to bind interfaces.
+
         $this->app->bind(
             S3ServiceInterface::class,
             S3Service::class,
+        );
+
+        $this->app->bind(
+            UserServiceInterface::class,
+            UserService::class,
         );
     }
 
