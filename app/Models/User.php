@@ -7,6 +7,7 @@ namespace App\Models;
 use App\Traits\HasPassword;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
+use App\Notifications\Auth\QueuedResetPassword;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use PHPOpenSourceSaver\JWTAuth\Contracts\JWTSubject;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -54,6 +55,17 @@ class User extends Authenticatable implements JWTSubject
     ];
 
     /**
+     * Send the password reset notification.
+     * 
+     * @param string $token
+     * @return void
+     */
+    public function sendPasswordResetNotification($token): void
+    {
+        $this->notify(new QueuedResetPassword($token));
+    }
+
+    /**
      * Get the identifier that will be stored in the subject claim of the JWT.
      *
      * @return mixed
@@ -71,6 +83,17 @@ class User extends Authenticatable implements JWTSubject
     public function getJWTCustomClaims()
     {
         return [];
+    }
+
+    /**
+     * Find user by email.
+     * 
+     * @param string $email
+     * @return self
+     */
+    public static function findByEmail(string $email): self
+    {
+        return self::whereEmail($email)->firstOrFail();
     }
 
     /**

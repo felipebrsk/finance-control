@@ -1,7 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\{
+    Auth\AuthController,
+    Auth\ForgotPasswordController,
+    Auth\ResetPasswordController
+};
 
 /*
 |--------------------------------------------------------------------------
@@ -18,3 +22,6 @@ Route::controller(AuthController::class)->group(function () {
     Route::post('login', 'login')->name('login');
     Route::post('register', 'register')->name('register');
 });
+
+Route::post('password/send', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.forgot');
+Route::post('password/reset', [ResetPasswordController::class, 'reset'])->name('password.reset');

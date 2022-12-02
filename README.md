@@ -63,6 +63,9 @@ You can call API routes in http://localhost:8000/ or change the port in `docker-
 -   [x] Create all models unit tests til now;
 -   [x] Install docker;
 -   [x] Get auth user info;
+-   [x] Implement the password forgot method - with queue;
+-   [x] Implement the password reset method - with queue;
+-   [ ] Integrate system with RabbitMQ;
 -   [ ] Check the possibility of create a recurring with own currency;
 -   [ ] Get auth user recurrings;
 -   [ ] Get auth user spendings;
