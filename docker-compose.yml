@@ -1,0 +1,60 @@
+version: '3.9'
+services:
+  laravel.test:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: api-finance-control-app
+    environment:
+      CHOKIDAR_USEPOLLING: 'true'
+    ports:
+      - '8000:8000'
+    volumes:
+      - '.:/var/www'
+    networks:
+      - sail
+    depends_on:
+      - mysql
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  mysql:
+    image: mysql:latest
+    container_name: api-finance-control-mysql
+    environment:
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_USER: ${DB_USERNAME}
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
+    ports:
+      - '${DB_PORT}:${DB_PORT}'
+    networks:
+      - sail
+    volumes:
+      - 'sailsqldata:/var/opt/mysql'
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: api-finance-control-phpmyadmin
+    restart: always
+    ports:
+      - '8081:80'
+    environment:
+      PMA_HOST: mysql
+      PMA_USERNAME: ${DB_USERNAME}
+      PMA_ROOT_PASSWORD: ${DB_PASSWORD}
+      PMA_PORT: ${DB_PORT}
+    networks:
+      - sail
+    depends_on:
+      - mysql
+
+networks:
+  sail:
+    driver: bridge
+
+volumes:
+  sailsqldata:
+    driver: local

@@ -61,6 +61,7 @@ You can call API routes in http://localhost:8000/ or change the port in `docker-
 -   [x] Create the user table and model;
 -   [x] Create all relations til now in models;
 -   [x] Create all models unit tests til now;
+-   [x] Install docker;
 -   [ ] Check the possibility of create a recurring with own currency;
 -   [ ] Get auth user recurrings;
 -   [ ] Get auth user spendings;
@@ -70,6 +71,7 @@ You can call API routes in http://localhost:8000/ or change the port in `docker-
 -   [ ] Get auth user imports;
 -   [ ] Get auth user activities;
 -   [ ] Get spendings and earnings tags;
+-   [ ] Implement the jobs to execute the user recurrings;
 -   [ ] Get attachmentables.
 
 <br/>
