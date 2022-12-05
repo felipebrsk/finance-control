@@ -2,7 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use EloquentFilter\Filterable;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Database\Eloquent\{Model, Builder};
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use App\Contracts\Eloquent\ShouldBelongsToSpaceInterface;
 use Illuminate\Database\Eloquent\Relations\{MorphTo, BelongsTo};
@@ -22,6 +24,7 @@ class Activity extends Model implements ShouldBelongsToSpaceInterface
     ];
 
     use HasFactory;
+    use Filterable;
 
     /**
      * Get the morph activitable.
@@ -41,5 +44,19 @@ class Activity extends Model implements ShouldBelongsToSpaceInterface
     public function space(): BelongsTo
     {
         return $this->belongsTo(Space::class);
+    }
+
+    /**
+     * Make scope to get auth user spaces.
+     * 
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeFromUserSpaces(Builder $query): Builder
+    {
+        return $query->whereIn(
+            'space_id',
+            Auth::user()->spaces->pluck('id')
+        );
     }
 }

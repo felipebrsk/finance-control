@@ -46,6 +46,16 @@ class Space extends Model
     }
 
     /**
+     * Get all of the activities for the Space
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function activities(): HasMany
+    {
+        return $this->hasMany(Activity::class);
+    }
+
+    /**
      * Get the currency that owns the Space
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

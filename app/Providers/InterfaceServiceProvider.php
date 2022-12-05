@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use App\Contracts\Repositories\{
+    ActivityRepositoryInterface,
     CurrencyRepositoryInterface,
     EarningRepositoryInterface,
     RecurringRepositoryInterface,
@@ -11,6 +12,7 @@ use App\Contracts\Repositories\{
     UserRepositoryInterface
 };
 use App\Services\{
+    ActivityService,
     CurrencyService,
     EarningService,
     RecurringService,
@@ -19,6 +21,7 @@ use App\Services\{
     UserService
 };
 use App\Contracts\Services\{
+    ActivityServiceInterface,
     CurrencyServiceInterface,
     EarningServiceInterface,
     RecurringServiceInterface,
@@ -27,6 +30,7 @@ use App\Contracts\Services\{
     UserServiceInterface
 };
 use App\Repositories\{
+    ActivityRepository,
     CurrencyRepository,
     EarningRepository,
     RecurringRepository,
@@ -60,6 +64,9 @@ class InterfaceServiceProvider extends ServiceProvider
 
         $this->app->bind(SpendingRepositoryInterface::class, SpendingRepository::class);
         $this->app->bind(SpendingServiceInterface::class, SpendingService::class);
+
+        $this->app->bind(ActivityRepositoryInterface::class, ActivityRepository::class);
+        $this->app->bind(ActivityServiceInterface::class, ActivityService::class);
     }
 
     /**

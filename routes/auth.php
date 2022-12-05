@@ -1,7 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\{
+    Auth\AuthController,
+    ActivityController,
+};
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +20,10 @@ use App\Http\Controllers\Auth\AuthController;
 Route::controller(AuthController::class)->group(function () {
     Route::get('me', 'me')->name('me');
     Route::post('refresh', 'refresh')->name('refresh');
+});
+
+Route::prefix('me')->group(function () {
+    Route::get('activities', ActivityController::class)->name('me.activities');
 });
 
 Route::get('tests', function () {

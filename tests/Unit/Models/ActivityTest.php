@@ -4,6 +4,7 @@ namespace Tests\Unit\Models;
 
 use Tests\TestCase;
 use App\Models\Activity;
+use EloquentFilter\Filterable;
 use Tests\Traits\TestUnitModels;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -47,6 +48,7 @@ class ActivityTest extends TestCase
     {
         $traits = [
             HasFactory::class,
+            Filterable::class,
         ];
 
         $this->verifyIfUseTraits($traits);
