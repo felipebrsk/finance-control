@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use App\Interfaces\Eloquent\ShouldBelongsToSpaceInterface;
+use App\Contracts\Eloquent\ShouldBelongsToSpaceInterface;
 use Illuminate\Database\Eloquent\Relations\{MorphTo, BelongsTo};
 
 class Activity extends Model implements ShouldBelongsToSpaceInterface

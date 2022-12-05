@@ -66,6 +66,7 @@ You can call API routes in http://localhost:8000/ or change the port in `docker-
 -   [x] Implement the password forgot method - with queue;
 -   [x] Implement the password reset method - with queue;
 -   [x] Create an user observer to create default space on user creation;
+-   [x] Create a job to execute the recurrings and generate earnings or spendings;
 -   [ ] Integrate system with RabbitMQ;
 -   [ ] Check the possibility of create a recurring with own currency;
 -   [ ] Get auth user recurrings;

@@ -2,18 +2,18 @@
 
 namespace App\Services;
 
-use App\Interfaces\Services\UserServiceInterface;
 use App\Models\User;
-use App\Repositories\UserRepository;
+use App\Contracts\Services\UserServiceInterface;
+use App\Contracts\Repositories\UserRepositoryInterface;
 
 class UserService extends AbstractService implements UserServiceInterface
 {
     /**
      * The user repository.
      * 
-     * @var \App\Repositories\UserRepository
+     * @var \App\Contracts\Repositories\UserRepositoryInterface
      */
-    protected $repository = UserRepository::class;
+    protected $repository = UserRepositoryInterface::class;
 
     /**
      * Find the user by email.

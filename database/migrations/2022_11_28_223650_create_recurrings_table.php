@@ -25,6 +25,7 @@ return new class extends Migration
             $table->date('last_used_date')->nullable();
             $table->foreignId('category_id')->nullable()->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignId('space_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('currency_id')->nullable()->constrained();
             $table->softDeletes();
             $table->timestamps();
         });

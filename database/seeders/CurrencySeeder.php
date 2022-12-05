@@ -14,10 +14,17 @@ class CurrencySeeder extends Seeder
      */
     public function run()
     {
-        Currency::create([
+        Currency::firstOrCreate([
+            'iso' => 'BRL'
+        ], [
             'name' => 'Real brasileiro',
-            'iso' => 'BRL',
             'symbol' => 'R$',
+        ]);
+        Currency::firstOrCreate([
+            'iso' => 'USD',
+        ], [
+            'name' => 'Dólar americano',
+            'symbol' => '$',
         ]);
     }
 }

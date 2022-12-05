@@ -20,7 +20,12 @@ class SpaceFactory extends Factory
         return [
             'name' => fake()->country(),
             'user_id' => User::factory()->create(),
-            'currency_id' => Currency::factory()->create(),
+            'currency_id' => Currency::firstOrCreate([
+                'iso' => 'BRL',
+            ], [
+                'name' => 'Real brasileiro',
+                'symbol' => 'R$'
+            ]),
         ];
     }
 }

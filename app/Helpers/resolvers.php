@@ -1,7 +1,7 @@
 <?php
 
 use PHPOpenSourceSaver\JWTAuth\JWT;
-use App\Interfaces\Services\S3ServiceInterface;
+use App\Contracts\Services\S3ServiceInterface;
 
 if (!function_exists('s3Service')) {
     /**

@@ -45,6 +45,7 @@ class UserSeeder extends Seeder
             if ($category->name === 'Recebidos') {
                 $recurring = $category->recurrings()->create([
                     'space_id' => $space->id,
+                    'currency_id' => $brlCurrencyId,
                     'description' => 'Salário',
                     'amount' => 300000,
                     'type' => 'earning',

@@ -4,9 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Contracts\Eloquent\ShouldBelongsToSpaceInterface;
 use Illuminate\Database\Eloquent\Relations\{BelongsTo, HasMany};
 
-class Import extends Model
+class Import extends Model implements ShouldBelongsToSpaceInterface
 {
     /**
      * The attributes that are mass assignable.

@@ -9,7 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\RegisterRequest;
 use Illuminate\Http\{Request, JsonResponse};
 use App\Exceptions\Auth\LoginFailedException;
-use App\Interfaces\Http\Controllers\AuthControllerInterface;
+use App\Contracts\Http\Controllers\AuthControllerInterface;
 
 class AuthController extends Controller implements AuthControllerInterface
 {

@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\{Request, JsonResponse};
 use Illuminate\Foundation\Auth\ResetsPasswords;
-use App\Interfaces\Services\UserServiceInterface;
+use App\Contracts\Services\UserServiceInterface;
 
 class ResetPasswordController extends Controller
 {
@@ -34,14 +34,14 @@ class ResetPasswordController extends Controller
     /**
      * The user service interface.
      * 
-     * @var \App\Interfaces\Services\UserServiceInterface
+     * @var \App\Contracts\Services\UserServiceInterface
      */
     private $userServiceInterface;
 
     /**
      * Create new class instance.
      * 
-     * @param \App\Interfaces\Services\UserServiceInterface $userService
+     * @param \App\Contracts\Services\UserServiceInterface $userService
      * @return void
      */
     public function __construct(UserServiceInterface $userServiceInterface)

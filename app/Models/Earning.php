@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\{Model, SoftDeletes};
-use App\Interfaces\Eloquent\ShouldBelongsToSpaceInterface;
+use App\Contracts\Eloquent\ShouldBelongsToSpaceInterface;
 use Illuminate\Database\Eloquent\Relations\{BelongsTo, MorphMany};
 use App\Events\Transaction\{TransactionCreated, TransactionDeleted};
 
@@ -20,6 +20,7 @@ class Earning extends Model implements ShouldBelongsToSpaceInterface
         'amount',
         'description',
         'space_id',
+        'category_id',
         'recurring_id',
     ];
 

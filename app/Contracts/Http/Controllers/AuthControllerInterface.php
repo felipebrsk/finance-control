@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Interfaces\Http\Controllers;
+namespace App\Contracts\Http\Controllers;
 
 use App\Http\Requests\Auth\RegisterRequest;
 use Illuminate\Http\{Request, JsonResponse};

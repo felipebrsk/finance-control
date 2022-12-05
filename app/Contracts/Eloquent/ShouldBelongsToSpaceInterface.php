@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Interfaces\Eloquent;
+namespace App\Contracts\Eloquent;
 
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 

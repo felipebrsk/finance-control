@@ -10,7 +10,7 @@ use App\Mail\PasswordChangedMail;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\{Bus, DB, Hash, Mail, Queue};
 
-class ResetPasswordTest extends TestCase
+class PasswordResetTest extends TestCase
 {
     use RefreshDatabase;
     use HasDummyUser;

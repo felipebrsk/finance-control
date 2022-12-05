@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\{Model, SoftDeletes};
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use App\Interfaces\Eloquent\ShouldBelongsToSpaceInterface;
+use App\Contracts\Eloquent\ShouldBelongsToSpaceInterface;
 use App\Events\Recurring\{RecurringCreated, RecurringDeleted};
 use Illuminate\Database\Eloquent\Relations\{BelongsTo, HasMany, MorphMany};
 
@@ -27,6 +27,7 @@ class Recurring extends Model implements ShouldBelongsToSpaceInterface
         'description',
         'last_used_date',
         'space_id',
+        'currency_id',
     ];
 
     /**
@@ -52,6 +53,22 @@ class Recurring extends Model implements ShouldBelongsToSpaceInterface
         'created' => RecurringCreated::class,
         'deleted' => RecurringDeleted::class
     ];
+
+    /**
+     * Get the supported recurring intervals.
+     * 
+     * @return array
+     */
+    public function getSupportedIntervals(): array
+    {
+        return [
+            'yearly',
+            'monthly',
+            'biweekly',
+            'weekly',
+            'daily'
+        ];
+    }
 
     /**
      * Get the due date attribute.
@@ -128,5 +145,25 @@ class Recurring extends Model implements ShouldBelongsToSpaceInterface
     public function tags(): MorphMany
     {
         return $this->morphMany(Tag::class, 'taggable');
+    }
+
+    /**
+     * Get the currency that owns the Recurring
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function currency(): BelongsTo
+    {
+        return $this->belongsTo(Currency::class);
+    }
+
+    /**
+     * Get the category that owns the Recurring
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function category(): BelongsTo
+    {
+        return $this->belongsTo(Category::class);
     }
 }

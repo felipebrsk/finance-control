@@ -4,7 +4,7 @@ namespace App\Services;
 
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\{App, Storage};
-use App\Interfaces\Services\S3ServiceInterface;
+use App\Contracts\Services\S3ServiceInterface;
 
 class S3Service implements S3ServiceInterface
 {

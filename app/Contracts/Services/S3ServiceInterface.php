@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Interfaces\Services;
+namespace App\Contracts\Services;
 
 interface S3ServiceInterface
 {

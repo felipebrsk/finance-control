@@ -6,7 +6,7 @@ use App\Traits\HasSlug;
 use App\Helpers\SlugOptions;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\{Model, SoftDeletes};
-use App\Interfaces\Eloquent\ShouldBelongsToSpaceInterface;
+use App\Contracts\Eloquent\ShouldBelongsToSpaceInterface;
 use App\Events\Category\{CategoryCreated, CategoryDeleted};
 use Illuminate\Database\Eloquent\Relations\{BelongsTo, HasMany};
 

@@ -7,6 +7,13 @@ use App\Models\User;
 class UserRepository extends AbstractRepository
 {
     /**
+     * The repository model.
+     * 
+     * @var \App\Models\User
+     */
+    protected $model = User::class;
+
+    /**
      * Find user by email.
      * 
      * @param string $email
@@ -14,6 +21,6 @@ class UserRepository extends AbstractRepository
      */
     public function findByEmail(string $email): User
     {
-        return User::findByEmail($email);
+        return $this->model::findByEmail($email);
     }
 }
