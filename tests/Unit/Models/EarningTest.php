@@ -34,6 +34,7 @@ class EarningTest extends TestCase
             'amount',
             'description',
             'space_id',
+            'category_id',
             'recurring_id',
         ];
 

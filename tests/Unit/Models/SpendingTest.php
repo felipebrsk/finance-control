@@ -35,6 +35,7 @@ class SpendingTest extends TestCase
             'description',
             'space_id',
             'import_id',
+            'category_id',
             'recurring_id',
         ];
 

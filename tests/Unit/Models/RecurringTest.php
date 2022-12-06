@@ -40,6 +40,7 @@ class RecurringTest extends TestCase
             'description',
             'last_used_date',
             'space_id',
+            'currency_id',
         ];
 
         $this->verifyIfExistFillable($fillable);
