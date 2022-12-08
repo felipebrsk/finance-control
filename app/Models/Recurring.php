@@ -7,7 +7,7 @@ use App\Traits\HasScopeFromUserSpace;
 use Illuminate\Database\Eloquent\{Model, SoftDeletes};
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use App\Contracts\Eloquent\ShouldBelongsToSpaceInterface;
-use Illuminate\Database\Eloquent\Relations\{BelongsTo, HasMany, MorphMany};
+use Illuminate\Database\Eloquent\Relations\{BelongsTo, HasMany, MorphToMany};
 use App\Events\Recurring\{RecurringCreated, RecurringDeleted, RecurringUpdated};
 
 class Recurring extends Model implements ShouldBelongsToSpaceInterface
@@ -145,9 +145,9 @@ class Recurring extends Model implements ShouldBelongsToSpaceInterface
      *
      * @return \Illuminate\Database\Eloquent\Relations\MorphMany
      */
-    public function tags(): MorphMany
+    public function tags(): MorphToMany
     {
-        return $this->morphMany(Tag::class, 'taggable');
+        return $this->morphToMany(Tag::class, 'taggable', 'taggable_tags');
     }
 
     /**

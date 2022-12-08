@@ -107,4 +107,18 @@ class SpendingDestroyTest extends TestCase
             'action' => 'transaction.deleted',
         ]);
     }
+
+    /**
+     * Test if can remove from index on deletion.
+     * 
+     * @return void
+     */
+    public function test_if_can_remove_from_index_route_on_deletion(): void
+    {
+        $this->getJson(route('spendings.index'))->assertOk()->assertJsonCount(1, 'data');
+
+        $this->deleteJson(route('spendings.destroy', $this->spending->id))->assertOk();
+
+        $this->getJson(route('spendings.index'))->assertOk()->assertJsonCount(0, 'data');
+    }
 }

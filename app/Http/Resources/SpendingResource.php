@@ -25,6 +25,7 @@ class SpendingResource extends JsonResource
             'space' => SpaceResource::make($this->whenLoaded('space')),
             'recurring' => RecurringResource::make($this->whenLoaded('recurring')),
             'import' => ImportResource::make($this->whenLoaded('import')),
+            'tags' => TagResource::collection($this->whenLoaded('tags')),
         ];
     }
 }

@@ -2,8 +2,8 @@
 
 namespace App\Contracts\Services;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Database\Eloquent\{Model, Collection};
 
 interface BasicServiceInterface
 {
@@ -29,6 +29,14 @@ interface BasicServiceInterface
      * @return ?\Illuminate\Database\Eloquent\Model
      */
     public function find(mixed $id): ?Model;
+
+    /**
+     * Find a model collection where in array.
+     * 
+     * @param array $ids
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
+    public function findIn(array $ids): Collection;
 
     /**
      * Should have method find or fail.

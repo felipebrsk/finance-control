@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use Illuminate\Http\Request;
 use App\Http\Resources\SpendingResource;
+use Illuminate\Support\Facades\{DB, Log};
 use App\Contracts\Services\SpendingServiceInterface;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use App\Http\Requests\Spending\{SpendingStoreRequest, SpendingUpdateRequest};
@@ -38,7 +40,7 @@ class SpendingController extends Controller
     public function index(Request $request): AnonymousResourceCollection
     {
         return SpendingResource::collection(
-            $this->spendingServiceInterface->allWithFilter($request)->load('space')
+            $this->spendingServiceInterface->allWithFilter($request)
         );
     }
 
@@ -50,9 +52,22 @@ class SpendingController extends Controller
      */
     public function store(SpendingStoreRequest $request): SpendingResource
     {
-        return SpendingResource::make(
-            $this->spendingServiceInterface->create($request->validated())
-        );
+        DB::beginTransaction();
+
+        try {
+            $spending = $this->spendingServiceInterface->create($request->validated());
+
+            DB::commit();
+
+            return SpendingResource::make($spending);
+        } catch (Exception $e) {
+            DB::rollBack();
+            Log::error('Failed to create earning', [
+                'message' => $e->getMessage(),
+                'context' => $e->getTraceAsString(),
+            ]);
+            throw $e;
+        }
     }
 
     /**
@@ -69,6 +84,7 @@ class SpendingController extends Controller
                 'recurring.currency',
                 'import',
                 'category',
+                'tags',
             )
         );
     }
@@ -82,9 +98,22 @@ class SpendingController extends Controller
      */
     public function update(SpendingUpdateRequest $request, mixed $id): SpendingResource
     {
-        return SpendingResource::make(
-            $this->spendingServiceInterface->update($request->validated(), $id)
-        );
+        DB::beginTransaction();
+
+        try {
+            $spending = $this->spendingServiceInterface->update($request->validated(), $id);
+
+            DB::commit();
+
+            return SpendingResource::make($spending);
+        } catch (Exception $e) {
+            DB::rollBack();
+            Log::error('Failed to create earning', [
+                'message' => $e->getMessage(),
+                'context' => $e->getTraceAsString(),
+            ]);
+            throw $e;
+        }
     }
 
     /**

@@ -69,10 +69,10 @@ You can call API routes in http://localhost:8000/ or change the port in `docker-
 -   [x] Create a job to execute the recurrings and generate earnings or spendings;
 -   [x] Get auth user activities;
 -   [x] Create the crud of spendings - with tests;
+-   [x] Create the crud of earnings - with tests;
 -   [ ] Integrate system with RabbitMQ;
 -   [ ] Check the possibility of create a recurring with own currency;
 -   [ ] Get auth user recurrings;
--   [ ] Get auth user earnings;
 -   [ ] Get auth user spaces;
 -   [ ] Get auth user categories;
 -   [ ] Get auth user imports;

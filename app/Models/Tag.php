@@ -4,9 +4,9 @@ namespace App\Models;
 
 use App\Traits\HasSlug;
 use App\Helpers\SlugOptions;
-use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Database\Eloquent\{Model, SoftDeletes};
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\{BelongsTo, MorphToMany};
 
 class Tag extends Model
 {
@@ -17,9 +17,8 @@ class Tag extends Model
      */
     protected $fillable = [
         'name',
+        'slug',
         'color',
-        'taggable_id',
-        'taggable_type',
     ];
 
     /**
@@ -46,12 +45,22 @@ class Tag extends Model
     }
 
     /**
-     * Get the morph taggable.
-     * 
-     * @return \Illuminate\Database\Eloquent\Relations\MorphTo
+     * Get the user that owns the Tag
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function taggable(): MorphTo
+    public function user(): BelongsTo
     {
-        return $this->morphTo();
+        return $this->belongsTo(User::class);
+    }
+
+    /**
+     * Get all of the tags for the Spending
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphMany
+     */
+    public function taggables(): MorphToMany
+    {
+        return $this->morphToMany(Tag::class, 'taggable', 'taggable_tags')->using(TaggableTag::class);
     }
 }

@@ -31,6 +31,7 @@ class RecurringResource extends JsonResource
             'currency' => CurrencyResource::make($this->whenLoaded('currency')),
             'space' => SpaceResource::make($this->whenLoaded('space')),
             'category' => CategoryResource::make($this->whenLoaded('category')),
+            'tags' => TagResource::collection($this->whenLoaded('tags')),
         ];
     }
 }

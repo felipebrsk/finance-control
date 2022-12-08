@@ -2,12 +2,14 @@
 
 namespace App\Models;
 
+use EloquentFilter\Filterable;
 use App\Traits\HasScopeFromUserSpace;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\{Model, SoftDeletes};
 use App\Contracts\Eloquent\ShouldBelongsToSpaceInterface;
-use Illuminate\Database\Eloquent\Relations\{BelongsTo, MorphMany};
+use Illuminate\Database\Eloquent\Relations\{BelongsTo, MorphToMany};
 use App\Events\Transaction\{TransactionCreated, TransactionDeleted, TransactionUpdated};
+use Illuminate\Support\Facades\DB;
 
 class Earning extends Model implements ShouldBelongsToSpaceInterface
 {
@@ -35,6 +37,7 @@ class Earning extends Model implements ShouldBelongsToSpaceInterface
     ];
 
     use HasFactory;
+    use Filterable;
     use SoftDeletes;
     use HasScopeFromUserSpace;
 
@@ -74,8 +77,32 @@ class Earning extends Model implements ShouldBelongsToSpaceInterface
      *
      * @return \Illuminate\Database\Eloquent\Relations\MorphMany
      */
-    public function tags(): MorphMany
+    public function tags(): MorphToMany
     {
-        return $this->morphMany(Tag::class, 'taggable');
+        return $this->morphToMany(Tag::class, 'taggable', 'taggable_tags');
+    }
+
+    /**
+     * Delete the earning.
+     * 
+     * @return bool
+     */
+    public function delete(): bool
+    {
+        return DB::transaction(function () {
+            $this->tags()->detach();
+
+            return parent::delete();
+        });
+    }
+
+    /**
+     * Get the category that owns the Earning
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function category(): BelongsTo
+    {
+        return $this->belongsTo(Category::class);
     }
 }

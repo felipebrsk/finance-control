@@ -1,17 +1,17 @@
 <?php
 
-namespace Tests\Feature\Http\Spendings;
+namespace Tests\Feature\Http\earnings;
 
 use Tests\TestCase;
-use Tests\Traits\{HasDummyCategory, HasDummySpace, HasDummySpending, HasDummyTag, HasDummyUser};
+use Tests\Traits\{HasDummyCategory, HasDummySpace, HasDummyEarning, HasDummyTag, HasDummyUser};
 
-class SpendingUpdateTest extends TestCase
+class EarningUpdateTest extends TestCase
 {
     use HasDummyTag;
     use HasDummyUser;
     use HasDummySpace;
     use HasDummyCategory;
-    use HasDummySpending;
+    use HasDummyEarning;
 
     /**
      * The dummy user.
@@ -28,11 +28,11 @@ class SpendingUpdateTest extends TestCase
     private $space;
 
     /**
-     * The dummy spending.
+     * The dummy earning.
      * 
-     * @var \App\Models\Spending
+     * @var \App\Models\earning
      */
-    private $spending;
+    private $earning;
 
     /**
      * Setup new test environments.
@@ -45,15 +45,15 @@ class SpendingUpdateTest extends TestCase
 
         $this->user = $this->actingAsDummyUser();
         $this->space = $this->createDummySpaceTo($this->user);
-        $this->spending = $this->createDummySpendingTo($this->space);
+        $this->earning = $this->createDummyEarningTo($this->space);
     }
 
     /**
-     * Get valid spending payload.
+     * Get valid earning payload.
      * 
      * @return array
      */
-    protected function getValidSpendingPayload(): array
+    protected function getValidearningPayload(): array
     {
         return [
             'category_id' => $this->createDummyCategoryTo($this->space)->id,
@@ -69,84 +69,84 @@ class SpendingUpdateTest extends TestCase
     }
 
     /**
-     * Test if can update a spending without payload.
+     * Test if can update a earning without payload.
      * 
      * @return void
      */
-    public function test_if_can_update_a_spending_without_payload(): void
+    public function test_if_can_update_a_earning_without_payload(): void
     {
-        $this->putJson(route('spendings.update', $this->spending->id))->assertOk();
+        $this->putJson(route('earnings.update', $this->earning->id))->assertOk();
     }
 
     /**
-     * Test if can throw 404 if spending doesn't exists.
+     * Test if can throw 404 if earning doesn't exists.
      * 
      * @return void
      */
-    public function test_if_can_throw_not_found_if_spending_doesnt_exists(): void
+    public function test_if_can_throw_not_found_if_earning_doesnt_exists(): void
     {
-        $this->putJson(route('spendings.update', 9999999))->assertNotFound();
+        $this->putJson(route('earnings.update', 9999999))->assertNotFound();
     }
 
     /**
-     * Test if can't update a spending that doesnt belongs to user spaces.
+     * Test if can't update a earning that doesnt belongs to user spaces.
      * 
      * @return void
      */
-    public function test_if_cant_update_a_spending_that_doesnt_belongs_to_user_spaces(): void
+    public function test_if_cant_update_a_earning_that_doesnt_belongs_to_user_spaces(): void
     {
-        $this->putJson(route('spendings.update', $this->createDummySpending()->id))
+        $this->putJson(route('earnings.update', $this->createDummyEarning()->id))
             ->assertForbidden()
             ->assertSee('Esta conta n\u00e3o pertence \u00e0 nenhum dos seus espa\u00e7os. Nenhuma opera\u00e7\u00e3o pode ser realizada.');
     }
 
     /**
-     * Test if can't update a spending category with category that doesn't belongs to user space.
+     * Test if can't update a earning category with category that doesn't belongs to user space.
      * 
      * @return void
      */
-    public function test_if_cant_update_a_spending_category_with_category_that_doesnt_belongs_to_user_space(): void
+    public function test_if_cant_update_a_earning_category_with_category_that_doesnt_belongs_to_user_space(): void
     {
-        $this->putJson(route('spendings.update', $this->spending->id), [
+        $this->putJson(route('earnings.update', $this->earning->id), [
             'category_id' => $this->createDummyCategory()->id,
         ])->assertForbidden()
             ->assertSee('Esta categoria n\u00e3o pertence \u00e0 nenhum dos seus espa\u00e7os. Nenhuma opera\u00e7\u00e3o pode ser realizada.');;
     }
 
     /**
-     * Test if can't update a spending space with space that doesn't belongs to user.
+     * Test if can't update a earning space with space that doesn't belongs to user.
      * 
      * @return void
      */
-    public function test_if_cant_update_a_spending_space_with_space_that_doesnt_belongs_to_user(): void
+    public function test_if_cant_update_a_earning_space_with_space_that_doesnt_belongs_to_user(): void
     {
-        $this->putJson(route('spendings.update', $this->spending->id), [
+        $this->putJson(route('earnings.update', $this->earning->id), [
             'space_id' => $this->createDummySpace()->id,
         ])->assertForbidden()
             ->assertSee('O espa\u00e7o n\u00e3o pertence ao seu us\u00e1rio. Nenhuma opera\u00e7\u00e3o pode ser realizada.');
     }
 
     /**
-     * Test if can update a spending with correctly payload.
+     * Test if can update a earning with correctly payload.
      * 
      * @return void
      */
-    public function test_if_can_update_a_spending_with_correctly_payload(): void
+    public function test_if_can_update_a_earning_with_correctly_payload(): void
     {
-        $this->putJson(route('spendings.update', $this->spending->id), $this->getValidSpendingPayload())->assertOk();
+        $this->putJson(route('earnings.update', $this->earning->id), $this->getValidearningPayload())->assertOk();
     }
 
     /**
-     * Test if can save updated spending data on database.
+     * Test if can save updated earning data on database.
      * 
      * @return void
      */
     public function test_if_can_save_payload_correctly_on_database(): void
     {
-        $this->putJson(route('spendings.update', $this->spending->id), $data = $this->getValidSpendingPayload())->assertOk();
+        $this->putJson(route('earnings.update', $this->earning->id), $data = $this->getValidearningPayload())->assertOk();
 
-        $this->assertDatabaseHas('spendings', [
-            'id' => $this->spending->id,
+        $this->assertDatabaseHas('earnings', [
+            'id' => $this->earning->id,
             'description' => $data['description'],
             'amount' => $data['amount'],
             'category_id' => $data['category_id'],
@@ -156,13 +156,13 @@ class SpendingUpdateTest extends TestCase
     }
 
     /**
-     * Test if can retrieve correctly json spending structure on update.
+     * Test if can retrieve correctly json earning structure on update.
      * 
      * @return void
      */
-    public function test_if_can_retrieve_correctly_json_spending_structure_on_update(): void
+    public function test_if_can_retrieve_correctly_json_earning_structure_on_update(): void
     {
-        $this->putJson(route('spendings.update', $this->spending->id), $this->getValidSpendingPayload())
+        $this->putJson(route('earnings.update', $this->earning->id), $this->getValidearningPayload())
             ->assertOk()
             ->assertJsonStructure([
                 'data' => [
@@ -192,13 +192,13 @@ class SpendingUpdateTest extends TestCase
     }
 
     /**
-     * Test if can retrieve correctly json updated spending.
+     * Test if can retrieve correctly json updated earning.
      * 
      * @return void
      */
-    public function test_if_can_retrieve_correctly_json_updated_spending(): void
+    public function test_if_can_retrieve_correctly_json_updated_earning(): void
     {
-        $this->putJson(route('spendings.update', $this->spending->id), $data = $this->getValidSpendingPayload())->assertOk()->assertJson([
+        $this->putJson(route('earnings.update', $this->earning->id), $data = $this->getValidearningPayload())->assertOk()->assertJson([
             'data' => [
                 'description' => $data['description'],
                 'amount' => formatCurrency($data['amount'], $this->space->currency->iso),
@@ -211,49 +211,49 @@ class SpendingUpdateTest extends TestCase
     }
 
     /**
-     * Test if can create a new activity on spending update.
+     * Test if can create a new activity on earning update.
      * 
      * @return void
      */
-    public function test_if_can_create_a_new_activity_on_spending_update(): void
+    public function test_if_can_create_a_new_activity_on_earning_update(): void
     {
-        $this->putJson(route('spendings.update', $this->spending->id), $this->getValidSpendingPayload())->assertOk();
+        $this->putJson(route('earnings.update', $this->earning->id), $this->getValidearningPayload())->assertOk();
 
         $this->assertDatabaseHas('activities', [
-            'activitable_type' => $this->spending::class,
-            'activitable_id' => $this->spending->id,
+            'activitable_type' => $this->earning::class,
+            'activitable_id' => $this->earning->id,
             'action' => 'transaction.updated',
         ]);
     }
 
     /**
-     * Test if can associate new tags to spending.
+     * Test if can associate new tags to earning.
      * 
      * @return void
      */
-    public function test_if_can_associate_new_tags_to_spending(): void
+    public function test_if_can_associate_new_tags_to_earning(): void
     {
-        $this->putJson(route('spendings.update', $this->spending->id), $data = $this->getValidSpendingPayload())->assertOk();
+        $this->putJson(route('earnings.update', $this->earning->id), $data = $this->getValidEarningPayload())->assertOk();
 
         $this->assertDatabaseCount('taggable_tags', count($data['tags']));
 
         foreach ($data['tags'] as $tagId) {
             $this->assertDatabaseHas('taggable_tags', [
-                'taggable_type' => $this->spending::class,
-                'taggable_id' => $this->spending->id,
+                'taggable_type' => $this->earning::class,
+                'taggable_id' => $this->earning->id,
                 'tag_id' => $tagId
             ]);
         }
     }
 
     /**
-     * Test if can't update spending tags with a tag that doesn't belongs to user.
+     * Test if can't update earning tags with a tag that doesn't belongs to user.
      * 
      * @return void
      */
-    public function test_if_cant_update_spending_tags_with_a_tag_that_doesnt_belongs_to_user(): void
+    public function test_if_cant_update_earning_tags_with_a_tag_that_doesnt_belongs_to_user(): void
     {
-        $this->putJson(route('spendings.update', $this->spending->id), [
+        $this->putJson(route('earnings.update', $this->earning->id), [
             'tags' => [
                 $this->createDummyTag()->id,
                 $this->createDummyTag()->id,

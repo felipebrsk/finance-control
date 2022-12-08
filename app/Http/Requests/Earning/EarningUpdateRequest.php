@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Spending;
+namespace App\Http\Requests\Earning;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class SpendingUpdateRequest extends FormRequest
+class EarningUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

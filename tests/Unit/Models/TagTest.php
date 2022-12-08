@@ -32,9 +32,8 @@ class TagTest extends TestCase
     {
         $fillable = [
             'name',
+            'slug',
             'color',
-            'taggable_id',
-            'taggable_type',
         ];
 
         $this->verifyIfExistFillable($fillable);

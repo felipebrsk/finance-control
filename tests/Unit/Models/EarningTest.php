@@ -4,6 +4,7 @@ namespace Tests\Unit\Models;
 
 use Tests\TestCase;
 use App\Models\Earning;
+use EloquentFilter\Filterable;
 use Tests\Traits\TestUnitModels;
 use App\Traits\HasScopeFromUserSpace;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -51,6 +52,7 @@ class EarningTest extends TestCase
     {
         $traits = [
             HasFactory::class,
+            Filterable::class,
             SoftDeletes::class,
             HasScopeFromUserSpace::class,
         ];

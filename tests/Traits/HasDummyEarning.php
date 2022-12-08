@@ -2,7 +2,7 @@
 
 namespace Tests\Traits;
 
-use App\Models\Earning;
+use App\Models\{Earning, Space};
 use Illuminate\Database\Eloquent\Collection;
 
 trait HasDummyEarning
@@ -28,5 +28,21 @@ trait HasDummyEarning
     public function createDummyEarnings(int $times, array $data = []): Collection
     {
         return Earning::factory($times)->create($data);
+    }
+
+    /**
+     * Create dummy earning to.
+     * 
+     * @param \App\Models\Space $space
+     * @param array $data
+     * @return \App\Models\Earning
+     */
+    public function createDummyEarningTo(Space $space, array $data = []): Earning
+    {
+        $earning = $this->createDummyEarning($data);
+
+        $earning->space()->associate($space)->save();
+
+        return $earning;
     }
 }

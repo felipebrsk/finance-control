@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Pagination\LengthAwarePaginator;
 
@@ -61,6 +62,17 @@ abstract class AbstractRepository
     public function find(mixed $id): ?Model
     {
         return $this->model->find($id);
+    }
+
+    /**
+     * Find a model collection where in array.
+     * 
+     * @param array $ids
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
+    public function findIn(array $ids): Collection
+    {
+        return $this->model->whereIn('id', $ids)->get();
     }
 
     /**

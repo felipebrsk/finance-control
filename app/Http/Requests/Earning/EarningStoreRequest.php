@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Spending;
+namespace App\Http\Requests\Earning;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class SpendingUpdateRequest extends FormRequest
+class EarningStoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,11 +24,11 @@ class SpendingUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'description' => ['sometimes', 'string'],
-            'amount' => ['sometimes', 'not_in:0', 'integer'],
-            'when' => ['sometimes', 'date'],
+            'description' => ['required', 'string'],
+            'amount' => ['required', 'not_in:0', 'integer'],
+            'when' => ['required', 'date'],
             'category_id' => ['sometimes', 'exists:categories,id'],
-            'space_id' => ['sometimes', 'exists:spaces,id'],
+            'space_id' => ['required', 'exists:spaces,id'],
             'tags' => ['sometimes', 'array'],
             'tags.*' => ['required_with:tags', 'exists:tags,id'],
         ];

@@ -30,6 +30,25 @@ class SpendingRepository extends AbstractRepository implements SpendingRepositor
     }
 
     /**
+     * Create a new spending.
+     * 
+     * @param array $data
+     * @return \App\Models\Spending
+     */
+    public function create(array $data): Spending
+    {
+        $spending = $this->model::create($data);
+
+        if ($tags = issetGetter('tags', $data)) {
+            foreach ($tags as $tag) {
+                $spending->tags()->syncWithoutDetaching($tag);
+            }
+        }
+
+        return $spending;
+    }
+
+    /**
      * Find or fail a spending.
      * 
      * @param mixed $id
@@ -59,6 +78,12 @@ class SpendingRepository extends AbstractRepository implements SpendingRepositor
 
         if (Auth::user()->cant('update', $spending)) {
             throw new SpendingDoesntBelongsToUserSpaceException();
+        }
+
+        if ($tags = issetGetter('tags', $data)) {
+            foreach ($tags as $tag) {
+                $spending->tags()->syncWithoutDetaching($tag);
+            }
         }
 
         $spending->update($data);

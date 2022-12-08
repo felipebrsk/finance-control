@@ -136,6 +136,9 @@ class ProcessRecurringsJobTest extends TestCase
             'start_date' => Carbon::yesterday(),
             'space_id' => $this->space->id,
             'currency_id' => Currency::whereIso('BRL')->value('id'),
+            'category_id' => $this->createDummyCategory([
+                'space_id' => $this->space->id,
+            ])->id,
         ]);
 
         # dispatch the job to process recurrings.
@@ -209,6 +212,9 @@ class ProcessRecurringsJobTest extends TestCase
             'start_date' => Carbon::yesterday(),
             'space_id' => $this->space->id,
             'currency_id' => Currency::whereIso('BRL')->value('id'),
+            'category_id' => $this->createDummyCategory([
+                'space_id' => $this->space->id,
+            ])->id,
         ]);
 
         ProcessRecurringsJob::dispatch();
@@ -234,6 +240,9 @@ class ProcessRecurringsJobTest extends TestCase
             'start_date' => Carbon::yesterday(),
             'space_id' => $this->space->id,
             'currency_id' => Currency::whereIso('BRL')->value('id'),
+            'category_id' => $this->createDummyCategory([
+                'space_id' => $this->space->id,
+            ])->id,
         ]);
 
         $this->assertDatabaseHas('recurrings', [

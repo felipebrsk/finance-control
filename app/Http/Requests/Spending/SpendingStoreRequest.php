@@ -29,6 +29,8 @@ class SpendingStoreRequest extends FormRequest
             'when' => ['required', 'date'],
             'category_id' => ['sometimes', 'exists:categories,id'],
             'space_id' => ['required', 'exists:spaces,id'],
+            'tags' => ['sometimes', 'array'],
+            'tags.*' => ['required_with:tags', 'exists:tags,id'],
         ];
     }
 }

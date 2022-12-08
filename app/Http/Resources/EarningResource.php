@@ -24,6 +24,7 @@ class EarningResource extends JsonResource
             'category' => CategoryResource::make($this->whenLoaded('category')),
             'space' => SpaceResource::make($this->whenLoaded('space')),
             'recurring' => RecurringResource::make($this->whenLoaded('recurring')),
+            'tags' => TagResource::collection($this->whenLoaded('tags')),
         ];
     }
 }

@@ -1,24 +1,18 @@
 <?php
 
-namespace Tests\Feature\Http\Spendings;
+namespace Tests\Feature\Http\Earnings;
 
 use Tests\TestCase;
-use App\Models\Spending;
-use Tests\Traits\{
-    HasDummyCategory,
-    HasDummySpace,
-    HasDummySpending,
-    HasDummyTag,
-    HasDummyUser
-};
+use App\Models\Earning;
+use Tests\Traits\{HasDummyCategory, HasDummySpace, HasDummyEarning, HasDummyTag, HasDummyUser};
 
-class SpendingStoreTest extends TestCase
+class EarningStoreTest extends TestCase
 {
     use HasDummyTag;
     use HasDummyUser;
     use HasDummySpace;
     use HasDummyCategory;
-    use HasDummySpending;
+    use HasDummyEarning;
 
     /**
      * The dummy user.
@@ -48,11 +42,11 @@ class SpendingStoreTest extends TestCase
     }
 
     /**
-     * Get valid spending payload.
+     * Get valid earning payload.
      * 
      * @return array
      */
-    protected function getValidSpendingPayload(): array
+    protected function getValidEarningPayload(): array
     {
         return [
             'category_id' => $this->createDummyCategory([
@@ -70,25 +64,25 @@ class SpendingStoreTest extends TestCase
     }
 
     /**
-     * Test if can't create a spending without payload.
+     * Test if can't create a earning without payload.
      * 
      * @return void
      */
-    public function test_if_cant_create_a_spending_without_payload(): void
+    public function test_if_cant_create_a_earning_without_payload(): void
     {
-        $this->postJson(route('spendings.store'))
+        $this->postJson(route('earnings.store'))
             ->assertUnprocessable()
             ->assertSee('The description field is required. (and 3 more errors)');
     }
 
     /**
-     * Test if can't create a spending with category that doesn't belongs to user.
+     * Test if can't create a earning with category that doesn't belongs to user.
      * 
      * @return void
      */
-    public function test_if_cant_create_a_spending_with_category_that_doesnt_belongs_to_user(): void
+    public function test_if_cant_create_a_earning_with_category_that_doesnt_belongs_to_user(): void
     {
-        $this->postJson(route('spendings.store'), [
+        $this->postJson(route('earnings.store'), [
             'category_id' => $this->createDummyCategory()->id,
             'description' => fake()->text(),
             'amount' => fake()->numberBetween(100, 29900),
@@ -99,13 +93,13 @@ class SpendingStoreTest extends TestCase
     }
 
     /**
-     * Test if can't create a spending with space that doesn't belongs to user.
+     * Test if can't create a earning with space that doesn't belongs to user.
      * 
      * @return void
      */
-    public function test_if_cant_create_a_spending_with_space_that_doesnt_belongs_to_user(): void
+    public function test_if_cant_create_a_earning_with_space_that_doesnt_belongs_to_user(): void
     {
-        $this->postJson(route('spendings.store'), [
+        $this->postJson(route('earnings.store'), [
             'category_id' => $this->createDummyCategory([
                 'space_id' => $this->space->id,
             ])->id,
@@ -118,13 +112,13 @@ class SpendingStoreTest extends TestCase
     }
 
     /**
-     * Test if can't associated tags that doesn't belongs to user to spending.
+     * Test if can't associated tags that doesn't belongs to user to earning.
      * 
      * @return void
      */
-    public function test_if_cant_associate_tags_that_doesnt_belongs_to_user_to_spending(): void
+    public function test_if_cant_associate_tags_that_doesnt_belongs_to_user_to_earning(): void
     {
-        $this->postJson(route('spendings.store'), [
+        $this->postJson(route('earnings.store'), [
             'category_id' => $this->createDummyCategory([
                 'space_id' => $this->space->id,
             ])->id,
@@ -141,26 +135,26 @@ class SpendingStoreTest extends TestCase
     }
 
     /**
-     * Test if can create a spending with correctly payload.
+     * Test if can create a earning with correctly payload.
      * 
      * @return void
      */
-    public function test_if_can_create_a_spending_with_correctly_payload(): void
+    public function test_if_can_create_a_earning_with_correctly_payload(): void
     {
-        $this->postJson(route('spendings.store'), $this->getValidSpendingPayload())->assertCreated();
+        $this->postJson(route('earnings.store'), $this->getValidEarningPayload())->assertCreated();
     }
 
     /**
-     * Test if can create correctly spending on database.
+     * Test if can create correctly earning on database.
      * 
      * @return void
      */
-    public function test_if_can_create_correctly_spending_on_database(): void
+    public function test_if_can_create_correctly_earning_on_database(): void
     {
-        $this->postJson(route('spendings.store'), $data = $this->getValidSpendingPayload())->assertCreated();
+        $this->postJson(route('earnings.store'), $data = $this->getValidEarningPayload())->assertCreated();
 
-        $this->assertDatabaseCount('spendings', 1)
-            ->assertDatabaseHas('spendings', [
+        $this->assertDatabaseCount('earnings', 2) # seeds
+            ->assertDatabaseHas('earnings', [
                 'description' => $data['description'],
                 'category_id' => $data['category_id'],
                 'amount' => $data['amount'],
@@ -176,13 +170,13 @@ class SpendingStoreTest extends TestCase
      */
     public function test_if_can_associate_the_tags_on_database(): void
     {
-        $id = $this->postJson(route('spendings.store'), $data = $this->getValidSpendingPayload())->assertCreated()->json('data')['id'];
+        $id = $this->postJson(route('earnings.store'), $data = $this->getValidEarningPayload())->assertCreated()->json('data')['id'];
 
         $this->assertDatabaseCount('taggable_tags', count($data['tags']));
 
         foreach ($data['tags'] as $tagId) {
             $this->assertDatabaseHas('taggable_tags', [
-                'taggable_type' => Spending::class,
+                'taggable_type' => Earning::class,
                 'taggable_id' => $id,
                 'tag_id' => $tagId
             ]);
@@ -190,13 +184,13 @@ class SpendingStoreTest extends TestCase
     }
 
     /**
-     * Test if can return correctly json spending structure.
+     * Test if can return correctly json earning structure.
      * 
      * @return void
      */
-    public function test_if_can_return_correctly_json_spending_structure(): void
+    public function test_if_can_return_correctly_json_earning_structure(): void
     {
-        $this->postJson(route('spendings.store'), $this->getValidSpendingPayload())->assertCreated()->assertJsonStructure([
+        $this->postJson(route('earnings.store'), $this->getValidEarningPayload())->assertCreated()->assertJsonStructure([
             'data' => [
                 'id',
                 'description',
@@ -224,13 +218,13 @@ class SpendingStoreTest extends TestCase
     }
 
     /**
-     * Test if can return correctly json spending on creation.
+     * Test if can return correctly json earning on creation.
      * 
      * @return void
      */
-    public function test_if_can_return_correctly_json_spending_on_creation(): void
+    public function test_if_can_return_correctly_json_earning_on_creation(): void
     {
-        $this->postJson(route('spendings.store'), $data = $this->getValidSpendingPayload())->assertCreated()->assertJson([
+        $this->postJson(route('earnings.store'), $data = $this->getValidEarningPayload())->assertCreated()->assertJson([
             'data' => [
                 'description' => $data['description'],
                 'amount' => formatCurrency($data['amount'], $this->space->currency->iso),
@@ -255,16 +249,16 @@ class SpendingStoreTest extends TestCase
     }
 
     /**
-     * Test if can create a new activity on spending creation.
+     * Test if can create a new activity on earning creation.
      * 
      * @return void
      */
-    public function test_if_can_create_a_new_activity_on_spending_creation(): void
+    public function test_if_can_create_a_new_activity_on_earning_creation(): void
     {
-        $id = $this->postJson(route('spendings.store'), $this->getValidSpendingPayload())->assertCreated()->json('data')['id'];
+        $id = $this->postJson(route('earnings.store'), $this->getValidEarningPayload())->assertCreated()->json('data')['id'];
 
         $this->assertDatabaseHas('activities', [
-            'activitable_type' => Spending::class,
+            'activitable_type' => Earning::class,
             'activitable_id' => $id,
             'action' => 'transaction.created',
         ]);

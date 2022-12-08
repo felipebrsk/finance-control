@@ -3,10 +3,11 @@
 namespace Tests\Feature\Http\Spendings;
 
 use Tests\TestCase;
-use Tests\Traits\{HasDummySpace, HasDummySpending, HasDummyUser};
+use Tests\Traits\{HasDummySpace, HasDummySpending, HasDummyTag, HasDummyUser};
 
 class SpendingShowTest extends TestCase
 {
+    use HasDummyTag;
     use HasDummyUser;
     use HasDummySpace;
     use HasDummySpending;
@@ -33,6 +34,13 @@ class SpendingShowTest extends TestCase
     private $spending;
 
     /**
+     * The dummy tag.
+     * 
+     * @var \App\Models\Tag
+     */
+    private $tag;
+
+    /**
      * Setup new test environments.
      * 
      * @return void
@@ -44,6 +52,8 @@ class SpendingShowTest extends TestCase
         $this->user = $this->actingAsDummyUser();
         $this->space = $this->createDummySpaceTo($this->user);
         $this->spending = $this->createDummySpendingTo($this->space);
+        $this->tag = $this->createDummyTag();
+        $this->spending->tags()->save($this->tag)->save();
     }
 
     /**
@@ -138,6 +148,16 @@ class SpendingShowTest extends TestCase
                     ],
                 ],
                 'import' => [],
+                'tags' => [
+                    '*' => [
+                        'id',
+                        'name',
+                        'slug',
+                        'color',
+                        'created_at',
+                        'updated_at',
+                    ],
+                ],
             ],
         ]);
     }
@@ -200,6 +220,16 @@ class SpendingShowTest extends TestCase
                     ],
                 ],
                 'import' => null,
+                'tags' => [
+                    [
+                        'id' => $this->tag->id,
+                        'name' => $this->tag->name,
+                        'slug' => $this->tag->slug,
+                        'color' => $this->tag->color,
+                        'created_at' => $this->tag->created_at->toIsoString(),
+                        'updated_at' => $this->tag->updated_at->toIsoString(),
+                    ],
+                ],
             ],
         ]);
     }

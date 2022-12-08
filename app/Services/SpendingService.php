@@ -7,10 +7,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Pagination\LengthAwarePaginator;
 use App\Contracts\Repositories\SpendingRepositoryInterface;
-use App\Contracts\Services\{SpendingServiceInterface, CategoryServiceInterface};
+use App\Contracts\Services\{SpendingServiceInterface, CategoryServiceInterface, TagServiceInterface};
 use App\Exceptions\{
     Category\CategoryDoesntBelongsToUserSpaceException,
-    Space\SpaceDoesntBelongsToUserException
+    Space\SpaceDoesntBelongsToUserException,
+    Tag\TagDoesntBelongsToUserException
 };
 
 class SpendingService extends AbstractService implements SpendingServiceInterface
@@ -64,6 +65,7 @@ class SpendingService extends AbstractService implements SpendingServiceInterfac
      * Assert can create a new spending.
      * 
      * @param array $data
+     * @throws \App\Exceptions\Tag\TagDoesntBelongsToUserException
      * @throws \App\Exceptions\Category\CategoryDoesntBelongsToUserSpaceException
      * @throws \App\Exceptions\Space\SpaceDoesntBelongsToUserException
      * @return void
@@ -71,8 +73,20 @@ class SpendingService extends AbstractService implements SpendingServiceInterfac
     private function assertCanCreate(array $data): void
     {
         $categoryServiceInterface = resolve(CategoryServiceInterface::class);
+        $tagServiceInterface = resolve(TagServiceInterface::class);
+        $tagIds = issetGetter('tags', $data);
 
         $associatingCategory = $categoryServiceInterface->find($data['category_id']);
+
+        if ($tagIds = issetGetter('tags', $data)) {
+            $associatingTags = $tagServiceInterface->findIn($tagIds);
+
+            foreach ($associatingTags as $tag) {
+                if ($tag->user->id !== Auth::id()) {
+                    throw new TagDoesntBelongsToUserException();
+                }
+            }
+        }
 
         if ($associatingCategory && $associatingCategory->space->user->id !== Auth::id()) {
             throw new CategoryDoesntBelongsToUserSpaceException();
@@ -85,6 +99,7 @@ class SpendingService extends AbstractService implements SpendingServiceInterfac
      * Assert can update a spending.
      * 
      * @param array $data
+     * @throws \App\Exceptions\Tag\TagDoesntBelongsToUserException
      * @throws \App\Exceptions\Category\CategoryDoesntBelongsToUserSpaceException
      * @throws \App\Exceptions\Space\SpaceDoesntBelongsToUserException
      * @return void
@@ -95,8 +110,19 @@ class SpendingService extends AbstractService implements SpendingServiceInterfac
         $spaceId = issetGetter('space_id', $data);
 
         $categoryServiceInterface = resolve(CategoryServiceInterface::class);
+        $tagServiceInterface = resolve(TagServiceInterface::class);
 
         $associatingCategory = $categoryServiceInterface->find($categoryId);
+
+        if ($tagIds = issetGetter('tags', $data)) {
+            $associatingTags = $tagServiceInterface->findIn($tagIds);
+
+            foreach ($associatingTags as $tag) {
+                if ($tag->user->id !== Auth::id()) {
+                    throw new TagDoesntBelongsToUserException();
+                }
+            }
+        }
 
         if ($associatingCategory && $associatingCategory->space->user->id !== Auth::id()) {
             throw new CategoryDoesntBelongsToUserSpaceException();

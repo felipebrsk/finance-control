@@ -19,7 +19,7 @@ class TagPolicy
      */
     public function view(User $user, Tag $tag)
     {
-        return $user->spaces->contains($tag->taggable->space_id);
+        return $user->tags->contains($tag->id);
     }
 
     /**
@@ -31,7 +31,7 @@ class TagPolicy
      */
     public function update(User $user, Tag $tag)
     {
-        return $user->spaces->contains($tag->taggable->space_id);
+        return $user->tags->contains($tag->id);
     }
 
     /**
@@ -43,7 +43,7 @@ class TagPolicy
      */
     public function delete(User $user, Tag $tag)
     {
-        return $user->spaces->contains($tag->taggable->space_id);
+        return $user->tags->contains($tag->id);
     }
 
     /**
@@ -55,7 +55,7 @@ class TagPolicy
      */
     public function restore(User $user, Tag $tag)
     {
-        return $user->spaces->contains($tag->taggable->space_id);
+        return $user->tags->contains($tag->id);
     }
 
     /**
@@ -67,6 +67,6 @@ class TagPolicy
      */
     public function forceDelete(User $user, Tag $tag)
     {
-        return $user->spaces->contains($tag->taggable->space_id);
+        return $user->tags->contains($tag->id);
     }
 }

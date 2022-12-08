@@ -10,6 +10,7 @@ use App\Contracts\Repositories\{
     EarningRepositoryInterface,
     RecurringRepositoryInterface,
     SpendingRepositoryInterface,
+    TagRepositoryInterface,
     UserRepositoryInterface
 };
 use App\Services\{
@@ -20,6 +21,7 @@ use App\Services\{
     RecurringService,
     S3Service,
     SpendingService,
+    TagService,
     UserService
 };
 use App\Contracts\Services\{
@@ -30,6 +32,7 @@ use App\Contracts\Services\{
     RecurringServiceInterface,
     S3ServiceInterface,
     SpendingServiceInterface,
+    TagServiceInterface,
     UserServiceInterface
 };
 use App\Repositories\{
@@ -39,6 +42,7 @@ use App\Repositories\{
     EarningRepository,
     RecurringRepository,
     SpendingRepository,
+    TagRepository,
     UserRepository
 };
 
@@ -74,6 +78,9 @@ class InterfaceServiceProvider extends ServiceProvider
 
         $this->app->bind(CategoryRepositoryInterface::class, CategoryRepository::class);
         $this->app->bind(CategoryServiceInterface::class, CategoryService::class);
+
+        $this->app->bind(TagRepositoryInterface::class, TagRepository::class);
+        $this->app->bind(TagServiceInterface::class, TagService::class);
     }
 
     /**

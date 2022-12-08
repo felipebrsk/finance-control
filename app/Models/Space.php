@@ -6,7 +6,7 @@ use App\Traits\HasSlug;
 use App\Helpers\SlugOptions;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\{Builder, Model, SoftDeletes};
-use Illuminate\Database\Eloquent\Relations\{BelongsTo, HasMany, MorphMany};
+use Illuminate\Database\Eloquent\Relations\{BelongsTo, HasMany, MorphToMany};
 
 class Space extends Model
 {
@@ -68,11 +68,11 @@ class Space extends Model
     /**
      * Get all of the tags for the Space
      *
-     * @return \Illuminate\Database\Eloquent\Relations\MorphMany
+     * @return \Illuminate\Database\Eloquent\Relations\MorphToMany
      */
-    public function tags(): MorphMany
+    public function tags(): MorphToMany
     {
-        return $this->morphMany(Tag::class, 'taggable');
+        return $this->morphToMany(Tag::class, 'taggable', 'taggable_tags');
     }
 
     /**

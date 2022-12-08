@@ -7,7 +7,7 @@ use App\Traits\HasScopeFromUserSpace;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\{Model, SoftDeletes};
 use App\Contracts\Eloquent\ShouldBelongsToSpaceInterface;
-use Illuminate\Database\Eloquent\Relations\{BelongsTo, MorphMany};
+use Illuminate\Database\Eloquent\Relations\{BelongsTo, MorphToMany};
 use App\Events\Transaction\{TransactionUpdated, TransactionCreated, TransactionDeleted};
 
 class Spending extends Model implements ShouldBelongsToSpaceInterface
@@ -87,9 +87,9 @@ class Spending extends Model implements ShouldBelongsToSpaceInterface
      *
      * @return \Illuminate\Database\Eloquent\Relations\MorphMany
      */
-    public function tags(): MorphMany
+    public function tags(): MorphToMany
     {
-        return $this->morphMany(Tag::class, 'taggable');
+        return $this->morphToMany(Tag::class, 'taggable', 'taggable_tags');
     }
 
     /**

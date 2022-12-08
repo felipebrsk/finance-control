@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Pagination\LengthAwarePaginator;
 
@@ -54,6 +55,17 @@ abstract class AbstractService
     public function find(mixed $id): ?Model
     {
         return $this->repository->find($id);
+    }
+
+    /**
+     * Find a model collection where in array.
+     * 
+     * @param array $ids
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
+    public function findIn(array $ids): Collection
+    {
+        return $this->repository->findIn($ids);
     }
 
     /**

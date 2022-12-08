@@ -105,4 +105,14 @@ class User extends Authenticatable implements JWTSubject
     {
         return $this->hasMany(Space::class);
     }
+
+    /**
+     * Get all of the tags for the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function tags(): HasMany
+    {
+        return $this->hasMany(Tag::class);
+    }
 }

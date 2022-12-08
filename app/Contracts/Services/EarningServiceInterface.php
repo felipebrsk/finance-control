@@ -2,6 +2,16 @@
 
 namespace App\Contracts\Services;
 
+use Illuminate\Http\Request;
+use Illuminate\Pagination\LengthAwarePaginator;
+
 interface EarningServiceInterface extends BasicServiceInterface
 {
+    /**
+     * Get all auth earnings with space scope.
+     * 
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Pagination\LengthAwarePaginator
+     */
+    public function allWithFilter(Request $request): LengthAwarePaginator;
 }
