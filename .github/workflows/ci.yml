@@ -28,7 +28,15 @@ jobs:
       - name: Copy .env.testing
         run: php -r "file_exists('.env') || copy('.env.testing', '.env');"
 
+      - name: Cache composer.lock
+        uses: actions/cache@v3
+        id: composer-cache
+        with:
+          key: ${{ runner.os }}-composer-${{ hashFiles('composer.lock') }}
+          path: vendor
+
       - name: Install Laravel dependencies
+        if: steps.composer-cache.outputs.cache-hit != 'true'
         run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
 
       - name: Create sqlite dummy database (PHPUnit db)
