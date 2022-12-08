@@ -9,12 +9,13 @@ use Illuminate\Support\Carbon;
 use App\Jobs\ProcessRecurringsJob;
 use Symfony\Component\DomCrawler\Crawler;
 use Illuminate\Support\Facades\{Bus, Queue};
-use Tests\Traits\{HasDummyRecurring, HasDummySpace, HasDummyUser};
+use Tests\Traits\{HasDummyCategory, HasDummyRecurring, HasDummySpace, HasDummyUser};
 
 class ProcessRecurringsJobTest extends TestCase
 {
     use HasDummyUser;
     use HasDummySpace;
+    use HasDummyCategory;
     use HasDummyRecurring;
 
     /**
@@ -95,6 +96,9 @@ class ProcessRecurringsJobTest extends TestCase
             'start_date' => Carbon::yesterday(),
             'space_id' => $this->space->id,
             'currency_id' => Currency::whereIso('BRL')->value('id'),
+            'category_id' => $this->createDummyCategory([
+                'space_id' => $this->space->id,
+            ])->id,
         ]);
 
         # dispatch the job to process recurrings.
@@ -163,6 +167,9 @@ class ProcessRecurringsJobTest extends TestCase
             'start_date' => Carbon::yesterday(),
             'space_id' => $this->space->id,
             'currency_id' => Currency::whereIso('USD')->value('id'),
+            'category_id' => $this->createDummyCategory([
+                'space_id' => $this->space->id,
+            ])->id,
         ]);
 
         $amount = $recurring->amount;

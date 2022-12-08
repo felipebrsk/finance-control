@@ -2,7 +2,7 @@
 
 namespace Tests\Traits;
 
-use App\Models\Spending;
+use App\Models\{Space, Spending};
 use Illuminate\Database\Eloquent\Collection;
 
 trait HasDummySpending
@@ -28,5 +28,21 @@ trait HasDummySpending
     public function createDummySpendings(int $times, array $data = []): Collection
     {
         return Spending::factory($times)->create($data);
+    }
+
+    /**
+     * Create dummy spending to.
+     * 
+     * @param \App\Models\Space $space
+     * @param array $data
+     * @return \App\Models\Spending
+     */
+    public function createDummySpendingTo(Space $space, array $data = []): Spending
+    {
+        $spending = $this->createDummySpending($data);
+
+        $spending->space()->associate($space)->save();
+
+        return $spending;
     }
 }

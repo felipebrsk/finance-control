@@ -5,6 +5,7 @@ namespace Tests\Unit\Models;
 use Tests\TestCase;
 use App\Models\Earning;
 use Tests\Traits\TestUnitModels;
+use App\Traits\HasScopeFromUserSpace;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -51,6 +52,7 @@ class EarningTest extends TestCase
         $traits = [
             HasFactory::class,
             SoftDeletes::class,
+            HasScopeFromUserSpace::class,
         ];
 
         $this->verifyIfUseTraits($traits);

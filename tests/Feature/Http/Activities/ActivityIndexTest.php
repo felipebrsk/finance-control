@@ -57,7 +57,7 @@ class ActivityIndexTest extends TestCase
      */
     public function test_if_can_get_my_activities(): void
     {
-        $this->getJson(route('me.activities'))->assertOk();
+        $this->getJson(route('user.activities'))->assertOk();
     }
 
     /**
@@ -67,13 +67,13 @@ class ActivityIndexTest extends TestCase
      */
     public function test_if_can_get_correctly_activities_count(): void
     {
-        $this->getJson(route('me.activities'))->assertOk()->assertJsonCount(0, 'data');
+        $this->getJson(route('user.activities'))->assertOk()->assertJsonCount(0, 'data');
 
         $this->createDummyActivities($count = 3, [
             'space_id' => $this->space->id,
         ]);
 
-        $this->getJson(route('me.activities'))->assertOk()->assertJsonCount($count, 'data');
+        $this->getJson(route('user.activities'))->assertOk()->assertJsonCount($count, 'data');
     }
 
     /**
@@ -83,31 +83,31 @@ class ActivityIndexTest extends TestCase
      */
     public function test_if_can_get_correctly_activities_count_with_activities(): void
     {
-        $this->getJson(route('me.activities'))->assertOk()->assertJsonCount(0, 'data');
+        $this->getJson(route('user.activities'))->assertOk()->assertJsonCount(0, 'data');
 
         $this->createDummyRecurring([
             'space_id' => $this->space->id,
         ]);
 
-        $this->getJson(route('me.activities'))->assertOk()->assertJsonCount(1, 'data');
+        $this->getJson(route('user.activities'))->assertOk()->assertJsonCount(1, 'data');
 
         $this->createDummyCategory([
             'space_id' => $this->space->id,
         ]);
 
-        $this->getJson(route('me.activities'))->assertOk()->assertJsonCount(2, 'data');
+        $this->getJson(route('user.activities'))->assertOk()->assertJsonCount(2, 'data');
 
         $this->createDummySpending([
             'space_id' => $this->space->id,
         ]);
 
-        $this->getJson(route('me.activities'))->assertOk()->assertJsonCount(3, 'data');
+        $this->getJson(route('user.activities'))->assertOk()->assertJsonCount(3, 'data');
 
         $this->createDummyEarning([
             'space_id' => $this->space->id,
         ]);
 
-        $this->getJson(route('me.activities'))->assertOk()->assertJsonCount(4, 'data');
+        $this->getJson(route('user.activities'))->assertOk()->assertJsonCount(4, 'data');
     }
 
     /**
@@ -121,7 +121,7 @@ class ActivityIndexTest extends TestCase
             'space_id' => $this->space->id,
         ]);
 
-        $this->getJson(route('me.activities'))->assertOk()->assertJsonStructure([
+        $this->getJson(route('user.activities'))->assertOk()->assertJsonStructure([
             'data' => [
                 '*' => [
                     'action',

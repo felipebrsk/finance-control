@@ -35,7 +35,8 @@
         "files": [
             "app/Helpers/date.php",
             "app/Helpers/data.php",
-            "app/Helpers/resolvers.php"
+            "app/Helpers/resolvers.php",
+            "app/Helpers/money.php"
         ]
     },
     "autoload-dev": {

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\HasScopeFromUserSpace;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\{Model, SoftDeletes};
 use App\Contracts\Eloquent\ShouldBelongsToSpaceInterface;
@@ -35,6 +36,7 @@ class Earning extends Model implements ShouldBelongsToSpaceInterface
 
     use HasFactory;
     use SoftDeletes;
+    use HasScopeFromUserSpace;
 
     /**
      * Create model dispatchable events.

@@ -4,7 +4,9 @@ namespace Tests\Unit\Models;
 
 use Tests\TestCase;
 use App\Models\Spending;
+use EloquentFilter\Filterable;
 use Tests\Traits\TestUnitModels;
+use App\Traits\HasScopeFromUserSpace;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -52,6 +54,8 @@ class SpendingTest extends TestCase
         $traits = [
             HasFactory::class,
             SoftDeletes::class,
+            HasScopeFromUserSpace::class,
+            Filterable::class,
         ];
 
         $this->verifyIfUseTraits($traits);

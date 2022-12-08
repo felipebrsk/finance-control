@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{
     Auth\AuthController,
     ActivityController,
+    SpendingController,
 };
 
 /*
@@ -22,9 +23,9 @@ Route::controller(AuthController::class)->group(function () {
     Route::post('refresh', 'refresh')->name('refresh');
 });
 
-Route::prefix('me')->group(function () {
-    Route::get('activities', ActivityController::class)->name('me.activities');
-});
+Route::apiResource('spendings', SpendingController::class);
+
+Route::get('activities', ActivityController::class)->name('user.activities');
 
 Route::get('tests', function () {
     //

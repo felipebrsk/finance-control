@@ -5,6 +5,7 @@ namespace Tests\Unit\Models;
 use Tests\TestCase;
 use App\Models\Recurring;
 use Tests\Traits\TestUnitModels;
+use App\Traits\HasScopeFromUserSpace;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -56,6 +57,7 @@ class RecurringTest extends TestCase
         $traits = [
             HasFactory::class,
             SoftDeletes::class,
+            HasScopeFromUserSpace::class,
         ];
 
         $this->verifyIfUseTraits($traits);

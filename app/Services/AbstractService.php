@@ -49,9 +49,9 @@ abstract class AbstractService
      * Find a repository record.
      * 
      * @param mixed $id
-     * @return \Illuminate\Database\Eloquent\Model
+     * @return ?\Illuminate\Database\Eloquent\Model
      */
-    public function find(mixed $id): Model
+    public function find(mixed $id): ?Model
     {
         return $this->repository->find($id);
     }

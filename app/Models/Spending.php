@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use EloquentFilter\Filterable;
+use App\Traits\HasScopeFromUserSpace;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\{Model, SoftDeletes};
 use App\Contracts\Eloquent\ShouldBelongsToSpaceInterface;
@@ -36,6 +38,8 @@ class Spending extends Model implements ShouldBelongsToSpaceInterface
 
     use HasFactory;
     use SoftDeletes;
+    use HasScopeFromUserSpace;
+    use Filterable;
 
     /**
      * Create model dispatchable events.
@@ -85,5 +89,15 @@ class Spending extends Model implements ShouldBelongsToSpaceInterface
     public function tags(): MorphMany
     {
         return $this->morphMany(Tag::class, 'taggable');
+    }
+
+    /**
+     * Get the category that owns the Spending
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function category(): BelongsTo
+    {
+        return $this->belongsTo(Category::class);
     }
 }
