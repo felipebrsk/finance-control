@@ -14,6 +14,16 @@ class EarningResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'id' => $this->id,
+            'description' => $this->description,
+            'amount' => formatCurrency($this->amount, $this->space->currency->iso),
+            'when' => $this->when,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
+            'category' => CategoryResource::make($this->whenLoaded('category')),
+            'space' => SpaceResource::make($this->whenLoaded('space')),
+            'recurring' => RecurringResource::make($this->whenLoaded('recurring')),
+        ];
     }
 }

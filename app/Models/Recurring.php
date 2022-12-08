@@ -7,8 +7,8 @@ use App\Traits\HasScopeFromUserSpace;
 use Illuminate\Database\Eloquent\{Model, SoftDeletes};
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use App\Contracts\Eloquent\ShouldBelongsToSpaceInterface;
-use App\Events\Recurring\{RecurringCreated, RecurringDeleted};
 use Illuminate\Database\Eloquent\Relations\{BelongsTo, HasMany, MorphMany};
+use App\Events\Recurring\{RecurringCreated, RecurringDeleted, RecurringUpdated};
 
 class Recurring extends Model implements ShouldBelongsToSpaceInterface
 {
@@ -53,7 +53,8 @@ class Recurring extends Model implements ShouldBelongsToSpaceInterface
      */
     protected $dispatchesEvents = [
         'created' => RecurringCreated::class,
-        'deleted' => RecurringDeleted::class
+        'deleted' => RecurringDeleted::class,
+        'updated' => RecurringUpdated::class,
     ];
 
     /**

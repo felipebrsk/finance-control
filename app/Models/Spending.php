@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\{Model, SoftDeletes};
 use App\Contracts\Eloquent\ShouldBelongsToSpaceInterface;
 use Illuminate\Database\Eloquent\Relations\{BelongsTo, MorphMany};
-use App\Events\Transaction\{TransactionCreated, TransactionDeleted};
+use App\Events\Transaction\{TransactionUpdated, TransactionCreated, TransactionDeleted};
 
 class Spending extends Model implements ShouldBelongsToSpaceInterface
 {
@@ -48,7 +48,8 @@ class Spending extends Model implements ShouldBelongsToSpaceInterface
      */
     protected $dispatchesEvents = [
         'created' => TransactionCreated::class,
-        'deleted' => TransactionDeleted::class
+        'deleted' => TransactionDeleted::class,
+        'updated' => TransactionUpdated::class,
     ];
 
     /**

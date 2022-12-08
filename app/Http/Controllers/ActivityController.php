@@ -20,7 +20,7 @@ class ActivityController extends Controller
         ActivityServiceInterface $activityServiceInterface
     ): AnonymousResourceCollection {
         return ActivityResource::collection(
-            $activityServiceInterface->allWithFilter($request)
+            $activityServiceInterface->allWithFilter($request)->load('activitable'),
         );
     }
 }

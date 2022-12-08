@@ -126,9 +126,167 @@ class ActivityIndexTest extends TestCase
                 '*' => [
                     'action',
                     'created_at',
-                    'space' => [
+                    'activitable',
+                ],
+            ],
+        ]);
+    }
+
+    /**
+     * Test if can get correctly earning activitable json structure.
+     * 
+     * @return void
+     */
+    public function test_if_can_get_correctly_earning_activitable_json_structure(): void
+    {
+        $this->createDummyEarning([
+            'space_id' => $this->space->id,
+        ]);
+
+        $this->getJson(route('user.activities'))->assertOk()->assertJsonStructure([
+            'data' => [
+                '*' => [
+                    'action',
+                    'type',
+                    'created_at',
+                    'activitable' => [
+                        'id',
+                        'description',
+                        'amount',
+                        'when',
+                        'created_at',
+                        'updated_at',
+                        'space' => [
+                            'id',
+                            'name',
+                            'slug',
+                            'created_at',
+                            'updated_at',
+                            'currency' => [
+                                'id',
+                                'name',
+                                'iso',
+                                'symbol',
+                                'created_at',
+                                'updated_at',
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+        ]);
+    }
+
+    /**
+     * Test if can get correctly spending activitable json structure.
+     * 
+     * @return void
+     */
+    public function test_if_can_get_correctly_spending_activitable_json_structure(): void
+    {
+        $this->createDummySpending([
+            'space_id' => $this->space->id,
+        ]);
+
+        $this->getJson(route('user.activities'))->assertOk()->assertJsonStructure([
+            'data' => [
+                '*' => [
+                    'action',
+                    'type',
+                    'created_at',
+                    'activitable' => [
+                        'id',
+                        'description',
+                        'amount',
+                        'when',
+                        'created_at',
+                        'updated_at',
+                        'space' => [
+                            'id',
+                            'name',
+                            'slug',
+                            'created_at',
+                            'updated_at',
+                            'currency' => [
+                                'id',
+                                'name',
+                                'iso',
+                                'symbol',
+                                'created_at',
+                                'updated_at',
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+        ]);
+    }
+
+    /**
+     * Test if can get correctly recurring activitable json structure.
+     * 
+     * @return void
+     */
+    public function test_if_can_get_correctly_recurring_activitable_json_structure(): void
+    {
+        $this->createDummyRecurring([
+            'space_id' => $this->space->id,
+        ]);
+
+        $this->getJson(route('user.activities'))->assertOk()->assertJsonStructure([
+            'data' => [
+                '*' => [
+                    'action',
+                    'type',
+                    'created_at',
+                    'activitable' => [
+                        'id',
+                        'description',
+                        'amount',
+                        'type',
+                        'interval',
+                        'start_date',
+                        'end_date',
+                        'last_used_date',
+                        'created_at',
+                        'updated_at',
+                        'currency' => [
+                            'id',
+                            'name',
+                            'iso',
+                            'symbol',
+                            'created_at',
+                            'updated_at',
+                        ],
+                    ],
+                ],
+            ],
+        ]);
+    }
+
+    /**
+     * Test if can get correctly category activitable json structure.
+     * 
+     * @return void
+     */
+    public function test_if_can_get_correctly_category_activitable_json_structure(): void
+    {
+        $this->createDummyCategory([
+            'space_id' => $this->space->id,
+        ]);
+
+        $this->getJson(route('user.activities'))->assertOk()->assertJsonStructure([
+            'data' => [
+                '*' => [
+                    'action',
+                    'type',
+                    'created_at',
+                    'activitable' => [
                         'id',
                         'name',
+                        'slug',
+                        'created_at',
+                        'updated_at',
                     ],
                 ],
             ],

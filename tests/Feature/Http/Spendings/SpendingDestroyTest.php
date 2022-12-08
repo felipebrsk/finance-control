@@ -91,4 +91,20 @@ class SpendingDestroyTest extends TestCase
 
         $this->assertFalse($this->spending->exists());
     }
+
+    /**
+     * Test if can create a new activity on spending deletion.
+     * 
+     * @return void
+     */
+    public function test_if_can_create_a_new_activity_on_spending_deletion(): void
+    {
+        $this->deleteJson(route('spendings.destroy', $this->spending->id))->assertOk();
+
+        $this->assertDatabaseHas('activities', [
+            'activitable_type' => $this->spending::class,
+            'activitable_id' => $this->spending->id,
+            'action' => 'transaction.deleted',
+        ]);
+    }
 }

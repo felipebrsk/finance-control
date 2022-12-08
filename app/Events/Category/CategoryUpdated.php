@@ -1,34 +1,35 @@
 <?php
 
-namespace App\Events\Transaction;
+namespace App\Events\Category;
 
-use App\Models\Activity;
+use App\Models\{Activity, Category};
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Broadcasting\PresenceChannel;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
-class TransactionDeleted
+class CategoryUpdated
 {
-    use Dispatchable, InteractsWithSockets, SerializesModels;
+    use Dispatchable;
+    use InteractsWithSockets;
+    use SerializesModels;
 
     /**
      * Create a new event instance.
      *
-     * @param \Illuminate\Database\Eloquent\Model $model
+     * @param \App\Models\Recurring $recurring
      * @return void
      */
-    public function __construct(Model $model)
+    public function __construct(Category $category)
     {
         Activity::create([
-            'activitable_id' => $model->id,
-            'activitable_type' => $model::class,
-            'space_id' => $model->space->id,
-            'action' => 'transaction.deleted',
+            'activitable_id' => $category->id,
+            'activitable_type' => $category::class,
+            'space_id' => $category->space->id,
+            'action' => 'category.updated',
         ]);
     }
 

@@ -204,4 +204,20 @@ class SpendingUpdateTest extends TestCase
             ],
         ]);
     }
+
+    /**
+     * Test if can create a new activity on spending update.
+     * 
+     * @return void
+     */
+    public function test_if_can_create_a_new_activity_on_spending_update(): void
+    {
+        $this->putJson(route('spendings.update', $this->spending->id), $this->getValidSpendingPayload())->assertOk();
+
+        $this->assertDatabaseHas('activities', [
+            'activitable_type' => $this->spending::class,
+            'activitable_id' => $this->spending->id,
+            'action' => 'transaction.updated',
+        ]);
+    }
 }

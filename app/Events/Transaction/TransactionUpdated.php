@@ -12,7 +12,7 @@ use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
-class TransactionDeleted
+class TransactionUpdated
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
@@ -28,7 +28,7 @@ class TransactionDeleted
             'activitable_id' => $model->id,
             'activitable_type' => $model::class,
             'space_id' => $model->space->id,
-            'action' => 'transaction.deleted',
+            'action' => 'transaction.updated',
         ]);
     }
 

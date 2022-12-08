@@ -1,34 +1,35 @@
 <?php
 
-namespace App\Events\Transaction;
+namespace App\Events\Recurring;
 
-use App\Models\Activity;
 use Illuminate\Broadcasting\Channel;
+use App\Models\{Activity, Recurring};
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Broadcasting\PresenceChannel;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
-class TransactionDeleted
+class RecurringUpdated
 {
-    use Dispatchable, InteractsWithSockets, SerializesModels;
+    use Dispatchable;
+    use InteractsWithSockets;
+    use SerializesModels;
 
     /**
      * Create a new event instance.
      *
-     * @param \Illuminate\Database\Eloquent\Model $model
+     * @param \App\Models\Recurring $recurring
      * @return void
      */
-    public function __construct(Model $model)
+    public function __construct(Recurring $recurring)
     {
         Activity::create([
-            'activitable_id' => $model->id,
-            'activitable_type' => $model::class,
-            'space_id' => $model->space->id,
-            'action' => 'transaction.deleted',
+            'activitable_id' => $recurring->id,
+            'activitable_type' => $recurring::class,
+            'space_id' => $recurring->space->id,
+            'action' => 'recurring.updated',
         ]);
     }
 

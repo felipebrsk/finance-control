@@ -7,8 +7,8 @@ use App\Helpers\SlugOptions;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\{Model, SoftDeletes};
 use App\Contracts\Eloquent\ShouldBelongsToSpaceInterface;
-use App\Events\Category\{CategoryCreated, CategoryDeleted};
 use Illuminate\Database\Eloquent\Relations\{BelongsTo, HasMany};
+use App\Events\Category\{CategoryCreated, CategoryDeleted, CategoryUpdated};
 
 class Category extends Model implements ShouldBelongsToSpaceInterface
 {
@@ -44,7 +44,8 @@ class Category extends Model implements ShouldBelongsToSpaceInterface
      */
     protected $dispatchesEvents = [
         'created' => CategoryCreated::class,
-        'deleted' => CategoryDeleted::class
+        'deleted' => CategoryDeleted::class,
+        'updated' => CategoryUpdated::class,
     ];
 
     /**

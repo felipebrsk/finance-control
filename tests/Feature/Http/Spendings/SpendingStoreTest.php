@@ -3,6 +3,7 @@
 namespace Tests\Feature\Http\Spendings;
 
 use Tests\TestCase;
+use App\Models\Spending;
 use Tests\Traits\{HasDummyCategory, HasDummySpace, HasDummySpending, HasDummyUser};
 
 class SpendingStoreTest extends TestCase
@@ -196,6 +197,22 @@ class SpendingStoreTest extends TestCase
                     ],
                 ],
             ],
+        ]);
+    }
+
+    /**
+     * Test if can create a new activity on spending creation.
+     * 
+     * @return void
+     */
+    public function test_if_can_create_a_new_activity_on_spending_creation(): void
+    {
+        $id = $this->postJson(route('spendings.store'), $this->getValidSpendingPayload())->assertCreated()->json('data')['id'];
+
+        $this->assertDatabaseHas('activities', [
+            'activitable_type' => Spending::class,
+            'activitable_id' => $id,
+            'action' => 'transaction.created',
         ]);
     }
 }
