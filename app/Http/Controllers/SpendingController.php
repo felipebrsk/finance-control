@@ -62,7 +62,7 @@ class SpendingController extends Controller
             return SpendingResource::make($spending);
         } catch (Exception $e) {
             DB::rollBack();
-            Log::error('Failed to create earning', [
+            Log::error('Failed to create spending', [
                 'message' => $e->getMessage(),
                 'context' => $e->getTraceAsString(),
             ]);
@@ -108,7 +108,7 @@ class SpendingController extends Controller
             return SpendingResource::make($spending);
         } catch (Exception $e) {
             DB::rollBack();
-            Log::error('Failed to create earning', [
+            Log::error('Failed to update spending', [
                 'message' => $e->getMessage(),
                 'context' => $e->getTraceAsString(),
             ]);

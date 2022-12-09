@@ -96,9 +96,22 @@ class EarningController extends Controller
      */
     public function update(EarningUpdateRequest $request, mixed $id)
     {
-        return EarningResource::make(
-            $this->earningServiceInterface->update($request->validated(), $id)
-        );
+        DB::beginTransaction();
+
+        try {
+            $earning = $this->earningServiceInterface->update($request->validated(), $id);
+
+            DB::commit();
+
+            return EarningResource::make($earning);
+        } catch (Exception $e) {
+            DB::rollBack();
+            Log::error('Failed to update earning', [
+                'message' => $e->getMessage(),
+                'context' => $e->getTraceAsString(),
+            ]);
+            throw $e;
+        }
     }
 
     /**

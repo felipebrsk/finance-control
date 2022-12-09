@@ -3,8 +3,9 @@
 namespace Tests\Unit\Models;
 
 use Tests\TestCase;
-use App\Traits\HasSlug;
 use App\Models\Space;
+use App\Traits\HasSlug;
+use EloquentFilter\Filterable;
 use Tests\Traits\TestUnitModels;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -51,6 +52,7 @@ class SpaceTest extends TestCase
             HasFactory::class,
             SoftDeletes::class,
             HasSlug::class,
+            Filterable::class,
         ];
 
         $this->verifyIfUseTraits($traits);

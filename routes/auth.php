@@ -5,6 +5,7 @@ use App\Http\Controllers\{
     Auth\AuthController,
     ActivityController,
     EarningController,
+    SpaceController,
     SpendingController,
 };
 
@@ -24,6 +25,7 @@ Route::controller(AuthController::class)->group(function () {
     Route::post('refresh', 'refresh')->name('refresh');
 });
 
+Route::apiResource('spaces', SpaceController::class);
 Route::apiResource('earnings', EarningController::class);
 Route::apiResource('spendings', SpendingController::class);
 

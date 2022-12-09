@@ -18,6 +18,10 @@ class SpaceResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'slug' => $this->slug,
+            'monthly_earning_recurrings' => formatCurrency($this->getMonthlyEarningRecurrings(), $this->currency->iso),
+            'monthly_balance' => formatCurrency($this->getMonthlyBalance(), $this->currency->iso),
+            'monthly_spending_recurrings' => formatCurrency($this->getMonthlySpendingRecurrings(), $this->currency->iso),
+            'monthly_recurrings_calculated' => formatCurrency($this->calculateMonthlyRecurrings(), $this->currency->iso),
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
             'user' => UserResource::make($this->whenLoaded('user')),
@@ -27,6 +31,7 @@ class SpaceResource extends JsonResource
             'recurrings' => RecurringResource::collection($this->whenLoaded('recurrings')),
             'tags' => TagResource::collection($this->whenLoaded('tags')),
             'categories' => CategoryResource::collection($this->whenLoaded('categories')),
+            'activities' => ActivityResource::collection($this->whenLoaded('activities')),
         ];
     }
 }

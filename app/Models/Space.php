@@ -4,9 +4,12 @@ namespace App\Models;
 
 use App\Traits\HasSlug;
 use App\Helpers\SlugOptions;
+use EloquentFilter\Filterable;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\{Builder, Model, SoftDeletes};
 use Illuminate\Database\Eloquent\Relations\{BelongsTo, HasMany, MorphToMany};
+use Illuminate\Support\Facades\DB;
 
 class Space extends Model
 {
@@ -34,6 +37,7 @@ class Space extends Model
     use HasFactory;
     use SoftDeletes;
     use HasSlug;
+    use Filterable;
 
     /**
      * Get the options for generating the slug.
@@ -126,6 +130,31 @@ class Space extends Model
     }
 
     /**
+     * Delete the space with attachments.
+     * 
+     * @return bool
+     */
+    public function delete(): bool
+    {
+        return DB::transaction(function () {
+            $this->tags()->detach();
+
+            return parent::delete();
+        });
+    }
+
+    /**
+     * Create scope to auth user.
+     * 
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeAuthUserSpaces(Builder $query): Builder
+    {
+        return $query->whereUserId(Auth::id());
+    }
+
+    /**
      * Get the monthly recurrings.
      * 
      * @param int $year
@@ -137,7 +166,7 @@ class Space extends Model
         $year = getYear($year);
         $month = getMonth($month);
 
-        return Recurring::whereType('earning')
+        return $this->recurrings()->whereType('earning')
             ->whereYear('start_date', '<=', $year)
             ->whereMonth('start_date', '<=', $month)
             ->where(function (Builder $query) use ($year, $month) {
@@ -159,8 +188,8 @@ class Space extends Model
         $year = getYear($year);
         $month = getMonth($month);
 
-        $earnings = Earning::whereYear('when', $year)->whereMonth('when', $month);
-        $spendings = Spending::whereYear('when', $year)->whereMonth('when', $month);
+        $earnings = $this->earnings()->whereYear('when', $year)->whereMonth('when', $month);
+        $spendings = $this->spendings()->whereYear('when', $year)->whereMonth('when', $month);
 
         return $spendings->doesntExist() ?
             $earnings->sum('amount') :
@@ -179,7 +208,7 @@ class Space extends Model
         $year = getYear($year);
         $month = getMonth($month);
 
-        return Recurring::whereType('spending')
+        return $this->recurrings()->whereType('spending')
             ->whereYear('start_date', '<=', $year)
             ->whereMonth('start_date', '<=', $month)
             ->where(function (Builder $query) use ($year, $month) {
