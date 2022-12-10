@@ -5,7 +5,7 @@ namespace App\Contracts\Services;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
 
-interface EarningServiceInterface extends BasicServiceInterface
+interface EarningServiceInterface extends BasicServiceInterface, HasTagsServiceInterface
 {
     /**
      * Get all auth earnings with space scope.

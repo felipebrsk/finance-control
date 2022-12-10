@@ -5,7 +5,7 @@ namespace App\Contracts\Repositories;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
 
-interface SpaceRepositoryInterface extends BasicRepositoryInterface
+interface SpaceRepositoryInterface extends BasicRepositoryInterface, HasTagsRepositoryInterface
 {
     /**
      * Get all auth user spaces.

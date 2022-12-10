@@ -5,7 +5,7 @@ namespace App\Contracts\Services;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
 
-interface SpaceServiceInterface extends BasicServiceInterface
+interface SpaceServiceInterface extends BasicServiceInterface, HasTagsServiceInterface
 {
     /**
      * Get all auth user spaces.

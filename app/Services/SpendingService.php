@@ -7,7 +7,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Pagination\LengthAwarePaginator;
 use App\Contracts\Repositories\SpendingRepositoryInterface;
-use App\Contracts\Services\{SpendingServiceInterface, CategoryServiceInterface, TagServiceInterface};
+use App\Contracts\Services\{
+    SpendingServiceInterface,
+    CategoryServiceInterface,
+    TagServiceInterface
+};
 use App\Exceptions\{
     Category\CategoryDoesntBelongsToUserSpaceException,
     Space\SpaceDoesntBelongsToUserException,
@@ -129,5 +133,17 @@ class SpendingService extends AbstractService implements SpendingServiceInterfac
         } else if ($spaceId && !Auth::user()->spaces->contains($spaceId)) {
             throw new SpaceDoesntBelongsToUserException();
         }
+    }
+
+    /**
+     * Detach spending tags.
+     * 
+     * @param array $ids
+     * @param mixed $id
+     * @return \App\Models\Spending
+     */
+    public function detachTags(array $ids, mixed $id): Spending
+    {
+        return $this->repository->detachTags($ids, $id);
     }
 }

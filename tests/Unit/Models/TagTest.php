@@ -5,6 +5,7 @@ namespace Tests\Unit\Models;
 use Tests\TestCase;
 use App\Models\Tag;
 use App\Traits\HasSlug;
+use EloquentFilter\Filterable;
 use Tests\Traits\TestUnitModels;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -34,6 +35,7 @@ class TagTest extends TestCase
             'name',
             'slug',
             'color',
+            'user_id',
         ];
 
         $this->verifyIfExistFillable($fillable);
@@ -50,6 +52,7 @@ class TagTest extends TestCase
             HasFactory::class,
             SoftDeletes::class,
             HasSlug::class,
+            Filterable::class,
         ];
 
         $this->verifyIfUseTraits($traits);

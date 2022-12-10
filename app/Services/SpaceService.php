@@ -100,4 +100,16 @@ class SpaceService extends AbstractService implements SpaceServiceInterface
             }
         }
     }
+
+    /**
+     * Detach space tags.
+     * 
+     * @param array $ids
+     * @param mixed $id
+     * @return \App\Models\Space
+     */
+    public function detachTags(array $ids, mixed $id): Space
+    {
+        return $this->repository->detachTags($ids, $id);
+    }
 }

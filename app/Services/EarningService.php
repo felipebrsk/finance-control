@@ -133,4 +133,16 @@ class EarningService extends AbstractService implements EarningServiceInterface
             throw new SpaceDoesntBelongsToUserException();
         }
     }
+
+    /**
+     * Detach earning tags.
+     * 
+     * @param array $ids
+     * @param mixed $id
+     * @return \App\Models\Earning
+     */
+    public function detachTags(array $ids, mixed $id): Earning
+    {
+        return $this->repository->detachTags($ids, $id);
+    }
 }

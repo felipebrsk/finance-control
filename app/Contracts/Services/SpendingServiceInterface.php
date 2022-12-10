@@ -5,7 +5,7 @@ namespace App\Contracts\Services;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
 
-interface SpendingServiceInterface extends BasicServiceInterface
+interface SpendingServiceInterface extends BasicServiceInterface, HasTagsServiceInterface
 {
     /**
      * Get all auth spendings.

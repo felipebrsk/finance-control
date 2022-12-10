@@ -8,7 +8,7 @@ use App\Http\Resources\SpaceResource;
 use Illuminate\Support\Facades\{DB, Log};
 use App\Contracts\Services\SpaceServiceInterface;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
-use App\Http\Requests\Space\{SpaceStoreRequest, SpaceUpdateRequest};
+use App\Http\Requests\Space\{DetachSpaceTagsRequest, SpaceStoreRequest, SpaceUpdateRequest};
 
 class SpaceController extends Controller
 {
@@ -49,7 +49,7 @@ class SpaceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \App\Http\Resources\SpaceResource
      */
-    public function store(SpaceStoreRequest $request)
+    public function store(SpaceStoreRequest $request): SpaceResource
     {
         DB::beginTransaction();
 
@@ -75,7 +75,7 @@ class SpaceController extends Controller
      * @param  mixed  $id
      * @return \App\Http\Resources\SpaceResource
      */
-    public function show(mixed $id)
+    public function show(mixed $id): SpaceResource
     {
         return SpaceResource::make(
             $this->spaceServiceInterface->findOrFail($id)->load(
@@ -93,7 +93,7 @@ class SpaceController extends Controller
      * @param  mixed  $id
      * @return \App\Http\Resources\SpaceResource
      */
-    public function update(SpaceUpdateRequest $request, mixed $id)
+    public function update(SpaceUpdateRequest $request, mixed $id): SpaceResource
     {
         DB::beginTransaction();
 
@@ -122,5 +122,33 @@ class SpaceController extends Controller
     public function destroy(mixed $id): void
     {
         $this->spaceServiceInterface->delete($id);
+    }
+
+    /**
+     * Detach tags from space.
+     * 
+     * @param  \App\Http\Requests\Space\DetachSpaceTagsRequest  $request
+     * @param mixed $id
+     * @return \App\Models\Spending
+     */
+    public function detachTags(DetachSpaceTagsRequest $request, mixed $id): SpaceResource
+    {
+        DB::beginTransaction();
+        $data = $request->validated();
+
+        try {
+            $space = $this->spaceServiceInterface->detachTags($data['tags'], $id);
+
+            DB::commit();
+
+            return SpaceResource::make($space->load('tags'));
+        } catch (Exception $e) {
+            DB::rollBack();
+            Log::error('Failed to detach space tags', [
+                'message' => $e->getMessage(),
+                'context' => $e->getTraceAsString(),
+            ]);
+            throw $e;
+        }
     }
 }

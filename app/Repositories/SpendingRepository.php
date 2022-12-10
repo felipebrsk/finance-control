@@ -107,4 +107,24 @@ class SpendingRepository extends AbstractRepository implements SpendingRepositor
 
         $spending->delete();
     }
+
+    /**
+     * Detach a spending tags.
+     * 
+     * @param array $ids
+     * @param mixed $id
+     * @return \App\Models\Spending
+     */
+    public function detachTags(array $ids, mixed $id): Spending
+    {
+        $spending = $this->model::findOrFail($id);
+
+        if (Auth::user()->cant('update', $spending)) {
+            throw new SpendingDoesntBelongsToUserSpaceException();
+        }
+
+        $spending->tags()->detach($ids);
+
+        return $spending;
+    }
 }

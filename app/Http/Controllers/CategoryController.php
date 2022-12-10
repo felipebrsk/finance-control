@@ -89,7 +89,7 @@ class CategoryController extends Controller
             return CategoryResource::make($category);
         } catch (Exception $e) {
             DB::rollBack();
-            Log::error('Failed to create category', [
+            Log::error('Failed to update category', [
                 'message' => $e->getMessage(),
                 'context' => $e->getTraceAsString(),
             ]);

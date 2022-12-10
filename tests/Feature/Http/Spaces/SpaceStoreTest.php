@@ -82,7 +82,7 @@ class SpaceStoreTest extends TestCase
                 $this->createDummyTag()->id,
             ],
         ])->assertForbidden()
-            ->assertSee('Uma ou mais tags n\u00e3o pertencem ao seu usu\u00e1rio e n\u00e3o foi poss\u00edvel associ\u00e1-la. Tente criar uma nova tag e repetir o processo.');
+            ->assertSee('Uma ou mais tags n\u00e3o pertencem ao seu usu\u00e1rio. Nenhuma opera\u00e7\u00e3o pode ser feita. Tente criar uma nova tag e repetir o processo.');
     }
 
     /**

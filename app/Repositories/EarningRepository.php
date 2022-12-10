@@ -107,4 +107,24 @@ class EarningRepository extends AbstractRepository implements EarningRepositoryI
 
         $earning->delete();
     }
+
+    /**
+     * Detach a earning tags.
+     * 
+     * @param array $ids
+     * @param mixed $id
+     * @return \App\Models\Earning
+     */
+    public function detachTags(array $ids, mixed $id): Earning
+    {
+        $earning = $this->model::findOrFail($id);
+
+        if (Auth::user()->cant('update', $earning)) {
+            throw new EarningDoesntBelongsToUserSpaceException();
+        }
+
+        $earning->tags()->detach($ids);
+
+        return $earning;
+    }
 }

@@ -8,7 +8,7 @@ use App\Http\Resources\EarningResource;
 use Illuminate\Support\Facades\{DB, Log};
 use App\Contracts\Services\EarningServiceInterface;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
-use App\Http\Requests\Earning\{EarningStoreRequest, EarningUpdateRequest};
+use App\Http\Requests\Earning\{DetachEarningTagsRequest, EarningStoreRequest, EarningUpdateRequest};
 
 class EarningController extends Controller
 {
@@ -49,7 +49,7 @@ class EarningController extends Controller
      * @param  \App\Http\Requests\Earning\EarningStoreRequest  $request
      * @return \App\Http\Resources\EarningResource
      */
-    public function store(EarningStoreRequest $request)
+    public function store(EarningStoreRequest $request): EarningResource
     {
         DB::beginTransaction();
 
@@ -94,7 +94,7 @@ class EarningController extends Controller
      * @param  mixed  $id
      * @return \App\Http\Resources\EarningResource
      */
-    public function update(EarningUpdateRequest $request, mixed $id)
+    public function update(EarningUpdateRequest $request, mixed $id): EarningResource
     {
         DB::beginTransaction();
 
@@ -123,5 +123,33 @@ class EarningController extends Controller
     public function destroy(mixed $id): void
     {
         $this->earningServiceInterface->delete($id);
+    }
+
+    /**
+     * Detach tags from earning.
+     * 
+     * @param  \App\Http\Requests\Earning\DetachEarningTagsRequest  $request
+     * @param mixed $id
+     * @return \App\Models\Spending
+     */
+    public function detachTags(DetachEarningTagsRequest $request, mixed $id): EarningResource
+    {
+        DB::beginTransaction();
+        $data = $request->validated();
+
+        try {
+            $earning = $this->earningServiceInterface->detachTags($data['tags'], $id);
+
+            DB::commit();
+
+            return EarningResource::make($earning->load('tags'));
+        } catch (Exception $e) {
+            DB::rollBack();
+            Log::error('Failed to detach earning tags', [
+                'message' => $e->getMessage(),
+                'context' => $e->getTraceAsString(),
+            ]);
+            throw $e;
+        }
     }
 }

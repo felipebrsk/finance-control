@@ -8,7 +8,7 @@ use App\Http\Resources\SpendingResource;
 use Illuminate\Support\Facades\{DB, Log};
 use App\Contracts\Services\SpendingServiceInterface;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
-use App\Http\Requests\Spending\{SpendingStoreRequest, SpendingUpdateRequest};
+use App\Http\Requests\Spending\{DetachSpendingTagsRequest, SpendingStoreRequest, SpendingUpdateRequest};
 
 class SpendingController extends Controller
 {
@@ -125,5 +125,33 @@ class SpendingController extends Controller
     public function destroy(mixed $id): void
     {
         $this->spendingServiceInterface->delete($id);
+    }
+
+    /**
+     * Detach tags from spending.
+     * 
+     * @param  \App\Http\Requests\Spending\DetachSpendingTagsRequest  $request
+     * @param mixed $id
+     * @return \App\Models\Spending
+     */
+    public function detachTags(DetachSpendingTagsRequest $request, mixed $id): SpendingResource
+    {
+        DB::beginTransaction();
+        $data = $request->validated();
+
+        try {
+            $spending = $this->spendingServiceInterface->detachTags($data['tags'], $id);
+
+            DB::commit();
+
+            return SpendingResource::make($spending->load('tags'));
+        } catch (Exception $e) {
+            DB::rollBack();
+            Log::error('Failed to detach spending tags', [
+                'message' => $e->getMessage(),
+                'context' => $e->getTraceAsString(),
+            ]);
+            throw $e;
+        }
     }
 }

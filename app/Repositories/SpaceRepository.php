@@ -109,4 +109,24 @@ class SpaceRepository extends AbstractRepository implements SpaceRepositoryInter
 
         $space->delete();
     }
+
+    /**
+     * Detach a space tags.
+     * 
+     * @param array $ids
+     * @param mixed $id
+     * @return \App\Models\Space
+     */
+    public function detachTags(array $ids, mixed $id): Space
+    {
+        $space = $this->model::findOrFail($id);
+
+        if (Auth::user()->cant('update', $space)) {
+            throw new SpaceDoesntBelongsToUserException();
+        }
+
+        $space->tags()->detach($ids);
+
+        return $space;
+    }
 }

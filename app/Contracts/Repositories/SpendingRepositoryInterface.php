@@ -5,7 +5,7 @@ namespace App\Contracts\Repositories;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
 
-interface SpendingRepositoryInterface extends BasicRepositoryInterface
+interface SpendingRepositoryInterface extends BasicRepositoryInterface, HasTagsRepositoryInterface
 {
     /**
      * Get all auth spendings.

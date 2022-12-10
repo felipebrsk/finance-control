@@ -4,8 +4,10 @@ namespace App\Models;
 
 use App\Traits\HasSlug;
 use App\Helpers\SlugOptions;
-use Illuminate\Database\Eloquent\{Model, SoftDeletes};
+use EloquentFilter\Filterable;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\{Builder, Model, SoftDeletes};
 use Illuminate\Database\Eloquent\Relations\{BelongsTo, MorphToMany};
 
 class Tag extends Model
@@ -19,6 +21,7 @@ class Tag extends Model
         'name',
         'slug',
         'color',
+        'user_id',
     ];
 
     /**
@@ -33,6 +36,7 @@ class Tag extends Model
     use HasFactory;
     use SoftDeletes;
     use HasSlug;
+    use Filterable;
 
     /**
      * Get the options for generating the slug.
@@ -62,5 +66,16 @@ class Tag extends Model
     public function taggables(): MorphToMany
     {
         return $this->morphToMany(Tag::class, 'taggable', 'taggable_tags')->using(TaggableTag::class);
+    }
+
+    /**
+     * Create scope from user.
+     * 
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeFromAuthUser(Builder $query): Builder
+    {
+        return $query->whereUserId(Auth::id());
     }
 }

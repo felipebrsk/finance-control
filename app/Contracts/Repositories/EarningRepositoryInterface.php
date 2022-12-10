@@ -5,7 +5,7 @@ namespace App\Contracts\Repositories;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
 
-interface EarningRepositoryInterface extends BasicRepositoryInterface
+interface EarningRepositoryInterface extends BasicRepositoryInterface, HasTagsRepositoryInterface
 {
 
     /**
