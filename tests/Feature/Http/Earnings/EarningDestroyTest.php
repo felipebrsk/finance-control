@@ -1,17 +1,17 @@
 <?php
 
-namespace Tests\Feature\Http\earnings;
+namespace Tests\Feature\Http\Earnings;
 
 use Tests\TestCase;
 use Illuminate\Support\Facades\DB;
-use Tests\Traits\{HasDummySpace, HasDummyearning, HasDummyTag, HasDummyUser};
+use Tests\Traits\{HasDummySpace, HasDummyEarning, HasDummyTag, HasDummyUser};
 
-class earningDestroyTest extends TestCase
+class EarningDestroyTest extends TestCase
 {
     use HasDummyTag;
     use HasDummyUser;
     use HasDummySpace;
-    use HasDummyearning;
+    use HasDummyEarning;
 
     /**
      * The dummy user.
