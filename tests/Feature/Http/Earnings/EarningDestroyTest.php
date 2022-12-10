@@ -2,12 +2,13 @@
 
 namespace Tests\Feature\Http\earnings;
 
-use Illuminate\Support\Facades\DB;
 use Tests\TestCase;
-use Tests\Traits\{HasDummySpace, HasDummyearning, HasDummyUser};
+use Illuminate\Support\Facades\DB;
+use Tests\Traits\{HasDummySpace, HasDummyearning, HasDummyTag, HasDummyUser};
 
 class earningDestroyTest extends TestCase
 {
+    use HasDummyTag;
     use HasDummyUser;
     use HasDummySpace;
     use HasDummyearning;
@@ -125,5 +126,21 @@ class earningDestroyTest extends TestCase
         $this->deleteJson(route('earnings.destroy', $this->earning->id))->assertOk();
 
         $this->getJson(route('earnings.index'))->assertOk()->assertJsonCount(0, 'data');
+    }
+
+    /**
+     * Test if can delete the tags on earning deletion.
+     * 
+     * @return void
+     */
+    public function test_if_can_delete_the_tags_on_earning_deletion(): void
+    {
+        $this->earning->tags()->save($this->createDummyTagTo($this->user))->save();
+
+        $this->assertDatabaseCount('taggable_tags', 1);
+
+        $this->deleteJson(route('earnings.destroy', $this->earning->id))->assertOk();
+
+        $this->assertDatabaseCount('taggable_tags', 0);
     }
 }

@@ -137,11 +137,11 @@ class EarningUpdateTest extends TestCase
     }
 
     /**
-     * Test if can save updated earning data on database.
+     * Test if can save updated earning data in database.
      * 
      * @return void
      */
-    public function test_if_can_save_payload_correctly_on_database(): void
+    public function test_if_can_save_payload_correctly_in_database(): void
     {
         $this->putJson(route('earnings.update', $this->earning->id), $data = $this->getValidearningPayload())->assertOk();
 

@@ -75,11 +75,11 @@ class ForgotPasswordTest extends TestCase
     }
 
     /**
-     * Test if can save the request on database.
+     * Test if can save the request in database.
      * 
      * @return void
      */
-    public function test_if_can_save_the_request_on_database(): void
+    public function test_if_can_save_the_request_in_database(): void
     {
         $this->postJson(route('password.forgot'), [
             'email' => $this->user->email,

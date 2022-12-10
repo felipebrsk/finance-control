@@ -198,11 +198,11 @@ class RegisterTest extends TestCase
     }
 
     /**
-     * Test if can save the correctly profile picture s3 path on database.
+     * Test if can save the correctly profile picture s3 path in database.
      * 
      * @return void
      */
-    public function test_if_can_save_the_correctly_avatar_s3_path_on_database(): void
+    public function test_if_can_save_the_correctly_avatar_s3_path_in_database(): void
     {
         $this->postJson(route('register'), $this->getRegisterCredentials() + [
             'avatar' => $file = UploadedFile::fake()->create('profile.png'),

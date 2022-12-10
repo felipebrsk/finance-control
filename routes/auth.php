@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{
     Auth\AuthController,
     ActivityController,
+    CategoryController,
     EarningController,
     SpaceController,
     SpendingController,
@@ -28,6 +29,7 @@ Route::controller(AuthController::class)->group(function () {
 Route::apiResource('spaces', SpaceController::class);
 Route::apiResource('earnings', EarningController::class);
 Route::apiResource('spendings', SpendingController::class);
+Route::apiResource('categories', CategoryController::class)->except('show');
 
 Route::get('activities', ActivityController::class)->name('user.activities');
 

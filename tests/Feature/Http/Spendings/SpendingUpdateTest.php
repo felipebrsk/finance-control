@@ -137,11 +137,11 @@ class SpendingUpdateTest extends TestCase
     }
 
     /**
-     * Test if can save updated spending data on database.
+     * Test if can save updated spending data in database.
      * 
      * @return void
      */
-    public function test_if_can_save_payload_correctly_on_database(): void
+    public function test_if_can_save_payload_correctly_in_database(): void
     {
         $this->putJson(route('spendings.update', $this->spending->id), $data = $this->getValidSpendingPayload())->assertOk();
 

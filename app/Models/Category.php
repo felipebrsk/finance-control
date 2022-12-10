@@ -4,11 +4,13 @@ namespace App\Models;
 
 use App\Traits\HasSlug;
 use App\Helpers\SlugOptions;
+use App\Traits\HasScopeFromUserSpace;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\{Model, SoftDeletes};
 use App\Contracts\Eloquent\ShouldBelongsToSpaceInterface;
 use Illuminate\Database\Eloquent\Relations\{BelongsTo, HasMany};
 use App\Events\Category\{CategoryCreated, CategoryDeleted, CategoryUpdated};
+use EloquentFilter\Filterable;
 
 class Category extends Model implements ShouldBelongsToSpaceInterface
 {
@@ -33,9 +35,11 @@ class Category extends Model implements ShouldBelongsToSpaceInterface
         'deleted_at',
     ];
 
+    use HasSlug;
+    use Filterable;
     use HasFactory;
     use SoftDeletes;
-    use HasSlug;
+    use HasScopeFromUserSpace;
 
     /**
      * Create model dispatchable events.

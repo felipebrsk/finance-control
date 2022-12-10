@@ -145,11 +145,11 @@ class EarningStoreTest extends TestCase
     }
 
     /**
-     * Test if can create correctly earning on database.
+     * Test if can create correctly earning in database.
      * 
      * @return void
      */
-    public function test_if_can_create_correctly_earning_on_database(): void
+    public function test_if_can_create_correctly_earning_in_database(): void
     {
         $this->postJson(route('earnings.store'), $data = $this->getValidEarningPayload())->assertCreated();
 
@@ -164,11 +164,11 @@ class EarningStoreTest extends TestCase
     }
 
     /**
-     * Test if can associate the tags on database.
+     * Test if can associate the tags in database.
      * 
      * @return void
      */
-    public function test_if_can_associate_the_tags_on_database(): void
+    public function test_if_can_associate_the_tags_in_database(): void
     {
         $id = $this->postJson(route('earnings.store'), $data = $this->getValidEarningPayload())->assertCreated()->json('data')['id'];
 

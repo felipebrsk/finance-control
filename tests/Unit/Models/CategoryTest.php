@@ -5,7 +5,9 @@ namespace Tests\Unit\Models;
 use Tests\TestCase;
 use App\Traits\HasSlug;
 use App\Models\Category;
+use EloquentFilter\Filterable;
 use Tests\Traits\TestUnitModels;
+use App\Traits\HasScopeFromUserSpace;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -48,9 +50,11 @@ class CategoryTest extends TestCase
     public function test_if_use_traits(): void
     {
         $traits = [
+            HasSlug::class,
+            Filterable::class,
             HasFactory::class,
             SoftDeletes::class,
-            HasSlug::class,
+            HasScopeFromUserSpace::class,
         ];
 
         $this->verifyIfUseTraits($traits);

@@ -96,11 +96,11 @@ class SpaceStoreTest extends TestCase
     }
 
     /**
-     * Test if can create correctly space on database.
+     * Test if can create correctly space in database.
      * 
      * @return void
      */
-    public function test_if_can_create_correctly_space_on_database(): void
+    public function test_if_can_create_correctly_space_in_database(): void
     {
         $this->postJson(route('spaces.store'), $data = $this->getValidSpacePayload())->assertCreated();
 
@@ -113,11 +113,11 @@ class SpaceStoreTest extends TestCase
     }
 
     /**
-     * Test if can associate the tags on database.
+     * Test if can associate the tags in database.
      * 
      * @return void
      */
-    public function test_if_can_associate_the_tags_on_database(): void
+    public function test_if_can_associate_the_tags_in_database(): void
     {
         $id = $this->postJson(route('spaces.store'), $data = $this->getValidSpacePayload())->assertCreated()->json('data')['id'];
 

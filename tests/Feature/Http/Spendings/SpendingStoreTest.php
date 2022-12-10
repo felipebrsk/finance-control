@@ -151,11 +151,11 @@ class SpendingStoreTest extends TestCase
     }
 
     /**
-     * Test if can create correctly spending on database.
+     * Test if can create correctly spending in database.
      * 
      * @return void
      */
-    public function test_if_can_create_correctly_spending_on_database(): void
+    public function test_if_can_create_correctly_spending_in_database(): void
     {
         $this->postJson(route('spendings.store'), $data = $this->getValidSpendingPayload())->assertCreated();
 
@@ -170,11 +170,11 @@ class SpendingStoreTest extends TestCase
     }
 
     /**
-     * Test if can associate the tags on database.
+     * Test if can associate the tags in database.
      * 
      * @return void
      */
-    public function test_if_can_associate_the_tags_on_database(): void
+    public function test_if_can_associate_the_tags_in_database(): void
     {
         $id = $this->postJson(route('spendings.store'), $data = $this->getValidSpendingPayload())->assertCreated()->json('data')['id'];
 

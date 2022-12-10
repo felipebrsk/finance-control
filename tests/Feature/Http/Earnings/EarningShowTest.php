@@ -110,6 +110,7 @@ class EarningShowTest extends TestCase
                     'id',
                     'name',
                     'slug',
+                    'color',
                     'created_at',
                     'updated_at',
                 ],

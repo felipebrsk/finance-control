@@ -97,11 +97,11 @@ class PasswordResetTest extends TestCase
     }
 
     /**
-     * Test if can reset password on database.
+     * Test if can reset password in database.
      * 
      * @return void
      */
-    public function test_if_can_reset_password_on_database(): void
+    public function test_if_can_reset_password_in_database(): void
     {
         $this->assertTrue(Hash::check('admin1234', DB::table('users')->whereEmail($this->user->email)->value('password')));
 

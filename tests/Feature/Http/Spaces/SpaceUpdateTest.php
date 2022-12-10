@@ -124,11 +124,11 @@ class SpaceUpdateTest extends TestCase
     }
 
     /**
-     * Test if can save space correctly on database.
+     * Test if can save space correctly in database.
      * 
      * @return void
      */
-    public function test_if_can_save_space_correctly_on_database(): void
+    public function test_if_can_save_space_correctly_in_database(): void
     {
         $this->putJson(route('spaces.update', $this->space->id), $data = $this->getValidSpacePayload())->assertOk();
 
@@ -141,11 +141,11 @@ class SpaceUpdateTest extends TestCase
     }
 
     /**
-     * Test if can associate the tags on database.
+     * Test if can associate the tags in database.
      * 
      * @return void
      */
-    public function test_if_can_associate_the_tags_on_database(): void
+    public function test_if_can_associate_the_tags_in_database(): void
     {
         $this->putJson(route('spaces.update', $this->space->id), $data = $this->getValidSpacePayload())->assertOk();
 

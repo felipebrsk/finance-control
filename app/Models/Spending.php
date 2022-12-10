@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use EloquentFilter\Filterable;
+use Illuminate\Support\Facades\DB;
 use App\Traits\HasScopeFromUserSpace;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\{Model, SoftDeletes};
@@ -100,5 +101,19 @@ class Spending extends Model implements ShouldBelongsToSpaceInterface
     public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);
+    }
+
+    /**
+     * Delete the space with attachments.
+     * 
+     * @return bool
+     */
+    public function delete(): bool
+    {
+        return DB::transaction(function () {
+            $this->tags()->detach();
+
+            return parent::delete();
+        });
     }
 }

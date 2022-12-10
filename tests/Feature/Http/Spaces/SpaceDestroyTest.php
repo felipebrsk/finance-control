@@ -108,4 +108,20 @@ class SpaceDestroyTest extends TestCase
 
         $this->getJson(route('spaces.index'))->assertOk()->assertJsonCount(1, 'data');
     }
+
+    /**
+     * Test if can delete the tags on space deletion.
+     * 
+     * @return void
+     */
+    public function test_if_can_delete_the_tags_on_space_deletion(): void
+    {
+        $this->space->tags()->save($this->createDummyTagTo($this->user))->save();
+
+        $this->assertDatabaseCount('taggable_tags', 1);
+
+        $this->deleteJson(route('spaces.destroy', $this->space->id))->assertOk();
+
+        $this->assertDatabaseCount('taggable_tags', 0);
+    }
 }
