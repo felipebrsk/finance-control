@@ -78,17 +78,12 @@ You can call API routes in http://localhost:8000/ or change the port in `docker-
 -   [x] Create route to detach space tags - with tests;
 -   [x] Create the crud of recurrings - with tests;
 -   [x] Create route to detach recurring tags - with tests;
+-   [x] Check the possibility of create a recurring with own currency (created);
+-   [x] Implement the jobs to execute the user recurrings;
+-   [x] Implement the pusher and sockets to broadcast events;
 -   [ ] Check the possibility of spaces limitations (quantity of spaces per user - subscription or something else);
 -   [ ] Integrate system with RabbitMQ;
--   [ ] Check the possibility of create a recurring with own currency;
--   [ ] Get auth user recurrings;
--   [ ] Get auth user spaces;
--   [ ] Get auth user categories;
--   [ ] Get auth user imports;
--   [ ] Get spendings and earnings tags;
--   [ ] Implement the jobs to execute the user recurrings;
 -   [ ] Configure the cron job and scheduling tasks for the container;
--   [ ] Implement the pusher and sockets to broadcast events;
 -   [ ] Get attachmentables.
 
 <br/>

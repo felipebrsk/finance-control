@@ -2,20 +2,19 @@
 
 namespace App\Events\Recurring;
 
-use Illuminate\Broadcasting\Channel;
+use App\Traits\HasBroadcastActivity;
 use App\Models\{Activity, Recurring};
-use Illuminate\Broadcasting\InteractsWithSockets;
-use Illuminate\Broadcasting\PresenceChannel;
-use Illuminate\Broadcasting\PrivateChannel;
-use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
-use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Foundation\Events\Dispatchable;
+use Illuminate\Broadcasting\InteractsWithSockets;
+use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
-class RecurringCreated
+class RecurringCreated implements ShouldBroadcast
 {
     use Dispatchable;
     use InteractsWithSockets;
     use SerializesModels;
+    use HasBroadcastActivity;
 
     /**
      * Create a new event instance.
@@ -25,22 +24,13 @@ class RecurringCreated
      */
     public function __construct(Recurring $recurring)
     {
-        Activity::create([
+        $this->activity = Activity::create([
             'activitable_id' => $recurring->id,
             'activitable_type' => $recurring::class,
             'space_id' => $recurring->space->id,
             'action' => 'recurring.created',
         ]);
-    }
 
-    # TODO integrate with pusher.
-    /**
-     * Get the channels the event should broadcast on.
-     *
-     * @return \Illuminate\Broadcasting\Channel|array
-     */
-    // public function broadcastOn()
-    // {
-    //     return new PrivateChannel('channel-name');
-    // }
+        $this->broadcastChannel = 'recurrings';
+    }
 }

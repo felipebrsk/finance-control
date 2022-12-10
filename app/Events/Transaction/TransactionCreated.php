@@ -3,43 +3,35 @@
 namespace App\Events\Transaction;
 
 use App\Models\Activity;
-use Illuminate\Broadcasting\Channel;
+use App\Traits\HasBroadcastActivity;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Broadcasting\PrivateChannel;
-use Illuminate\Broadcasting\PresenceChannel;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
-class TransactionCreated
+class TransactionCreated implements ShouldBroadcast
 {
-    use Dispatchable, InteractsWithSockets, SerializesModels;
+    use Dispatchable;
+    use InteractsWithSockets;
+    use SerializesModels;
+    use HasBroadcastActivity;
 
     /**
      * Create a new event instance.
      *
-     * @param \App\Models\Recurring $recurring
+     * @param \Illuminate\Database\Eloquent\Model $model
      * @return void
      */
     public function __construct(Model $model)
     {
-        Activity::create([
+        $this->activity = Activity::create([
             'activitable_id' => $model->id,
             'activitable_type' => $model::class,
             'space_id' => $model->space->id,
             'action' => 'transaction.created',
         ]);
-    }
 
-    # TODO implement with pusher.
-    /**
-     * Get the channels the event should broadcast on.
-     *
-     * @return \Illuminate\Broadcasting\Channel|array
-     */
-    // public function broadcastOn()
-    // {
-    //     return new PrivateChannel('channel-name');
-    // }
+        $this->broadcastChannel = 'transactions';
+    }
 }

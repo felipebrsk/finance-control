@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature\Http\Spaces;
+namespace Tests\Feature\Http\Earnings;
 
 use Tests\TestCase;
 use Tests\Traits\{

@@ -3,17 +3,18 @@
 namespace App\Events\Category;
 
 use App\Models\{Activity, Category};
-use Illuminate\Broadcasting\Channel;
+use App\Traits\HasBroadcastActivity;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Broadcasting\PrivateChannel;
-use Illuminate\Broadcasting\PresenceChannel;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
-class CategoryDeleted
+class CategoryDeleted implements ShouldBroadcast
 {
-    use Dispatchable, InteractsWithSockets, SerializesModels;
+    use Dispatchable;
+    use InteractsWithSockets;
+    use SerializesModels;
+    use HasBroadcastActivity;
 
     /**
      * Create a new event instance.
@@ -23,22 +24,13 @@ class CategoryDeleted
      */
     public function __construct(Category $category)
     {
-        Activity::create([
+        $this->activity = Activity::create([
             'activitable_id' => $category->id,
             'activitable_type' => $category::class,
             'space_id' => $category->space->id,
             'action' => 'category.deleted',
         ]);
-    }
 
-    # TODO implement with pusher.
-    /**
-     * Get the channels the event should broadcast on.
-     *
-     * @return \Illuminate\Broadcasting\Channel|array
-     */
-    // public function broadcastOn()
-    // {
-    //     return new PrivateChannel('channel-name');
-    // }
+        $this->broadcastChannel = 'categories';
+    }
 }

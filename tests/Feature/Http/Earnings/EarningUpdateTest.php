@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature\Http\earnings;
+namespace Tests\Feature\Http\Earnings;
 
 use Tests\TestCase;
 use Tests\Traits\{HasDummyCategory, HasDummySpace, HasDummyEarning, HasDummyTag, HasDummyUser};
