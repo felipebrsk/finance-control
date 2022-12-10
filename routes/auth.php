@@ -6,6 +6,7 @@ use App\Http\Controllers\{
     ActivityController,
     CategoryController,
     EarningController,
+    RecurringController,
     SpaceController,
     SpendingController,
     TagController,
@@ -22,21 +23,28 @@ use App\Http\Controllers\{
 |
 */
 
+# Auth
 Route::controller(AuthController::class)->group(function () {
     Route::get('me', 'me')->name('me');
     Route::post('refresh', 'refresh')->name('refresh');
 });
 
+# Resources (api)
 Route::apiResource('spaces', SpaceController::class);
 Route::apiResource('earnings', EarningController::class);
 Route::apiResource('spendings', SpendingController::class);
+Route::apiResource('recurrings', RecurringController::class);
 Route::apiResource('tags', TagController::class)->except('show');
 Route::apiResource('categories', CategoryController::class)->except('show');
 
+# Invokables
 Route::get('activities', ActivityController::class)->name('user.activities');
+
+# Detachables
 Route::delete('spaces/{id}/detach', [SpaceController::class, 'detachTags'])->name('space.detach.tags');
 Route::delete('earnings/{id}/detach', [EarningController::class, 'detachTags'])->name('earnings.detach.tags');
 Route::delete('spendings/{id}/detach', [SpendingController::class, 'detachTags'])->name('spendings.detach.tags');
+Route::delete('recurrings/{id}/detach', [RecurringController::class, 'detachTags'])->name('recurrings.detach.tags');
 
 Route::get('tests', function () {
     //

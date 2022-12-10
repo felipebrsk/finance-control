@@ -50,7 +50,6 @@ class UserSeeder extends Seeder
                     'amount' => 300000,
                     'type' => 'earning',
                     'interval' => 'monthly',
-                    'day' => 1,
                     'start_date' => Carbon::today()->toDateString(),
                 ]);
 

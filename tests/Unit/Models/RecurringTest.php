@@ -4,6 +4,7 @@ namespace Tests\Unit\Models;
 
 use Tests\TestCase;
 use App\Models\Recurring;
+use EloquentFilter\Filterable;
 use Tests\Traits\TestUnitModels;
 use App\Traits\HasScopeFromUserSpace;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -31,7 +32,6 @@ class RecurringTest extends TestCase
     public function test_fillable(): void
     {
         $fillable = [
-            'day',
             'type',
             'when',
             'amount',
@@ -42,6 +42,7 @@ class RecurringTest extends TestCase
             'last_used_date',
             'space_id',
             'currency_id',
+            'category_id',
         ];
 
         $this->verifyIfExistFillable($fillable);
@@ -58,6 +59,7 @@ class RecurringTest extends TestCase
             HasFactory::class,
             SoftDeletes::class,
             HasScopeFromUserSpace::class,
+            Filterable::class,
         ];
 
         $this->verifyIfUseTraits($traits);

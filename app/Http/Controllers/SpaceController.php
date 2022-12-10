@@ -129,7 +129,7 @@ class SpaceController extends Controller
      * 
      * @param  \App\Http\Requests\Space\DetachSpaceTagsRequest  $request
      * @param mixed $id
-     * @return \App\Models\Spending
+     * @return \App\Http\Resources\SpaceResource
      */
     public function detachTags(DetachSpaceTagsRequest $request, mixed $id): SpaceResource
     {

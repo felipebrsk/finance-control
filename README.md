@@ -76,8 +76,8 @@ You can call API routes in http://localhost:8000/ or change the port in `docker-
 -   [x] Create route to detach spending tags - with tests;
 -   [x] Create route to detach earning tags - with tests;
 -   [x] Create route to detach space tags - with tests;
--   [ ] Create the crud of recurrings - with tests;
--   [ ] Create route to detach recurring tags - with tests;
+-   [x] Create the crud of recurrings - with tests;
+-   [x] Create route to detach recurring tags - with tests;
 -   [ ] Check the possibility of spaces limitations (quantity of spaces per user - subscription or something else);
 -   [ ] Integrate system with RabbitMQ;
 -   [ ] Check the possibility of create a recurring with own currency;

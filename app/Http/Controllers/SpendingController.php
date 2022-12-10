@@ -132,7 +132,7 @@ class SpendingController extends Controller
      * 
      * @param  \App\Http\Requests\Spending\DetachSpendingTagsRequest  $request
      * @param mixed $id
-     * @return \App\Models\Spending
+     * @return \App\Http\Resources\SpendingResource
      */
     public function detachTags(DetachSpendingTagsRequest $request, mixed $id): SpendingResource
     {

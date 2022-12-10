@@ -22,7 +22,6 @@ class RecurringFactory extends Factory
             'amount' => fake()->numberBetween(100, 29900),
             'type' => fake()->randomElement(['spending', 'earning']),
             'interval' => fake()->randomElement(['yearly', 'monthly', 'biweekly', 'weekly', 'daily']),
-            'day' => fake()->dayOfMonth(),
             'start_date' => fake()->dayOfMonth(),
             'category_id' => Category::factory()->create(),
             'space_id' => Space::factory()->create(),

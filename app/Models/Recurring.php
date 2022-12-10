@@ -2,7 +2,9 @@
 
 namespace App\Models;
 
+use EloquentFilter\Filterable;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\DB;
 use App\Traits\HasScopeFromUserSpace;
 use Illuminate\Database\Eloquent\{Model, SoftDeletes};
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -18,7 +20,6 @@ class Recurring extends Model implements ShouldBelongsToSpaceInterface
      * @var array<string, string>
      */
     protected $fillable = [
-        'day',
         'type',
         'when',
         'amount',
@@ -29,6 +30,7 @@ class Recurring extends Model implements ShouldBelongsToSpaceInterface
         'last_used_date',
         'space_id',
         'currency_id',
+        'category_id',
     ];
 
     /**
@@ -45,6 +47,7 @@ class Recurring extends Model implements ShouldBelongsToSpaceInterface
     use HasFactory;
     use SoftDeletes;
     use HasScopeFromUserSpace;
+    use Filterable;
 
     /**
      * Create model dispatchable events.
@@ -108,6 +111,20 @@ class Recurring extends Model implements ShouldBelongsToSpaceInterface
         $today = Carbon::today();
 
         return $this->starts_on <= $today && ($this->ends_on >= $today || !$this->ends_on);
+    }
+
+    /**
+     * Delete the recurring with attachments.
+     * 
+     * @return bool
+     */
+    public function delete(): bool
+    {
+        return DB::transaction(function () {
+            $this->tags()->detach();
+
+            return parent::delete();
+        });
     }
 
     /**

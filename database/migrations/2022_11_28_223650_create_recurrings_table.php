@@ -19,7 +19,6 @@ return new class extends Migration
             $table->integer('amount');
             $table->enum('type', ['spending', 'earning']);
             $table->enum('interval', ['yearly', 'monthly', 'biweekly', 'weekly', 'daily']);
-            $table->integer('day');
             $table->date('start_date');
             $table->date('end_date')->nullable();
             $table->date('last_used_date')->nullable();

@@ -130,7 +130,7 @@ class EarningController extends Controller
      * 
      * @param  \App\Http\Requests\Earning\DetachEarningTagsRequest  $request
      * @param mixed $id
-     * @return \App\Models\Spending
+     * @return \App\Http\Resources\EarningResource
      */
     public function detachTags(DetachEarningTagsRequest $request, mixed $id): EarningResource
     {

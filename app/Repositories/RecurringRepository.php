@@ -3,9 +3,13 @@
 namespace App\Repositories;
 
 use App\Models\Recurring;
+use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\{Builder, Collection};
 use App\Contracts\Repositories\RecurringRepositoryInterface;
+use App\Exceptions\Recurring\RecurringDoesntBelongsToUserSpaceException;
 
 class RecurringRepository extends AbstractRepository implements RecurringRepositoryInterface
 {
@@ -15,6 +19,96 @@ class RecurringRepository extends AbstractRepository implements RecurringReposit
      * @var \App\Models\Recurring
      */
     protected $model = Recurring::class;
+
+    /**
+     * Get all recurrings with filter.
+     * 
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Pagination\LengthAwarePaginator
+     */
+    public function allWithFilter(Request $request): LengthAwarePaginator
+    {
+        return $this->model::fromUserSpaces()->filter($request->all())->paginate(self::PER_PAGE);
+    }
+
+    /**
+     * Find or fail a recurring.
+     * 
+     * @param mixed $id
+     * @return \App\Models\Recurring
+     */
+    public function findOrFail(mixed $id): Recurring
+    {
+        $recurring = $this->model::findOrFail($id);
+
+        if (Auth::user()->cant('view', $recurring)) {
+            throw new RecurringDoesntBelongsToUserSpaceException();
+        }
+
+        return $recurring;
+    }
+
+    /**
+     * Create a new recurring.
+     * 
+     * @param array $data
+     * @return \App\Models\Recurring
+     */
+    public function create(array $data): Recurring
+    {
+        $recurring = $this->model::create($data);
+
+        if ($tags = issetGetter('tags', $data)) {
+            foreach ($tags as $tag) {
+                $recurring->tags()->syncWithoutDetaching($tag);
+            }
+        }
+
+        return $recurring;
+    }
+
+    /**
+     * Update a recurring.
+     * 
+     * @param array $data
+     * @param mixed $id
+     * @return \App\Models\Recurring
+     */
+    public function update(array $data, mixed $id): Recurring
+    {
+        $recurring = $this->findOrFail($id);
+
+        if (Auth::user()->cant('update', $recurring)) {
+            throw new RecurringDoesntBelongsToUserSpaceException();
+        }
+
+        if ($tags = issetGetter('tags', $data)) {
+            foreach ($tags as $tag) {
+                $recurring->tags()->syncWithoutDetaching($tag);
+            }
+        }
+
+        $recurring->update($data);
+
+        return $recurring;
+    }
+
+    /**
+     * Delete a recurring.
+     * 
+     * @param mixed $id
+     * @return void
+     */
+    public function delete(mixed $id): void
+    {
+        $recurring = $this->findOrFail($id);
+
+        if (Auth::user()->cant('delete', $recurring)) {
+            throw new RecurringDoesntBelongsToUserSpaceException();
+        }
+
+        $recurring->delete();
+    }
 
     /**
      * Get the yearly recurrings.
@@ -121,5 +215,25 @@ class RecurringRepository extends AbstractRepository implements RecurringReposit
             })->where(function (Builder $query) use ($today) {
                 $query->where('last_used_date', '<', $today)->orWhereNull('last_used_date');
             })->get();
+    }
+
+    /**
+     * Detach a recurring tags.
+     * 
+     * @param array $ids
+     * @param mixed $id
+     * @return \App\Models\Recurring
+     */
+    public function detachTags(array $ids, mixed $id): Recurring
+    {
+        $recurring = $this->model::findOrFail($id);
+
+        if (Auth::user()->cant('update', $recurring)) {
+            throw new RecurringDoesntBelongsToUserSpaceException();
+        }
+
+        $recurring->tags()->detach($ids);
+
+        return $recurring;
     }
 }
