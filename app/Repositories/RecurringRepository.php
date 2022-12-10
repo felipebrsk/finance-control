@@ -236,4 +236,20 @@ class RecurringRepository extends AbstractRepository implements RecurringReposit
 
         return $recurring;
     }
+
+    /**
+     * Update from process recurrings job.
+     * 
+     * @param array $data
+     * @param mixed $id
+     * @return \App\Models\Recurring
+     */
+    public function updateFromJob(array $data, mixed $id): Recurring
+    {
+        $recurring = $this->model::findOrFail($id);
+
+        $recurring->update($data);
+
+        return $recurring;
+    }
 }

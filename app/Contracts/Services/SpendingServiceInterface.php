@@ -3,6 +3,7 @@
 namespace App\Contracts\Services;
 
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Pagination\LengthAwarePaginator;
 
 interface SpendingServiceInterface extends BasicServiceInterface, HasTagsServiceInterface
@@ -14,4 +15,12 @@ interface SpendingServiceInterface extends BasicServiceInterface, HasTagsService
      * @return \Illuminate\Pagination\LengthAwarePaginator
      */
     public function allWithFilter(Request $request): LengthAwarePaginator;
+
+    /**
+     * Create from process recurrings job.
+     * 
+     * @param array $data
+     * @return \Illuminate\Database\Eloquent\Model
+     */
+    public function createFromJob(array $data): Model;
 }

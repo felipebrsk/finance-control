@@ -146,4 +146,15 @@ class SpendingService extends AbstractService implements SpendingServiceInterfac
     {
         return $this->repository->detachTags($ids, $id);
     }
+
+    /**
+     * Create from process recurrings job.
+     * 
+     * @param array $data
+     * @return \Illuminate\Database\Eloquent\Model
+     */
+    public function createFromJob(array $data): Spending
+    {
+        return $this->repository->createFromJob($data);
+    }
 }

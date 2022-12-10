@@ -3,8 +3,8 @@
 namespace App\Contracts\Repositories;
 
 use Illuminate\Http\Request;
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Database\Eloquent\{Model, Collection};
 
 interface RecurringRepositoryInterface extends BasicRepositoryInterface, HasTagsRepositoryInterface
 {
@@ -50,4 +50,13 @@ interface RecurringRepositoryInterface extends BasicRepositoryInterface, HasTags
      * @return \Illuminate\Pagination\LengthAwarePaginator
      */
     public function allWithFilter(Request $request): LengthAwarePaginator;
+
+    /**
+     * Update from process recurrings job.
+     * 
+     * @param array $data
+     * @param mixed $id
+     * @return \Illuminate\Database\Eloquent\Model
+     */
+    public function updateFromJob(array $data, mixed $id): Model;
 }

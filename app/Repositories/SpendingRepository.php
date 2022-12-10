@@ -49,6 +49,17 @@ class SpendingRepository extends AbstractRepository implements SpendingRepositor
     }
 
     /**
+     * Create from process recurrings job.
+     * 
+     * @param array $data
+     * @return \Illuminate\Database\Eloquent\Model
+     */
+    public function createFromJob(array $data): Spending
+    {
+        return $this->model::create($data);
+    }
+
+    /**
      * Find or fail a spending.
      * 
      * @param mixed $id

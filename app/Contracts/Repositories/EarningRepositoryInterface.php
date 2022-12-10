@@ -3,6 +3,7 @@
 namespace App\Contracts\Repositories;
 
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Pagination\LengthAwarePaginator;
 
 interface EarningRepositoryInterface extends BasicRepositoryInterface, HasTagsRepositoryInterface
@@ -15,4 +16,12 @@ interface EarningRepositoryInterface extends BasicRepositoryInterface, HasTagsRe
      * @return \Illuminate\Pagination\LengthAwarePaginator
      */
     public function allWithFilter(Request $request): LengthAwarePaginator;
+
+    /**
+     * Create from process recurrings job.
+     * 
+     * @param array $data
+     * @return \Illuminate\Database\Eloquent\Model
+     */
+    public function createFromJob(array $data): Model;
 }

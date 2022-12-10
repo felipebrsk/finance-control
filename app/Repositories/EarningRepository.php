@@ -127,4 +127,15 @@ class EarningRepository extends AbstractRepository implements EarningRepositoryI
 
         return $earning;
     }
+
+    /**
+     * Create from process recurrings job.
+     * 
+     * @param array $data
+     * @return \App\Models\Earning
+     */
+    public function createFromJob(array $data): Earning
+    {
+        return $this->model::create($data);
+    }
 }

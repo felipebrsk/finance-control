@@ -101,7 +101,7 @@ class ProcessRecurringsJob implements ShouldQueue
 
             foreach ($occurancesDates as $occuranceDate) {
                 if ($recurring->type === 'earning') {
-                    $earningServiceInterface->create([
+                    $earningServiceInterface->createFromJob([
                         'description' => $recurring->description,
                         'amount' => $amount,
                         'when' => $occuranceDate,
@@ -110,7 +110,7 @@ class ProcessRecurringsJob implements ShouldQueue
                         'recurring_id' => $recurring->id,
                     ]);
                 } else if ($recurring->type === 'spending') {
-                    $spendingServiceInterface->create([
+                    $spendingServiceInterface->createFromJob([
                         'description' => $recurring->description,
                         'amount' => $amount,
                         'when' => $occuranceDate,
@@ -120,7 +120,7 @@ class ProcessRecurringsJob implements ShouldQueue
                     ]);
                 }
 
-                $recurringServiceInterface->update([
+                $recurringServiceInterface->updateFromJob([
                     'last_used_date' => $occuranceDate
                 ], $recurring->id);
             }

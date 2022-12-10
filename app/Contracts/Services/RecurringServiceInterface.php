@@ -3,7 +3,7 @@
 namespace App\Contracts\Services;
 
 use Illuminate\Http\Request;
-use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\{Collection, Model};
 use Illuminate\Pagination\LengthAwarePaginator;
 
 interface RecurringServiceInterface extends BasicServiceInterface, HasTagsServiceInterface
@@ -57,4 +57,13 @@ interface RecurringServiceInterface extends BasicServiceInterface, HasTagsServic
      * @return \Illuminate\Pagination\LengthAwarePaginator
      */
     public function allWithFilter(Request $request): LengthAwarePaginator;
+
+    /**
+     * Update from process recurrings job.
+     * 
+     * @param array $data
+     * @param mixed $id
+     * @return \Illuminate\Database\Eloquent\Model
+     */
+    public function updateFromJob(array $data, mixed $id): Model;
 }

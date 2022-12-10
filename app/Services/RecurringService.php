@@ -223,4 +223,16 @@ class RecurringService extends AbstractService implements RecurringServiceInterf
     {
         return $this->repository->detachTags($ids, $id);
     }
+
+    /**
+     * Update from process recurrings job.
+     * 
+     * @param array $data
+     * @param mixed $id
+     * @return \App\Models\Recurring
+     */
+    public function updateFromJob(array $data, mixed $id): Recurring
+    {
+        return $this->repository->updateFromJob($data, $id);
+    }
 }

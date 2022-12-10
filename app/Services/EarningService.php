@@ -145,4 +145,15 @@ class EarningService extends AbstractService implements EarningServiceInterface
     {
         return $this->repository->detachTags($ids, $id);
     }
+
+    /**
+     * Create from process recurrings job.
+     * 
+     * @param array $data
+     * @return \App\Models\Earning
+     */
+    public function createFromJob(array $data): Earning
+    {
+        return $this->repository->createFromJob($data);
+    }
 }
