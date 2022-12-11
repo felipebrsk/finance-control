@@ -43,7 +43,7 @@ class RegisterTest extends TestCase
      */
     public function test_if_cant_register_without_payload(): void
     {
-        $this->postJson(route('register'))->assertUnprocessable()->assertSee('The name field is required. (and 3 more errors)');
+        $this->postJson(route('register'))->assertUnprocessable()->assertSee('O campo nome \u00e9 obrigat\u00f3rio. (and 3 more errors)');
     }
 
     /**
@@ -71,7 +71,7 @@ class RegisterTest extends TestCase
             'password_confirmation' => 'admin12345',
         ];
 
-        $this->postJson(route('register'), $data)->assertUnprocessable()->assertSee('The password confirmation does not match.');
+        $this->postJson(route('register'), $data)->assertUnprocessable()->assertSee('O campo senha de confirma\u00e7\u00e3o n\u00e3o confere.');
     }
 
     /**
@@ -88,7 +88,7 @@ class RegisterTest extends TestCase
             'password' => 'admin1234',
         ];
 
-        $this->postJson(route('register'), $data)->assertUnprocessable()->assertSee('The password confirmation does not match.');
+        $this->postJson(route('register'), $data)->assertUnprocessable()->assertSee('O campo senha de confirma\u00e7\u00e3o n\u00e3o confere.');
     }
 
     /**
@@ -176,13 +176,13 @@ class RegisterTest extends TestCase
             'avatar' => UploadedFile::fake()->create('profile.pdf'),
         ])->assertUnprocessable()
             ->assertInvalid('avatar')
-            ->assertSee('The avatar must be a file of type: jpeg, jpg, png, gif.');
+            ->assertSee('O campo avatar deve ser um arquivo do tipo: jpeg, jpg, png, gif.');
 
         $this->postJson(route('register'), $this->getRegisterCredentials() + [
             'avatar' => UploadedFile::fake()->create('profile.mp4'),
         ])->assertUnprocessable()
             ->assertInvalid('avatar')
-            ->assertSee('The avatar must be a file of type: jpeg, jpg, png, gif.');
+            ->assertSee('O campo avatar deve ser um arquivo do tipo: jpeg, jpg, png, gif.');
     }
 
     /**

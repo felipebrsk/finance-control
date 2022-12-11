@@ -72,7 +72,7 @@ class EarningStoreTest extends TestCase
     {
         $this->postJson(route('earnings.store'))
             ->assertUnprocessable()
-            ->assertSee('The description field is required. (and 3 more errors)');
+            ->assertSee('O campo descri\u00e7\u00e3o \u00e9 obrigat\u00f3rio. (and 3 more errors)');
     }
 
     /**

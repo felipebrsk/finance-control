@@ -27,6 +27,7 @@ use App\Http\Controllers\{
 Route::controller(AuthController::class)->group(function () {
     Route::get('me', 'me')->name('me');
     Route::post('refresh', 'refresh')->name('refresh');
+    Route::put('me', 'update')->name('me.update');
 });
 
 # Resources (api)

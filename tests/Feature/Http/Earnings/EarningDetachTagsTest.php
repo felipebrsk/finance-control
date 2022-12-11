@@ -106,7 +106,7 @@ class EarningDetachTagsTest extends TestCase
     {
         $this->deleteJson(route('earnings.detach.tags', $this->earning->id))
             ->assertUnprocessable()
-            ->assertSee('The tags field is required.');
+            ->assertSee('O campo tags \u00e9 obrigat\u00f3rio.');
     }
 
     /**

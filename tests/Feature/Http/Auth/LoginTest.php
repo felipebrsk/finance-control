@@ -68,7 +68,7 @@ class LoginTest extends TestCase
         $this->postJson(route('login'), [
             'credential' => $this->user->email,
             'password' => 'admin12345',
-        ])->assertUnauthorized()->assertSee('We could not find the user or the password is wrong. Please, double check the informations and try again!');
+        ])->assertUnauthorized()->assertSee('N\u00e3o localizamos o seu usu\u00e1rio. Por favor, revise os dados e tente novamente!');
     }
 
     /**
