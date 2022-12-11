@@ -96,7 +96,7 @@ class SpaceDetachTagsTest extends TestCase
     {
         $this->deleteJson(route('space.detach.tags', $this->space->id))
             ->assertUnprocessable()
-            ->assertSee('The tags field is required.');
+            ->assertSee('O campo tags \u00e9 obrigat\u00f3rio.');
     }
 
     /**

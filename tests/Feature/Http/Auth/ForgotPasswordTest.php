@@ -43,7 +43,7 @@ class ForgotPasswordTest extends TestCase
             'email' => 'inexistent@gmail.com',
         ])->assertUnprocessable()
             ->assertInvalid('email')
-            ->assertSee("We can't find a user with that email address.", false);
+            ->assertSee("N\u00e3o encontramos um usu\u00e1rio com esse endere\u00e7o de e-mail.", false);
     }
 
     /**
@@ -104,6 +104,6 @@ class ForgotPasswordTest extends TestCase
         $this->postJson(route('password.forgot'), [
             'email' => $this->user->email,
         ])->assertUnprocessable()
-            ->assertSee('Please wait before retrying.');
+            ->assertSee('Aguarde antes de tentar novamente.');
     }
 }

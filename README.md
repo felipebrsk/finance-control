@@ -16,6 +16,8 @@
 -   MySQL
 -   Docker
 -   RabbitMQ
+-   Pusher
+-   AWS
 
 <a name="instalation" style="font-size:24px;">**Installation**</a><br>
 
@@ -82,7 +84,9 @@ You can call API routes in http://localhost:8000/ or change the port in `docker-
 -   [x] Implement the jobs to execute the user recurrings;
 -   [x] Implement the pusher and sockets to broadcast events;
 -   [x] Integrate system with RabbitMQ;
--   [?] Configure the cron job and scheduling tasks for the container;
+-   [x] Configure the cron job and scheduling tasks for the container;
+-   [x] Implement the user profile update;
+-   [x] Translate application to pt_BR;
 -   [ ] Check the possibility of spaces limitations (quantity of spaces per user - subscription or something else);
 -   [ ] Get attachmentables.
 

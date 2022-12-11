@@ -52,7 +52,7 @@ class TagStoreTest extends TestCase
     {
         $this->postJson(route('tags.store'))
             ->assertUnprocessable()
-            ->assertSee('The name field is required.');
+            ->assertSee('O campo nome \u00e9 obrigat\u00f3rio.');
     }
 
     /**

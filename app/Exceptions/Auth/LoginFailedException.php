@@ -11,5 +11,5 @@ class LoginFailedException extends UnauthorizedException
      *
      * @var string
      */
-    protected $message = 'We could not find the user or the password is wrong. Please, double check the informations and try again!';
+    protected $message = 'Não localizamos o seu usuário. Por favor, revise os dados e tente novamente!';
 }

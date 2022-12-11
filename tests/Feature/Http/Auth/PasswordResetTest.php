@@ -61,7 +61,7 @@ class PasswordResetTest extends TestCase
             'password' => 'secret1234',
             'password_confirmation' => 'secret1234',
         ])->assertUnprocessable()
-            ->assertSee('This password reset token is invalid.');
+            ->assertSee('Este token de redefini\u00e7\u00e3o de senha \u00e9 inv\u00e1lido.');
     }
 
     /**
@@ -77,7 +77,7 @@ class PasswordResetTest extends TestCase
             'password' => 'secret1234',
             'password_confirmation' => 'secret1234',
         ])->assertUnprocessable()
-            ->assertSee("We can't find a user with that email address.", false);
+            ->assertSee("N\u00e3o encontramos um usu\u00e1rio com esse endere\u00e7o de e-mail.", false);
     }
 
     /**
@@ -93,7 +93,7 @@ class PasswordResetTest extends TestCase
             'password' => 'secret1234',
             'password_confirmation' => 'secret1234',
         ])->assertOk()
-            ->assertSee('Your password has been reset!');
+            ->assertSee('Sua senha foi redefinida!');
     }
 
     /**
@@ -111,7 +111,7 @@ class PasswordResetTest extends TestCase
             'password' => 'secret1234',
             'password_confirmation' => 'secret1234',
         ])->assertOk()
-            ->assertSee('Your password has been reset!');
+            ->assertSee('Sua senha foi redefinida!');
 
         $this->assertTrue(Hash::check('secret1234', DB::table('users')->whereEmail($this->user->email)->value('password')));
     }
@@ -134,7 +134,7 @@ class PasswordResetTest extends TestCase
             'password' => 'secret1234',
             'password_confirmation' => 'secret1234',
         ])->assertOk()
-            ->assertSee('Your password has been reset!');
+            ->assertSee('Sua senha foi redefinida!');
 
         $this->postJson(route('login'), [
             'credential' => $this->user->email,
@@ -157,7 +157,7 @@ class PasswordResetTest extends TestCase
             'password' => 'secret1234',
             'password_confirmation' => 'secret1234',
         ])->assertOk()
-            ->assertSee('Your password has been reset!');
+            ->assertSee('Sua senha foi redefinida!');
 
         Mail::assertSent(PasswordChangedMail::class, 1);
     }
@@ -177,7 +177,7 @@ class PasswordResetTest extends TestCase
             'password' => 'secret1234',
             'password_confirmation' => 'secret1234',
         ])->assertOk()
-            ->assertSee('Your password has been reset!');
+            ->assertSee('Sua senha foi redefinida!');
 
         Queue::assertPushed(PasswordChangedJob::class, function (PasswordChangedJob $job) {
             return $this->user->id === $job->user->id;
@@ -199,7 +199,7 @@ class PasswordResetTest extends TestCase
             'password' => 'secret1234',
             'password_confirmation' => 'secret1234',
         ])->assertOk()
-            ->assertSee('Your password has been reset!');
+            ->assertSee('Sua senha foi redefinida!');
 
         Bus::assertDispatched(PasswordChangedJob::class, function (PasswordChangedJob $job) {
             return $this->user->id === $job->user->id;
