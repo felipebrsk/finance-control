@@ -8,7 +8,7 @@ class DataHelpersTest extends TestCase
 {
     /**
      * Setup new test environments.
-     * 
+     *
      * @return void
      */
     public function setUp(): void
@@ -18,7 +18,7 @@ class DataHelpersTest extends TestCase
 
     /**
      * Test if can get the given value if is set on array.
-     * 
+     *
      * @return void
      */
     public function test_if_can_get_the_given_value_if_is_set_on_array(): void
@@ -34,7 +34,7 @@ class DataHelpersTest extends TestCase
 
     /**
      * Test if can get null if given value is not set on array.
-     * 
+     *
      * @return void
      */
     public function test_if_can_get_null_if_given_value_is_not_set_on_array(): void

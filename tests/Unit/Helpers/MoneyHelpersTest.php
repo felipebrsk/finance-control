@@ -8,7 +8,7 @@ class MoneyHelpersTest extends TestCase
 {
     /**
      * Setup new test environments.
-     * 
+     *
      * @return void
      */
     public function setUp(): void
@@ -18,7 +18,7 @@ class MoneyHelpersTest extends TestCase
 
     /**
      * Test if can format the given amount to given currency.
-     * 
+     *
      * @return void
      */
     public function test_if_can_format_the_given_amount_to_given_currency(): void
