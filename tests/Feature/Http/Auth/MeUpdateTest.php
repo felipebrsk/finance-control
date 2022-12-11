@@ -48,7 +48,7 @@ class MeUpdateTest extends TestCase
 
     /**
      * Test if can update without payload.
-     * 
+     *
      * @return void
      */
     public function test_if_can_update_without_payload(): void
@@ -58,7 +58,7 @@ class MeUpdateTest extends TestCase
 
     /**
      * Test if can update with correctly payload.
-     * 
+     *
      * @return void
      */
     public function test_if_can_update_with_correctly_payload(): void
@@ -68,7 +68,7 @@ class MeUpdateTest extends TestCase
 
     /**
      * Test if can update the user in database.
-     * 
+     *
      * @return void
      */
     public function test_if_can_update_the_user_in_database(): void
@@ -87,7 +87,7 @@ class MeUpdateTest extends TestCase
 
     /**
      * Test if can get correctly json structure on user update.
-     * 
+     *
      * @return void
      */
     public function test_if_can_get_correctly_json_structure_on_user_update(): void
@@ -107,7 +107,7 @@ class MeUpdateTest extends TestCase
 
     /**
      * Test if can retrieve correctly updated user json data.
-     * 
+     *
      * @return void
      */
     public function test_if_can_retrieve_correctly_updated_user_json_data(): void
@@ -126,7 +126,7 @@ class MeUpdateTest extends TestCase
 
     /**
      * Test if can save new avatar in s3.
-     * 
+     *
      * @return void
      */
     public function test_if_can_save_new_avatar_in_s3(): void
@@ -138,7 +138,7 @@ class MeUpdateTest extends TestCase
 
     /**
      * Test if can't update username to an existent username.
-     * 
+     *
      * @return void
      */
     public function test_if_cant_update_username_to_an_existent_username(): void

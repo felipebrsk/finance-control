@@ -36,7 +36,7 @@ class RegisterRequest extends FormRequest
 
     /**
      * Prepare the data for validation.
-     * 
+     *
      * @return void
      */
     public function prepareForValidation(): void

@@ -17,7 +17,7 @@ class AuthController extends Controller implements AuthControllerInterface
 {
     /**
      * The user service interface.
-     * 
+     *
      * @var \App\Contracts\Services\UserServiceInterface
      */
     private $userServiceInterface;
@@ -31,7 +31,7 @@ class AuthController extends Controller implements AuthControllerInterface
 
     /**
      * Create a new class instance.
-     * 
+     *
      * @param \App\Contracts\Services\UserServiceInterface
      * @return void
      */
