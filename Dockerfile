@@ -17,7 +17,8 @@ RUN apk add --no-cache shadow $PHPIZE_DEPS \
     icu-dev \
     npm \
     supervisor \
-    util-linux
+    util-linux \
+    cron
 
 # Set container timezone
 RUN apk add -U tzdata
@@ -63,6 +64,9 @@ COPY . .
 
 # Give read permissions to entrypoint file
 RUN chmod +x docker/start-container.sh
+
+# Copy cron to container
+COPY docker/cron.conf /etc/cron.d/finance-control
 
 # Expose the port
 EXPOSE 8000
