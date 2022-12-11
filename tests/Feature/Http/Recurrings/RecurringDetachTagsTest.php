@@ -108,7 +108,7 @@ class RecurringDetachTagsTest extends TestCase
     {
         $this->deleteJson(route('recurrings.detach.tags', $this->recurring->id))
             ->assertUnprocessable()
-            ->assertSee('The tags field is required.');
+            ->assertSee('O campo tags \u00e9 obrigat\u00f3rio.');
     }
 
     /**

@@ -80,7 +80,7 @@ class RecurringStoreTest extends TestCase
     {
         $this->postJson(route('recurrings.store'))
             ->assertUnprocessable()
-            ->assertSee('The description field is required. (and 6 more errors)');
+            ->assertSee('O campo descri\u00e7\u00e3o \u00e9 obrigat\u00f3rio. (and 6 more errors)');
     }
 
     /**

@@ -9,10 +9,40 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\RegisterRequest;
 use Illuminate\Http\{Request, JsonResponse};
 use App\Exceptions\Auth\LoginFailedException;
+use App\Http\Requests\User\UserUpdateRequest;
 use App\Contracts\Http\Controllers\AuthControllerInterface;
+use App\Contracts\Services\{S3ServiceInterface, UserServiceInterface};
 
 class AuthController extends Controller implements AuthControllerInterface
 {
+    /**
+     * The user service interface.
+     *
+     * @var \App\Contracts\Services\UserServiceInterface
+     */
+    private $userServiceInterface;
+
+    /**
+     * The user service interface.
+     *
+     * @var \App\Contracts\Services\S3ServiceInterface
+     */
+    private $s3ServiceInterface;
+
+    /**
+     * Create a new class instance.
+     *
+     * @param \App\Contracts\Services\UserServiceInterface
+     * @return void
+     */
+    public function __construct(
+        UserServiceInterface $userServiceInterface,
+        S3ServiceInterface $s3ServiceInterface
+    ) {
+        $this->userServiceInterface = $userServiceInterface;
+        $this->s3ServiceInterface = $s3ServiceInterface;
+    }
+
     /**
      * Handle a login request to the application.
      *
@@ -78,11 +108,13 @@ class AuthController extends Controller implements AuthControllerInterface
             $data['avatar'] = s3Service()->create($picture, 'avatars', 'private');
         }
 
-        $user = User::create($data);
+        $user = $this->userServiceInterface->create($data);
 
-        $token = (string)Auth::guard('api')->login($user);
+        if ($user instanceof User) {
+            $token = (string)Auth::guard('api')->login($user);
 
-        return $this->responseToken($token, 201);
+            return $this->responseToken($token, 201);
+        }
     }
 
     /**
@@ -95,6 +127,28 @@ class AuthController extends Controller implements AuthControllerInterface
         $token = Auth::guard('api')->refresh();
 
         return $this->responseToken($token);
+    }
+
+    /**
+     * Update the user profile.
+     *
+     * @param  \App\Http\Requests\User\UserUpdateRequest  $request
+     */
+    public function update(UserUpdateRequest $request): UserResource
+    {
+        $data = $request->validated();
+
+        if ($avatar = issetGetter('avatar', $data)) {
+            if (Auth::user()->avatar) {
+                s3Service()->delete(Auth::user()->avatar);
+            }
+
+            $data['avatar'] = s3Service()->create($avatar, 'avatars', 'private');
+        }
+
+        return UserResource::make(
+            $this->userServiceInterface->update($data, Auth::id()),
+        );
     }
 
     /**
