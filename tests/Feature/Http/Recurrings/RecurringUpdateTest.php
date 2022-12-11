@@ -116,7 +116,7 @@ class RecurringUpdateTest extends TestCase
             'category_id' => $this->createDummyCategory()->id,
         ])->assertForbidden()
             ->assertSee('Esta categoria n\u00e3o pertence \u00e0 nenhum dos seus espa\u00e7os. Nenhuma opera\u00e7\u00e3o pode ser realizada.');
-            ;
+        ;
     }
 
     /**
