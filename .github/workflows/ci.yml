@@ -87,5 +87,5 @@ jobs:
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_msg: "fix: pint"
+          commit_message: "fix: pint"
           skip_fetch: true
