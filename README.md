@@ -82,8 +82,8 @@ You can call API routes in http://localhost:8000/ or change the port in `docker-
 -   [x] Implement the jobs to execute the user recurrings;
 -   [x] Implement the pusher and sockets to broadcast events;
 -   [x] Integrate system with RabbitMQ;
+-   [?] Configure the cron job and scheduling tasks for the container;
 -   [ ] Check the possibility of spaces limitations (quantity of spaces per user - subscription or something else);
--   [ ] Configure the cron job and scheduling tasks for the container;
 -   [ ] Get attachmentables.
 
 <br/>

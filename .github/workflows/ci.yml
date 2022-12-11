@@ -57,9 +57,6 @@ jobs:
           mkdir -p database
           touch ${{ env.DB_DATABASE }}
 
-      - name: Run pint check
-        run: composer pint
-
       - name: Execute tests before allow merges
         env:
           DB_CONNECTION: ${{ env.DB_CONNECTION }}
@@ -74,3 +71,21 @@ jobs:
           fail_ci_if_error: true
           verbose: true
           files: ./coverage.xml
+
+  phplint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
+
+      - name: Run laravel pint
+        uses: aglipanci/laravel-pint-action@0.1.0
+        with:
+          preset: psr12
+
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          skip_fetch: true
+          commit_options: '--amend --no-edit'
