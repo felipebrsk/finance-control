@@ -20,7 +20,10 @@ use App\Contracts\Services\{
 
 class ProcessRecurringsJob implements ShouldQueue
 {
-    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
+    use Dispatchable;
+    use InteractsWithQueue;
+    use Queueable;
+    use SerializesModels;
 
     /**
      * Execute the job.
@@ -109,7 +112,7 @@ class ProcessRecurringsJob implements ShouldQueue
                         'space_id' => $recurring->space->id,
                         'recurring_id' => $recurring->id,
                     ]);
-                } else if ($recurring->type === 'spending') {
+                } elseif ($recurring->type === 'spending') {
                     $spendingServiceInterface->createFromJob([
                         'description' => $recurring->description,
                         'amount' => $amount,

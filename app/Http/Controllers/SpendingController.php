@@ -14,14 +14,14 @@ class SpendingController extends Controller
 {
     /**
      * The spending service interface.
-     * 
+     *
      * @var \App\Contracts\Services\SpendingServiceInterface
      */
     private $spendingServiceInterface;
 
     /**
      * Create a new class instance.
-     * 
+     *
      * @param \App\Contracts\Services\SpendingServiceInterface $spendingServiceInterface
      * @return void
      */
@@ -129,7 +129,7 @@ class SpendingController extends Controller
 
     /**
      * Detach tags from spending.
-     * 
+     *
      * @param  \App\Http\Requests\Spending\DetachSpendingTagsRequest  $request
      * @param mixed $id
      * @return \App\Http\Resources\SpendingResource

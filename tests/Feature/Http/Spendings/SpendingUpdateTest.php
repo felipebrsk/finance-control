@@ -15,28 +15,28 @@ class SpendingUpdateTest extends TestCase
 
     /**
      * The dummy user.
-     * 
+     *
      * @var \App\Models\User
      */
     private $user;
 
     /**
      * The dummy space.
-     * 
+     *
      * @var \App\Models\Space
      */
     private $space;
 
     /**
      * The dummy spending.
-     * 
+     *
      * @var \App\Models\Spending
      */
     private $spending;
 
     /**
      * Setup new test environments.
-     * 
+     *
      * @return void
      */
     public function setUp(): void
@@ -50,7 +50,7 @@ class SpendingUpdateTest extends TestCase
 
     /**
      * Get valid spending payload.
-     * 
+     *
      * @return array
      */
     protected function getValidSpendingPayload(): array
@@ -70,7 +70,7 @@ class SpendingUpdateTest extends TestCase
 
     /**
      * Test if can update a spending without payload.
-     * 
+     *
      * @return void
      */
     public function test_if_can_update_a_spending_without_payload(): void
@@ -80,7 +80,7 @@ class SpendingUpdateTest extends TestCase
 
     /**
      * Test if can throw 404 if spending doesn't exists.
-     * 
+     *
      * @return void
      */
     public function test_if_can_throw_not_found_if_spending_doesnt_exists(): void
@@ -90,7 +90,7 @@ class SpendingUpdateTest extends TestCase
 
     /**
      * Test if can't update a spending that doesnt belongs to user spaces.
-     * 
+     *
      * @return void
      */
     public function test_if_cant_update_a_spending_that_doesnt_belongs_to_user_spaces(): void
@@ -102,7 +102,7 @@ class SpendingUpdateTest extends TestCase
 
     /**
      * Test if can't update a spending category with category that doesn't belongs to user space.
-     * 
+     *
      * @return void
      */
     public function test_if_cant_update_a_spending_category_with_category_that_doesnt_belongs_to_user_space(): void
@@ -110,12 +110,13 @@ class SpendingUpdateTest extends TestCase
         $this->putJson(route('spendings.update', $this->spending->id), [
             'category_id' => $this->createDummyCategory()->id,
         ])->assertForbidden()
-            ->assertSee('Esta categoria n\u00e3o pertence \u00e0 nenhum dos seus espa\u00e7os. Nenhuma opera\u00e7\u00e3o pode ser realizada.');;
+            ->assertSee('Esta categoria n\u00e3o pertence \u00e0 nenhum dos seus espa\u00e7os. Nenhuma opera\u00e7\u00e3o pode ser realizada.');
+            ;
     }
 
     /**
      * Test if can't update a spending space with space that doesn't belongs to user.
-     * 
+     *
      * @return void
      */
     public function test_if_cant_update_a_spending_space_with_space_that_doesnt_belongs_to_user(): void
@@ -128,7 +129,7 @@ class SpendingUpdateTest extends TestCase
 
     /**
      * Test if can update a spending with correctly payload.
-     * 
+     *
      * @return void
      */
     public function test_if_can_update_a_spending_with_correctly_payload(): void
@@ -138,7 +139,7 @@ class SpendingUpdateTest extends TestCase
 
     /**
      * Test if can save updated spending data in database.
-     * 
+     *
      * @return void
      */
     public function test_if_can_save_payload_correctly_in_database(): void
@@ -157,7 +158,7 @@ class SpendingUpdateTest extends TestCase
 
     /**
      * Test if can retrieve correctly json spending structure on update.
-     * 
+     *
      * @return void
      */
     public function test_if_can_retrieve_correctly_json_spending_structure_on_update(): void
@@ -193,7 +194,7 @@ class SpendingUpdateTest extends TestCase
 
     /**
      * Test if can retrieve correctly json updated spending.
-     * 
+     *
      * @return void
      */
     public function test_if_can_retrieve_correctly_json_updated_spending(): void
@@ -212,7 +213,7 @@ class SpendingUpdateTest extends TestCase
 
     /**
      * Test if can create a new activity on spending update.
-     * 
+     *
      * @return void
      */
     public function test_if_can_create_a_new_activity_on_spending_update(): void
@@ -228,7 +229,7 @@ class SpendingUpdateTest extends TestCase
 
     /**
      * Test if can associate new tags to spending.
-     * 
+     *
      * @return void
      */
     public function test_if_can_associate_new_tags_to_spending(): void
@@ -248,7 +249,7 @@ class SpendingUpdateTest extends TestCase
 
     /**
      * Test if can't update spending tags with a tag that doesn't belongs to user.
-     * 
+     *
      * @return void
      */
     public function test_if_cant_update_spending_tags_with_a_tag_that_doesnt_belongs_to_user(): void

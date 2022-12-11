@@ -56,7 +56,7 @@ class User extends Authenticatable implements JWTSubject
 
     /**
      * Send the password reset notification.
-     * 
+     *
      * @param string $token
      * @return void
      */
@@ -87,7 +87,7 @@ class User extends Authenticatable implements JWTSubject
 
     /**
      * Find user by email.
-     * 
+     *
      * @param string $email
      * @return self
      */

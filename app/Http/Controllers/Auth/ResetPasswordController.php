@@ -33,14 +33,14 @@ class ResetPasswordController extends Controller
 
     /**
      * The user service interface.
-     * 
+     *
      * @var \App\Contracts\Services\UserServiceInterface
      */
     private $userServiceInterface;
 
     /**
      * Create new class instance.
-     * 
+     *
      * @param \App\Contracts\Services\UserServiceInterface $userService
      * @return void
      */

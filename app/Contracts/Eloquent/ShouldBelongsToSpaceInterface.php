@@ -8,7 +8,7 @@ interface ShouldBelongsToSpaceInterface
 {
     /**
      * Should belongs to space.
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function space(): BelongsTo;

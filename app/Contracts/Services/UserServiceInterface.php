@@ -8,7 +8,7 @@ interface UserServiceInterface extends BasicServiceInterface
 {
     /**
      * Find the user by email.
-     * 
+     *
      * @param string $email
      * @return \Illuminate\Database\Eloquent\Model
      */

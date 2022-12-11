@@ -13,9 +13,13 @@ use App\Events\Transaction\{TransactionUpdated, TransactionCreated, TransactionD
 
 class Spending extends Model implements ShouldBelongsToSpaceInterface
 {
+    use HasFactory;
+    use SoftDeletes;
+    use HasScopeFromUserSpace;
+    use Filterable;
     /**
      * The attributes that are mass assignable.
-     * 
+     *
      * @var array<string, string>
      */
     protected $fillable = [
@@ -30,21 +34,16 @@ class Spending extends Model implements ShouldBelongsToSpaceInterface
 
     /**
      * The attributes that should be date.
-     * 
+     *
      * @var array<string>
      */
     protected $dates = [
         'deleted_at',
     ];
 
-    use HasFactory;
-    use SoftDeletes;
-    use HasScopeFromUserSpace;
-    use Filterable;
-
     /**
      * Create model dispatchable events.
-     * 
+     *
      * @var array<string, string>
      */
     protected $dispatchesEvents = [
@@ -105,7 +104,7 @@ class Spending extends Model implements ShouldBelongsToSpaceInterface
 
     /**
      * Delete the space with attachments.
-     * 
+     *
      * @return bool
      */
     public function delete(): bool

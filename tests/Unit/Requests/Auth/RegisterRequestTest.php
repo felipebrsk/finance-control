@@ -25,7 +25,7 @@ class RegisterRequestTest extends TestCase
 
     /**
      * Test name validation rules.
-     * 
+     *
      * @return void
      */
     public function test_name_validation_rules(): void
@@ -37,7 +37,7 @@ class RegisterRequestTest extends TestCase
 
     /**
      * Test username validation rules.
-     * 
+     *
      * @return void
      */
     public function test_username_validation_rules(): void
@@ -56,7 +56,7 @@ class RegisterRequestTest extends TestCase
 
     /**
      * Test email validation rules.
-     * 
+     *
      * @return void
      */
     public function test_email_validation_rules(): void
@@ -76,7 +76,7 @@ class RegisterRequestTest extends TestCase
 
     /**
      * Test avatar validation rules.
-     * 
+     *
      * @return void
      */
     public function test_avatar_validation_rules(): void
@@ -90,7 +90,7 @@ class RegisterRequestTest extends TestCase
 
     /**
      * Test weekly report validation rules.
-     * 
+     *
      * @return void
      */
     public function test_weekly_report_validation_rules(): void
@@ -102,7 +102,7 @@ class RegisterRequestTest extends TestCase
 
     /**
      * Test first day of week validation rules.
-     * 
+     *
      * @return void
      */
     public function test_first_day_of_week_validation_rules(): void

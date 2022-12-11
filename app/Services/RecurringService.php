@@ -24,14 +24,14 @@ class RecurringService extends AbstractService implements RecurringServiceInterf
 {
     /**
      * The recurring repository interface.
-     * 
+     *
      * @var \App\Contracts\Repositories\RecurringRepositoryInterface
      */
     protected $repository = RecurringRepositoryInterface::class;
 
     /**
      * Get all recurrings with filter.
-     * 
+     *
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Pagination\LengthAwarePaginator
      */
@@ -42,7 +42,7 @@ class RecurringService extends AbstractService implements RecurringServiceInterf
 
     /**
      * Create a new recurring.
-     * 
+     *
      * @param array $data
      * @return \App\Models\Recurring
      */
@@ -55,7 +55,7 @@ class RecurringService extends AbstractService implements RecurringServiceInterf
 
     /**
      * Update a recurring.
-     * 
+     *
      * @param array $data
      * @param mixed $id
      * @return \App\Models\Recurring
@@ -69,7 +69,7 @@ class RecurringService extends AbstractService implements RecurringServiceInterf
 
     /**
      * Assert can create recurring.
-     * 
+     *
      * @param array $data
      * @throws \App\Exceptions\Category\CategoryDoesntBelongsToUserSpaceException
      * @throws \App\Exceptions\Space\SpaceDoesntBelongsToUserException
@@ -108,7 +108,7 @@ class RecurringService extends AbstractService implements RecurringServiceInterf
 
     /**
      * Assert can update recurring.
-     * 
+     *
      * @param array $data
      * @throws \App\Exceptions\Category\CategoryDoesntBelongsToUserSpaceException
      * @throws \App\Exceptions\Space\SpaceDoesntBelongsToUserException
@@ -149,7 +149,7 @@ class RecurringService extends AbstractService implements RecurringServiceInterf
 
     /**
      * Get the yearly recurrings.
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Collection
      */
     public function getDueYearly(): Collection
@@ -159,7 +159,7 @@ class RecurringService extends AbstractService implements RecurringServiceInterf
 
     /**
      * Get the monthly recurrings.
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Collection
      */
     public function getDueMonthly(): Collection
@@ -169,7 +169,7 @@ class RecurringService extends AbstractService implements RecurringServiceInterf
 
     /**
      * Get the biweekly recurrings.
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Collection
      */
     public function getDueBiweekly(): Collection
@@ -179,7 +179,7 @@ class RecurringService extends AbstractService implements RecurringServiceInterf
 
     /**
      * Get the weekly recurrings.
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Collection
      */
     public function getDueWeekly(): Collection
@@ -189,7 +189,7 @@ class RecurringService extends AbstractService implements RecurringServiceInterf
 
     /**
      * Get the daily recurrings.
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Collection
      */
     public function getDueDaily(): Collection
@@ -199,7 +199,7 @@ class RecurringService extends AbstractService implements RecurringServiceInterf
 
     /**
      * Get all user recurrings.
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Collection
      */
     public function getAllDueRecurrings(): Collection
@@ -214,7 +214,7 @@ class RecurringService extends AbstractService implements RecurringServiceInterf
 
     /**
      * Detach recurring tags.
-     * 
+     *
      * @param array $ids
      * @param mixed $id
      * @return \App\Models\Recurring
@@ -226,7 +226,7 @@ class RecurringService extends AbstractService implements RecurringServiceInterf
 
     /**
      * Update from process recurrings job.
-     * 
+     *
      * @param array $data
      * @param mixed $id
      * @return \App\Models\Recurring

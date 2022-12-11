@@ -6,7 +6,7 @@ interface CurrencyServiceInterface extends BasicServiceInterface
 {
     /**
      * Get converted value.
-     * 
+     *
      * @param string $baseCurrencyIso
      * @param string $targetCurrencyIso
      * @param int $amount

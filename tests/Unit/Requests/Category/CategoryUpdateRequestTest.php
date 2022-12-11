@@ -25,7 +25,7 @@ class CategoryUpdateRequestTest extends TestCase
 
     /**
      * Test name validation rules.
-     * 
+     *
      * @return void
      */
     public function test_name_validation_rules(): void
@@ -37,7 +37,7 @@ class CategoryUpdateRequestTest extends TestCase
 
     /**
      * Test color validation rules.
-     * 
+     *
      * @return void
      */
     public function test_color_validation_rules(): void

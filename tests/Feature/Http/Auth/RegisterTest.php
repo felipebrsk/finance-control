@@ -12,7 +12,7 @@ class RegisterTest extends TestCase
 {
     /**
      * Setup new environment tests.
-     * 
+     *
      * @return void
      */
     public function setUp(): void
@@ -22,7 +22,7 @@ class RegisterTest extends TestCase
 
     /**
      * Get the register credentials.
-     * 
+     *
      * @return array
      */
     private function getRegisterCredentials(): array
@@ -38,7 +38,7 @@ class RegisterTest extends TestCase
 
     /**
      * Test if can't register without payload.
-     * 
+     *
      * @return void
      */
     public function test_if_cant_register_without_payload(): void
@@ -48,7 +48,7 @@ class RegisterTest extends TestCase
 
     /**
      * Test if can register with validpayload.
-     * 
+     *
      * @return void
      */
     public function test_if_can_register_with_valid_payload(): void
@@ -58,7 +58,7 @@ class RegisterTest extends TestCase
 
     /**
      * Test if can't register with invalid password confirmation.
-     * 
+     *
      * @return void
      */
     public function test_if_cant_register_with_invalid_password_confirmation(): void
@@ -76,7 +76,7 @@ class RegisterTest extends TestCase
 
     /**
      * Test if can't register without password confirmation.
-     * 
+     *
      * @return void
      */
     public function test_if_cant_register_without_password_confirmation(): void
@@ -93,7 +93,7 @@ class RegisterTest extends TestCase
 
     /**
      * Test if can save the correctly user to database.
-     * 
+     *
      * @return void
      */
     public function test_if_can_save_the_correctly_user_to_database(): void
@@ -111,7 +111,7 @@ class RegisterTest extends TestCase
 
     /**
      * Test if can hash the user password on creation.
-     * 
+     *
      * @return void
      */
     public function test_if_can_hash_the_user_password_on_creation(): void
@@ -131,7 +131,7 @@ class RegisterTest extends TestCase
 
     /**
      * Check if can return the correctly json structure.
-     * 
+     *
      * @return void
      */
     public function test_if_can_return_the_correctly_json_structure(): void
@@ -147,7 +147,7 @@ class RegisterTest extends TestCase
 
     /**
      * Check if JWT can validate generated token.
-     * 
+     *
      * @return void
      */
     public function test_if_JWT_can_validate_generated_token(): void
@@ -167,7 +167,7 @@ class RegisterTest extends TestCase
 
     /**
      * Test if can't submit unsupported profile picture mime type.
-     * 
+     *
      * @return void
      */
     public function test_if_cant_submit_unsupported_avatar_mime_type(): void
@@ -187,7 +187,7 @@ class RegisterTest extends TestCase
 
     /**
      * Test if can submit a profile picture on register.
-     * 
+     *
      * @return void
      */
     public function test_if_can_submit_a_avatar_on_register(): void
@@ -199,7 +199,7 @@ class RegisterTest extends TestCase
 
     /**
      * Test if can save the correctly profile picture s3 path in database.
-     * 
+     *
      * @return void
      */
     public function test_if_can_save_the_correctly_avatar_s3_path_in_database(): void
@@ -215,7 +215,7 @@ class RegisterTest extends TestCase
 
     /**
      * Test if can send profile picture to s3.
-     * 
+     *
      * @return void
      */
     public function test_if_can_send_avatar_to_s3(): void
@@ -229,7 +229,7 @@ class RegisterTest extends TestCase
 
     /**
      * Test if can create a default user space on user creation.
-     * 
+     *
      * @return void
      */
     public function test_if_can_create_a_default_user_space_on_user_creation(): void

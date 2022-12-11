@@ -16,35 +16,35 @@ class RecurringShowTest extends TestCase
 
     /**
      * The dummy user.
-     * 
+     *
      * @var \App\Models\User
      */
     private $user;
 
     /**
      * The dummy space.
-     * 
+     *
      * @var \App\Models\Space
      */
     private $space;
 
     /**
      * The dummy recurring.
-     * 
+     *
      * @var \App\Models\Recurring
      */
     private $recurring;
 
     /**
      * The dummy tag.
-     * 
+     *
      * @var \App\Models\Tag
      */
     private $tag;
 
     /**
      * Setup new test environments.
-     * 
+     *
      * @return void
      */
     public function setUp(): void
@@ -60,7 +60,7 @@ class RecurringShowTest extends TestCase
 
     /**
      * Test if can throw 404 if recurring doesn't exists.
-     * 
+     *
      * @return void
      */
     public function test_if_can_throw_not_found_if_recurring_doesnt_exists(): void
@@ -70,7 +70,7 @@ class RecurringShowTest extends TestCase
 
     /**
      * Test if can't get a recurring details if doesn't belongs to user space.
-     * 
+     *
      * @return void
      */
     public function test_if_cant_get_a_recurring_details_if_doesnt_belongs_to_user_space(): void
@@ -84,7 +84,7 @@ class RecurringShowTest extends TestCase
 
     /**
      * Test if can get a recurring details.
-     * 
+     *
      * @return void
      */
     public function test_if_can_get_a_recurring_details(): void
@@ -94,7 +94,7 @@ class RecurringShowTest extends TestCase
 
     /**
      * Test if can get a correctly recurring details json structure.
-     * 
+     *
      * @return void
      */
     public function test_if_can_get_a_correctly_recurring_details_json_structure(): void
@@ -223,7 +223,7 @@ class RecurringShowTest extends TestCase
 
     /**
      * Test if can get the correctly recurring details data.
-     * 
+     *
      * @return void
      */
     public function test_if_can_get_the_correctly_recurring_details_data(): void

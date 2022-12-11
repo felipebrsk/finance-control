@@ -11,9 +11,12 @@ use Illuminate\Database\Eloquent\Relations\{MorphTo, BelongsTo};
 
 class Activity extends Model implements ShouldBelongsToSpaceInterface
 {
+    use HasFactory;
+    use Filterable;
+    use HasScopeFromUserSpace;
     /**
      * The attributes that are mass assignable.
-     * 
+     *
      * @var array<string, string>
      */
     protected $fillable = [
@@ -23,13 +26,9 @@ class Activity extends Model implements ShouldBelongsToSpaceInterface
         'space_id',
     ];
 
-    use HasFactory;
-    use Filterable;
-    use HasScopeFromUserSpace;
-
     /**
      * Get the morph activitable.
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\MorphTo
      */
     public function activitable(): MorphTo

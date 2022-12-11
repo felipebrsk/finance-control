@@ -13,21 +13,21 @@ class TagDestroyTest extends TestCase
 
     /**
      * The dummy user.
-     * 
+     *
      * @var \App\Models\User
      */
     private $user;
-    
+
     /**
      * The dummy tag.
-     * 
+     *
      * @var \App\Models\Tag
      */
     private $tag;
 
     /**
      * Setup new test environments.
-     * 
+     *
      * @return void
      */
     public function setUp(): void
@@ -40,7 +40,7 @@ class TagDestroyTest extends TestCase
 
     /**
      * Test if can throw 404 if tag doesn't exists.
-     * 
+     *
      * @return void
      */
     public function test_if_can_throw_not_found_if_tag_doesnt_exists(): void
@@ -50,7 +50,7 @@ class TagDestroyTest extends TestCase
 
     /**
      * Test if can't destroy another user tag.
-     * 
+     *
      * @return void
      */
     public function test_if_cant_destroy_another_user_tag(): void
@@ -62,7 +62,7 @@ class TagDestroyTest extends TestCase
 
     /**
      * Test if can destroy own space tag.
-     * 
+     *
      * @return void
      */
     public function test_if_can_destroy_own_user_tag(): void
@@ -72,7 +72,7 @@ class TagDestroyTest extends TestCase
 
     /**
      * Test if can soft delete tag.
-     * 
+     *
      * @return void
      */
     public function test_if_can_soft_delete_tag(): void
@@ -90,7 +90,7 @@ class TagDestroyTest extends TestCase
 
     /**
      * Test if can remove tag from index on deletion.
-     * 
+     *
      * @return void
      */
     public function test_if_can_remove_tag_from_index_route_on_deletion(): void

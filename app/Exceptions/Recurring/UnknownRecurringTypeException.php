@@ -8,7 +8,7 @@ class UnknownRecurringTypeException extends BadRequestException
 {
     /**
      * Create new exception instance.
-     * 
+     *
      * @param string $type
      * @return void
      */

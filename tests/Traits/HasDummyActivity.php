@@ -9,7 +9,7 @@ trait HasDummyActivity
 {
     /**
      * Create dummy activity.
-     * 
+     *
      * @param array $data
      * @return \App\Models\Activity
      */
@@ -20,7 +20,7 @@ trait HasDummyActivity
 
     /**
      * Create dummy activities.
-     * 
+     *
      * @param int $times
      * @param array $data
      * @return \Illuminate\Database\Eloquent\Collection
@@ -32,7 +32,7 @@ trait HasDummyActivity
 
     /**
      * Create dummy activity to.
-     * 
+     *
      * @param \App\Models\Space $space
      * @param array $data
      * @return \App\Models\Activity

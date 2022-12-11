@@ -14,35 +14,35 @@ class SpaceShowTest extends TestCase
 
     /**
      * The dummy user.
-     * 
+     *
      * @var \App\Models\User
      */
     private $user;
 
     /**
      * The dummy space.
-     * 
+     *
      * @var \App\Models\Space
      */
     private $space;
 
     /**
      * The dummy tag.
-     * 
+     *
      * @var \App\Models\Tag
      */
     private $tag;
 
     /**
      * The dummy category.
-     * 
+     *
      * @var \App\Models\Category
      */
     private $category;
 
     /**
      * Setup new test environments.
-     * 
+     *
      * @return void
      */
     public function setUp(): void
@@ -58,7 +58,7 @@ class SpaceShowTest extends TestCase
 
     /**
      * Test if can throw 404 if space doesn't exists.
-     * 
+     *
      * @return void
      */
     public function test_if_can_throw_not_found_if_space_doesnt_exists(): void
@@ -68,7 +68,7 @@ class SpaceShowTest extends TestCase
 
     /**
      * Test if can't see another user space.
-     * 
+     *
      * @return void
      */
     public function test_if_cant_see_another_user_space(): void
@@ -80,7 +80,7 @@ class SpaceShowTest extends TestCase
 
     /**
      * Test if can see own space details.
-     * 
+     *
      * @return void
      */
     public function test_if_can_see_own_space_details(): void
@@ -90,7 +90,7 @@ class SpaceShowTest extends TestCase
 
     /**
      * Test if can see correctly json space structure.
-     * 
+     *
      * @return void
      */
     public function test_if_can_see_correctly_json_space_structure(): void
@@ -139,7 +139,7 @@ class SpaceShowTest extends TestCase
 
     /**
      * Test if can get correctly json space.
-     * 
+     *
      * @return void
      */
     public function test_if_can_get_correctly_json_space(): void

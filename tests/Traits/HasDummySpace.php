@@ -9,7 +9,7 @@ trait HasDummySpace
 {
     /**
      * Create dummy space.
-     * 
+     *
      * @param array $data
      * @return \App\Models\Space
      */
@@ -20,7 +20,7 @@ trait HasDummySpace
 
     /**
      * Create dummy spaces.
-     * 
+     *
      * @param int $times
      * @param array $data
      * @return \Illuminate\Database\Eloquent\Collection
@@ -32,7 +32,7 @@ trait HasDummySpace
 
     /**
      * Create dummy space to.
-     * 
+     *
      * @param \App\Models\User $user
      * @param array $data
      * @return \App\Models\Space

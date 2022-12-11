@@ -14,14 +14,14 @@ class SpaceController extends Controller
 {
     /**
      * The earning service interface.
-     * 
+     *
      * @var \App\Contracts\Services\SpaceServiceInterface
      */
     private $spaceServiceInterface;
 
     /**
      * Create a new class instance.
-     * 
+     *
      * @param \App\Contracts\Services\SpaceServiceInterface $spaceServiceInterface
      * @return void
      */
@@ -126,7 +126,7 @@ class SpaceController extends Controller
 
     /**
      * Detach tags from space.
-     * 
+     *
      * @param  \App\Http\Requests\Space\DetachSpaceTagsRequest  $request
      * @param mixed $id
      * @return \App\Http\Resources\SpaceResource

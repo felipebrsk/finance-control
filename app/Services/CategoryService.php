@@ -14,14 +14,14 @@ class CategoryService extends AbstractService implements CategoryServiceInterfac
 {
     /**
      * The category service interface.
-     * 
+     *
      * @var \App\Contracts\Repositories\CategoryRepositoryInterface
      */
     protected $repository = CategoryRepositoryInterface::class;
 
     /**
      * Get all with filter.
-     * 
+     *
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Pagination\LengthAwarePaginator
      */
@@ -32,7 +32,7 @@ class CategoryService extends AbstractService implements CategoryServiceInterfac
 
     /**
      * Create a new category.
-     * 
+     *
      * @param array $data
      * @return \App\Models\Category
      */
@@ -45,7 +45,7 @@ class CategoryService extends AbstractService implements CategoryServiceInterfac
 
     /**
      * Assert can create the category.
-     * 
+     *
      * @param array $data
      * @throws \App\Exceptions\Space\SpaceDoesntBelongsToUserException
      * @return void

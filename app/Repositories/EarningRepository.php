@@ -13,14 +13,14 @@ class EarningRepository extends AbstractRepository implements EarningRepositoryI
 {
     /**
      * The earning model.
-     * 
+     *
      * @var \App\Models\Earning
      */
     protected $model = Earning::class;
 
     /**
      * Get all auth earning.
-     * 
+     *
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Pagination\LengthAwarePaginator
      */
@@ -31,7 +31,7 @@ class EarningRepository extends AbstractRepository implements EarningRepositoryI
 
     /**
      * Create a new earning.
-     * 
+     *
      * @param array $data
      * @return \App\Models\Earning
      */
@@ -50,7 +50,7 @@ class EarningRepository extends AbstractRepository implements EarningRepositoryI
 
     /**
      * Find or fail an earning.
-     * 
+     *
      * @param mixed $id
      * @return \App\Models\Earning
      */
@@ -67,7 +67,7 @@ class EarningRepository extends AbstractRepository implements EarningRepositoryI
 
     /**
      * Update an earning.
-     * 
+     *
      * @param array $data
      * @param mixed $id
      * @return \App\Models\Earning
@@ -93,7 +93,7 @@ class EarningRepository extends AbstractRepository implements EarningRepositoryI
 
     /**
      * Delete an earning.
-     * 
+     *
      * @param mixed $id
      * @return void
      */
@@ -110,7 +110,7 @@ class EarningRepository extends AbstractRepository implements EarningRepositoryI
 
     /**
      * Detach a earning tags.
-     * 
+     *
      * @param array $ids
      * @param mixed $id
      * @return \App\Models\Earning
@@ -130,7 +130,7 @@ class EarningRepository extends AbstractRepository implements EarningRepositoryI
 
     /**
      * Create from process recurrings job.
-     * 
+     *
      * @param array $data
      * @return \App\Models\Earning
      */

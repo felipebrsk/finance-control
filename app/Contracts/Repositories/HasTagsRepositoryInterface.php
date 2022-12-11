@@ -8,7 +8,7 @@ interface HasTagsRepositoryInterface
 {
     /**
      * Detach a space tags.
-     * 
+     *
      * @param array $ids
      * @param mixed $id
      * @return \Illuminate\Database\Eloquent\Model

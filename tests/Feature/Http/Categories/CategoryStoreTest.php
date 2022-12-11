@@ -13,21 +13,21 @@ class CategoryStoreTest extends TestCase
 
     /**
      * The dummy user.
-     * 
+     *
      * @var \App\Models\User
      */
     private $user;
 
     /**
      * The dummy space.
-     * 
+     *
      * @var \App\Models\Space
      */
     private $space;
 
     /**
      * Setup new test environments.
-     * 
+     *
      * @return void
      */
     public function setUp(): void
@@ -40,7 +40,7 @@ class CategoryStoreTest extends TestCase
 
     /**
      * Get the valid category payload.
-     * 
+     *
      * @return array
      */
     protected function getValidCategoryPayload(): array
@@ -54,7 +54,7 @@ class CategoryStoreTest extends TestCase
 
     /**
      * Test if can't create a category without payload.
-     * 
+     *
      * @return void
      */
     public function test_if_cant_create_a_category_without_payload(): void
@@ -66,7 +66,7 @@ class CategoryStoreTest extends TestCase
 
     /**
      * Test if can't create a category with space that doesn't belongs to user.
-     * 
+     *
      * @return void
      */
     public function test_if_cant_create_a_category_with_space_that_doesnt_belongs_to_user(): void
@@ -81,7 +81,7 @@ class CategoryStoreTest extends TestCase
 
     /**
      * Test if can create a category with correctly payload.
-     * 
+     *
      * @return void
      */
     public function test_if_can_create_a_category_with_correctly_payload(): void
@@ -91,7 +91,7 @@ class CategoryStoreTest extends TestCase
 
     /**
      * Test if can save the category in database.
-     * 
+     *
      * @return void
      */
     public function test_if_can_save_the_category_in_database(): void
@@ -108,7 +108,7 @@ class CategoryStoreTest extends TestCase
 
     /**
      * Test if can return the correctly category json structure.
-     * 
+     *
      * @return void
      */
     public function test_if_can_return_the_correctly_json_structure(): void
@@ -145,7 +145,7 @@ class CategoryStoreTest extends TestCase
 
     /**
      * Test if can return the correctly category json.
-     * 
+     *
      * @return void
      */
     public function test_if_can_return_the_correctly_category_json(): void

@@ -23,7 +23,7 @@ class DetachEarningTagsRequestTest extends TestCase
 
     /**
      * Test tags validation rules.
-     * 
+     *
      * @return void
      */
     public function test_tags_validation_rules(): void
@@ -35,7 +35,7 @@ class DetachEarningTagsRequestTest extends TestCase
 
     /**
      * Test tag ids validation rules.
-     * 
+     *
      * @return void
      */
     public function test_tag_ids_validation_rules(): void

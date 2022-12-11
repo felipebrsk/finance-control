@@ -14,14 +14,14 @@ class EarningController extends Controller
 {
     /**
      * The earning service interface.
-     * 
+     *
      * @var \App\Contracts\Services\EarningServiceInterface
      */
     private $earningServiceInterface;
 
     /**
      * Create a new class instance.
-     * 
+     *
      * @param \App\Contracts\Services\EarningServiceInterface $earningServiceInterface
      * @return void
      */
@@ -127,7 +127,7 @@ class EarningController extends Controller
 
     /**
      * Detach tags from earning.
-     * 
+     *
      * @param  \App\Http\Requests\Earning\DetachEarningTagsRequest  $request
      * @param mixed $id
      * @return \App\Http\Resources\EarningResource

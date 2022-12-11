@@ -20,21 +20,21 @@ class ProcessRecurringsJobTest extends TestCase
 
     /**
      * The dummy user.
-     * 
+     *
      * @var \App\Models\User
      */
     private $user;
 
     /**
      * The dummy user space.
-     * 
+     *
      * @var \App\Models\Space
      */
     private $space;
 
     /**
      * Setup new test environments.
-     * 
+     *
      * @return void
      */
     public function setUp(): void
@@ -49,35 +49,35 @@ class ProcessRecurringsJobTest extends TestCase
 
     /**
      * Test if can dispatch the job.
-     * 
+     *
      * @return void
      */
     public function test_if_can_dispatch_process_recurrings_job(): void
     {
         Bus::fake();
 
-        Bus::dispatch(new ProcessRecurringsJob);
+        Bus::dispatch(new ProcessRecurringsJob());
 
         Bus::assertDispatched(ProcessRecurringsJob::class, 1);
     }
 
     /**
      * Test if can queue process recurrings job.
-     * 
+     *
      * @return void
      */
     public function test_if_can_queue_process_recurrings_job(): void
     {
         Queue::fake();
 
-        Bus::dispatch(new ProcessRecurringsJob);
+        Bus::dispatch(new ProcessRecurringsJob());
 
         Queue::assertPushed(ProcessRecurringsJob::class, 1);
     }
 
     /**
      * Test if can process the spending recurrings.
-     * 
+     *
      * @return void
      */
     public function test_if_can_process_the_spending_recurrings(): void
@@ -117,7 +117,7 @@ class ProcessRecurringsJobTest extends TestCase
 
     /**
      * Test if can process the earning recurrings.
-     * 
+     *
      * @return void
      */
     public function test_if_can_process_the_earning_recurrings(): void
@@ -157,7 +157,7 @@ class ProcessRecurringsJobTest extends TestCase
 
     /**
      * Test if can convert the currency of recurring if different from space and generate spending with converted amount.
-     * 
+     *
      * @return void
      */
     public function test_if_can_convert_the_currency_of_recurring_if_is_different_from_space_and_generate_spending_with_converted_amount(): void
@@ -179,7 +179,7 @@ class ProcessRecurringsJobTest extends TestCase
 
         ProcessRecurringsJob::dispatch();
 
-        $response = (new Client)->get("https://www.valutafx.com/{$recurring->currency->iso}-{$this->space->currency->iso}.htm");
+        $response = (new Client())->get("https://www.valutafx.com/{$recurring->currency->iso}-{$this->space->currency->iso}.htm");
 
         $result = (new Crawler($response->getBody()->__toString()))->filter('.converter-result > .rate-value')->first()->text();
 
@@ -199,7 +199,7 @@ class ProcessRecurringsJobTest extends TestCase
 
     /**
      * Test if can fill the when date on generated earning on recurring process job.
-     * 
+     *
      * @return void
      */
     public function test_if_can_fill_the_when_date_on_generated_earning_on_recurring_process_job(): void
@@ -227,7 +227,7 @@ class ProcessRecurringsJobTest extends TestCase
 
     /**
      * Test if can fill the recurring last used date on recurring process job.
-     * 
+     *
      * @return void
      */
     public function test_if_can_fill_the_recurring_last_used_date_on_recurring_process_job(): void

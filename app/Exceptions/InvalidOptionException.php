@@ -8,7 +8,7 @@ class InvalidOptionException extends Exception
 {
     /**
      * Display exception for missing from field.
-     * 
+     *
      * @return static
      */
     public static function missingFromField(): static
@@ -18,7 +18,7 @@ class InvalidOptionException extends Exception
 
     /**
      * Display exception for missing slug field.
-     * 
+     *
      * @return static
      */
     public static function missingSlugField(): static
@@ -28,7 +28,7 @@ class InvalidOptionException extends Exception
 
     /**
      * Display exception for invalid max lenght.
-     * 
+     *
      * @returns static
      */
     public static function invalidMaximumLength(): static

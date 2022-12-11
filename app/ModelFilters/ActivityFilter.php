@@ -6,7 +6,7 @@ class ActivityFilter extends BaseFilter
 {
     /**
      * Filter by space.
-     * 
+     *
      * @param mixed $spaceId
      * @return void
      */

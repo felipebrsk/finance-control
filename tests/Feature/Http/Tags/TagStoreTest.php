@@ -13,14 +13,14 @@ class TagStoreTest extends TestCase
 
     /**
      * The dummy user.
-     * 
+     *
      * @var \App\Models\User
      */
     private $user;
 
     /**
      * Setup new test environments.
-     * 
+     *
      * @return void
      */
     public function setUp(): void
@@ -32,7 +32,7 @@ class TagStoreTest extends TestCase
 
     /**
      * Get valid tag payload.
-     * 
+     *
      * @return array
      */
     protected function getValidTagPayload(): array
@@ -45,7 +45,7 @@ class TagStoreTest extends TestCase
 
     /**
      * Test if can't create a tag without payload.
-     * 
+     *
      * @return void
      */
     public function test_if_cant_create_a_tag_without_payload(): void
@@ -57,7 +57,7 @@ class TagStoreTest extends TestCase
 
     /**
      * Test if can create a tag with correctly payload.
-     * 
+     *
      * @return void
      */
     public function test_if_can_create_a_tag_with_correctly_payload(): void
@@ -67,7 +67,7 @@ class TagStoreTest extends TestCase
 
     /**
      * Test if can save correctly tag in database.
-     * 
+     *
      * @return void
      */
     public function test_if_can_save_correctly_tag_in_database(): void
@@ -83,7 +83,7 @@ class TagStoreTest extends TestCase
 
     /**
      * Test if can get correctly tag json structure.
-     * 
+     *
      * @return void
      */
     public function test_if_can_get_correctly_tag_json_structure(): void
@@ -102,7 +102,7 @@ class TagStoreTest extends TestCase
 
     /**
      * Test if can retrieve correctly json tag.
-     * 
+     *
      * @return void
      */
     public function test_if_can_retrieve_correctly_json_tag(): void

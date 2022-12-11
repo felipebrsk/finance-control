@@ -5,7 +5,7 @@ use Illuminate\Support\Carbon;
 if (!function_exists('getYear')) {
     /**
      * Get the current year or given date year.
-     * 
+     *
      * @param mixed $year
      * @return int
      */
@@ -22,7 +22,7 @@ if (!function_exists('getYear')) {
 if (!function_exists('getMonth')) {
     /**
      * Get the current month or given date month.
-     * 
+     *
      * @param mixed $month
      * @return int
      */

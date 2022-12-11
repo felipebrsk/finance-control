@@ -9,7 +9,7 @@ trait HasDummyCategory
 {
     /**
      * Create dummy category.
-     * 
+     *
      * @param array $data
      * @return \App\Models\Category
      */
@@ -20,7 +20,7 @@ trait HasDummyCategory
 
     /**
      * Create dummy categories.
-     * 
+     *
      * @param int $times
      * @param array $data
      * @return \Illuminate\Database\Eloquent\Collection
@@ -32,7 +32,7 @@ trait HasDummyCategory
 
     /**
      * Create dummy category to.
-     * 
+     *
      * @param \App\Models\Space $space
      * @param array $data
      * @return \App\Models\Spending

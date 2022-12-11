@@ -19,35 +19,35 @@ class EarningDetachTagsTest extends TestCase
 
     /**
      * The dummy user.
-     * 
+     *
      * @var \App\Models\User
      */
     private $user;
 
     /**
      * The dummy space.
-     * 
+     *
      * @var \App\Models\Space
      */
     private $space;
 
     /**
      * The dummy earning.
-     * 
+     *
      * @var \App\Models\Earning
      */
     private $earning;
 
     /**
      * The dummy tag ids.
-     * 
+     *
      * @var \Illuminate\Database\Eloquent\Collection
      */
     private $tags;
 
     /**
      * Setup new test environments.
-     * 
+     *
      * @return void
      */
     public function setUp(): void
@@ -65,7 +65,7 @@ class EarningDetachTagsTest extends TestCase
 
     /**
      * Get valid detach tags payload.
-     * 
+     *
      * @return array
      */
     protected function getValidDetachTagsPayload(): array
@@ -77,7 +77,7 @@ class EarningDetachTagsTest extends TestCase
 
     /**
      * Test if can throw 404 if earning doesn't exists.
-     * 
+     *
      * @return void
      */
     public function test_if_can_throw_not_found_if_earning_doesnt_exists(): void
@@ -87,7 +87,7 @@ class EarningDetachTagsTest extends TestCase
 
     /**
      * Test if can't detach another user earning tags.
-     * 
+     *
      * @return void
      */
     public function test_if_cant_detach_another_user_earning_tags(): void
@@ -99,7 +99,7 @@ class EarningDetachTagsTest extends TestCase
 
     /**
      * Test if can't detach earning tags without payload.
-     * 
+     *
      * @return void
      */
     public function test_if_cant_detach_earning_tags_without_payload(): void
@@ -111,7 +111,7 @@ class EarningDetachTagsTest extends TestCase
 
     /**
      * Test if can detach earning tags with correctly payload.
-     * 
+     *
      * @return void
      */
     public function test_if_can_detach_earning_tags_with_correctly_payload(): void
@@ -121,7 +121,7 @@ class EarningDetachTagsTest extends TestCase
 
     /**
      * Test if can detach earning tags in database.
-     * 
+     *
      * @return void
      */
     public function test_if_can_detach_earning_tags_in_database(): void

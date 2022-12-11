@@ -11,14 +11,14 @@ class TagService extends AbstractService implements TagServiceInterface
 {
     /**
      * The tag repository interface.
-     * 
+     *
      * @var \App\Contracts\Repositories\TagRepositoryInterface
      */
     protected $repository = TagRepositoryInterface::class;
 
     /**
      * Get all tags with filter.
-     * 
+     *
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Pagination\LengthAwarePaginator
      */

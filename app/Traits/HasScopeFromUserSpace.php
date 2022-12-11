@@ -9,7 +9,7 @@ trait HasScopeFromUserSpace
 {
     /**
      * Make scope to get auth user spaces.
-     * 
+     *
      * @param \Illuminate\Database\Eloquent\Builder $query
      * @return \Illuminate\Database\Eloquent\Builder
      */

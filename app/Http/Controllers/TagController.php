@@ -14,14 +14,14 @@ class TagController extends Controller
 {
     /**
      * The tag service interface.
-     * 
+     *
      * @var \App\Contracts\Services\TagServiceInterface
      */
     private $tagServiceInterface;
 
     /**
      * Create a new class instance.
-     * 
+     *
      * @var \App\Contracts\Services\TagServiceInterface $tagServiceInterface
      * @return void
      */

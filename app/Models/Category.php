@@ -14,9 +14,14 @@ use EloquentFilter\Filterable;
 
 class Category extends Model implements ShouldBelongsToSpaceInterface
 {
+    use HasSlug;
+    use Filterable;
+    use HasFactory;
+    use SoftDeletes;
+    use HasScopeFromUserSpace;
     /**
      * The attributes that are mass assignable.
-     * 
+     *
      * @var array<string, string>
      */
     protected $fillable = [
@@ -28,22 +33,16 @@ class Category extends Model implements ShouldBelongsToSpaceInterface
 
     /**
      * The attributes that should be date.
-     * 
+     *
      * @var array<int, string>
      */
     protected $dates = [
         'deleted_at',
     ];
 
-    use HasSlug;
-    use Filterable;
-    use HasFactory;
-    use SoftDeletes;
-    use HasScopeFromUserSpace;
-
     /**
      * Create model dispatchable events.
-     * 
+     *
      * @var array<string, string>
      */
     protected $dispatchesEvents = [
@@ -54,7 +53,7 @@ class Category extends Model implements ShouldBelongsToSpaceInterface
 
     /**
      * Get the options for generating the slug.
-     * 
+     *
      * @return \App\Helpers\SlugOptions
      */
     public function getSlugOptions(): SlugOptions

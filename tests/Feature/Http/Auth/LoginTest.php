@@ -11,14 +11,14 @@ class LoginTest extends TestCase
 
     /**
      * The dummy user.
-     * 
+     *
      * @var \App\Models\User
      */
     private $user;
 
     /**
      * Setup new environment tests.
-     * 
+     *
      * @return void
      */
     public function setUp(): void
@@ -34,7 +34,7 @@ class LoginTest extends TestCase
 
     /**
      * Test if can login with valid user and username.
-     * 
+     *
      * @return void
      */
     public function test_if_can_login_with_valid_user_and_username(): void
@@ -47,7 +47,7 @@ class LoginTest extends TestCase
 
     /**
      * Test if can login with valid user and email.
-     * 
+     *
      * @return void
      */
     public function test_if_can_login_with_valid_user_and_email(): void
@@ -60,7 +60,7 @@ class LoginTest extends TestCase
 
     /**
      * Test if can't login with invalid credentials.
-     * 
+     *
      * @return void
      */
     public function test_if_cant_login_with_invalid_credentials(): void
@@ -73,7 +73,7 @@ class LoginTest extends TestCase
 
     /**
      * Test if can respond with bearer token if credentials are valid.
-     * 
+     *
      * @return void
      */
     public function test_if_can_respond_with_bearer_token_if_credentials_are_valid(): void
@@ -90,7 +90,7 @@ class LoginTest extends TestCase
 
     /**
      * Check if JWT can validate generated token.
-     * 
+     *
      * @return void
      */
     public function test_if_JWT_can_validate_generated_token(): void

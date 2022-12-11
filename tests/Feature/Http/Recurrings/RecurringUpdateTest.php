@@ -17,28 +17,28 @@ class RecurringUpdateTest extends TestCase
 
     /**
      * The dummy user.
-     * 
+     *
      * @var \App\Models\User
      */
     private $user;
 
     /**
      * The dummy space.
-     * 
+     *
      * @var \App\Models\Space
      */
     private $space;
 
     /**
      * The dummy recurring.
-     * 
+     *
      * @var \App\Models\Recurring
      */
     private $recurring;
 
     /**
      * Setup new test environments.
-     * 
+     *
      * @return void
      */
     public function setUp(): void
@@ -52,7 +52,7 @@ class RecurringUpdateTest extends TestCase
 
     /**
      * Get valid recurring payload.
-     * 
+     *
      * @return array
      */
     protected function getValidRecurringPayload(): array
@@ -75,7 +75,7 @@ class RecurringUpdateTest extends TestCase
 
     /**
      * Test if can update a recurring without payload.
-     * 
+     *
      * @return void
      */
     public function test_if_can_update_a_recurring_without_payload(): void
@@ -85,7 +85,7 @@ class RecurringUpdateTest extends TestCase
 
     /**
      * Test if can throw 404 if recurring doesn't exists.
-     * 
+     *
      * @return void
      */
     public function test_if_can_throw_not_found_if_recurring_doesnt_exists(): void
@@ -95,7 +95,7 @@ class RecurringUpdateTest extends TestCase
 
     /**
      * Test if can't update a recurring that doesnt belongs to user spaces.
-     * 
+     *
      * @return void
      */
     public function test_if_cant_update_a_recurring_that_doesnt_belongs_to_user_spaces(): void
@@ -107,7 +107,7 @@ class RecurringUpdateTest extends TestCase
 
     /**
      * Test if can't update a recurring category with category that doesn't belongs to user space.
-     * 
+     *
      * @return void
      */
     public function test_if_cant_update_a_recurring_category_with_category_that_doesnt_belongs_to_user_space(): void
@@ -115,12 +115,13 @@ class RecurringUpdateTest extends TestCase
         $this->putJson(route('recurrings.update', $this->recurring->id), [
             'category_id' => $this->createDummyCategory()->id,
         ])->assertForbidden()
-            ->assertSee('Esta categoria n\u00e3o pertence \u00e0 nenhum dos seus espa\u00e7os. Nenhuma opera\u00e7\u00e3o pode ser realizada.');;
+            ->assertSee('Esta categoria n\u00e3o pertence \u00e0 nenhum dos seus espa\u00e7os. Nenhuma opera\u00e7\u00e3o pode ser realizada.');
+            ;
     }
 
     /**
      * Test if can't update a recurring space with space that doesn't belongs to user.
-     * 
+     *
      * @return void
      */
     public function test_if_cant_update_a_recurring_space_with_space_that_doesnt_belongs_to_user(): void
@@ -133,7 +134,7 @@ class RecurringUpdateTest extends TestCase
 
     /**
      * Test if can update a recurring with correctly payload.
-     * 
+     *
      * @return void
      */
     public function test_if_can_update_a_recurring_with_correctly_payload(): void
@@ -143,7 +144,7 @@ class RecurringUpdateTest extends TestCase
 
     /**
      * Test if can save updated recurring data in database.
-     * 
+     *
      * @return void
      */
     public function test_if_can_save_payload_correctly_in_database(): void
@@ -164,7 +165,7 @@ class RecurringUpdateTest extends TestCase
 
     /**
      * Test if can retrieve correctly json recurring structure on update.
-     * 
+     *
      * @return void
      */
     public function test_if_can_retrieve_correctly_json_recurring_structure_on_update(): void
@@ -216,7 +217,7 @@ class RecurringUpdateTest extends TestCase
 
     /**
      * Test if can retrieve correctly json updated recurring.
-     * 
+     *
      * @return void
      */
     public function test_if_can_retrieve_correctly_json_updated_recurring(): void
@@ -242,7 +243,7 @@ class RecurringUpdateTest extends TestCase
 
     /**
      * Test if can create a new activity on recurring update.
-     * 
+     *
      * @return void
      */
     public function test_if_can_create_a_new_activity_on_recurring_update(): void
@@ -258,7 +259,7 @@ class RecurringUpdateTest extends TestCase
 
     /**
      * Test if can associate new tags to recurring.
-     * 
+     *
      * @return void
      */
     public function test_if_can_associate_new_tags_to_recurring(): void
@@ -278,7 +279,7 @@ class RecurringUpdateTest extends TestCase
 
     /**
      * Test if can't update recurring tags with a tag that doesn't belongs to user.
-     * 
+     *
      * @return void
      */
     public function test_if_cant_update_recurring_tags_with_a_tag_that_doesnt_belongs_to_user(): void

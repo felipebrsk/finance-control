@@ -13,21 +13,21 @@ class SpendingIndexTest extends TestCase
 
     /**
      * The dummy user.
-     * 
+     *
      * @var \App\Models\User
      */
     private $user;
 
     /**
      * The dummy space.
-     * 
+     *
      * @var \App\Models\Space
      */
     private $space;
 
     /**
      * Setup new test environments.
-     * 
+     *
      * @return void
      */
     public function setUp(): void
@@ -40,7 +40,7 @@ class SpendingIndexTest extends TestCase
 
     /**
      * Test if can get the spendings route.
-     * 
+     *
      * @return void
      */
     public function test_if_can_get_the_spendings_route(): void
@@ -50,7 +50,7 @@ class SpendingIndexTest extends TestCase
 
     /**
      * Test if can get the correctly json spendings count.
-     * 
+     *
      * @return void
      */
     public function test_if_can_get_correctly_json_spendings_count(): void
@@ -66,7 +66,7 @@ class SpendingIndexTest extends TestCase
 
     /**
      * Test if cant get another user spendings count.
-     * 
+     *
      * @return void
      */
     public function test_if_cant_get_another_user_spendings_count(): void
@@ -80,7 +80,7 @@ class SpendingIndexTest extends TestCase
 
     /**
      * Test if can get correctly json spendings structure.
-     * 
+     *
      * @return void
      */
     public function test_if_can_get_correctly_json_spendings_structure(): void
@@ -120,7 +120,7 @@ class SpendingIndexTest extends TestCase
 
     /**
      * Test if can get correctly json spending.
-     * 
+     *
      * @return void
      */
     public function test_if_can_get_correctly_json_spending(): void

@@ -17,28 +17,28 @@ class SpaceDetachTagsTest extends TestCase
 
     /**
      * The dummy user.
-     * 
+     *
      * @var \App\Models\User
      */
     private $user;
 
     /**
      * The dummy space.
-     * 
+     *
      * @var \App\Models\Space
      */
     private $space;
 
     /**
      * The dummy tag ids.
-     * 
+     *
      * @var \Illuminate\Database\Eloquent\Collection
      */
     private $tags;
 
     /**
      * Setup new test environments.
-     * 
+     *
      * @return void
      */
     public function setUp(): void
@@ -55,7 +55,7 @@ class SpaceDetachTagsTest extends TestCase
 
     /**
      * Get valid detach tags payload.
-     * 
+     *
      * @return array
      */
     protected function getValidDetachTagsPayload(): array
@@ -67,7 +67,7 @@ class SpaceDetachTagsTest extends TestCase
 
     /**
      * Test if can throw 404 if space doesn't exists.
-     * 
+     *
      * @return void
      */
     public function test_if_can_throw_not_found_if_space_doesnt_exists(): void
@@ -77,7 +77,7 @@ class SpaceDetachTagsTest extends TestCase
 
     /**
      * Test if can't detach another user space tags.
-     * 
+     *
      * @return void
      */
     public function test_if_cant_detach_another_user_space_tags(): void
@@ -89,7 +89,7 @@ class SpaceDetachTagsTest extends TestCase
 
     /**
      * Test if can't detach space tags without payload.
-     * 
+     *
      * @return void
      */
     public function test_if_cant_detach_space_tags_without_payload(): void
@@ -101,7 +101,7 @@ class SpaceDetachTagsTest extends TestCase
 
     /**
      * Test if can detach space tags with correctly payload.
-     * 
+     *
      * @return void
      */
     public function test_if_can_detach_space_tags_with_correctly_payload(): void
@@ -111,7 +111,7 @@ class SpaceDetachTagsTest extends TestCase
 
     /**
      * Test if can detach space tags in database.
-     * 
+     *
      * @return void
      */
     public function test_if_can_detach_space_tags_in_database(): void

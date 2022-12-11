@@ -9,7 +9,7 @@ class DateHelpersTest extends TestCase
 {
     /**
      * Setup new test environments.
-     * 
+     *
      * @return void
      */
     public function setUp(): void
@@ -19,7 +19,7 @@ class DateHelpersTest extends TestCase
 
     /**
      * Test if can get the year correctly.
-     * 
+     *
      * @return void
      */
     public function test_if_can_get_the_year_correctly(): void
@@ -31,7 +31,7 @@ class DateHelpersTest extends TestCase
 
     /**
      * Test if can get the given date year.
-     * 
+     *
      * @return void
      */
     public function test_if_can_get_the_given_date_year(): void
@@ -43,7 +43,7 @@ class DateHelpersTest extends TestCase
 
     /**
      * Test if can get the month correctly.
-     * 
+     *
      * @return void
      */
     public function test_if_can_get_the_month_correctly(): void
@@ -55,7 +55,7 @@ class DateHelpersTest extends TestCase
 
     /**
      * Test if can get the given date month.
-     * 
+     *
      * @return void
      */
     public function test_if_can_get_the_given_date_month(): void

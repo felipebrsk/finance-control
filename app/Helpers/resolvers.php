@@ -6,7 +6,7 @@ use App\Contracts\Services\S3ServiceInterface;
 if (!function_exists('s3Service')) {
     /**
      * Resolve the s3 service.
-     * 
+     *
      * @return \App\Interfaces\Services\S3ServiceInterface
      */
     function s3Service(): S3ServiceInterface
@@ -18,7 +18,7 @@ if (!function_exists('s3Service')) {
 if (!function_exists('jwt')) {
     /**
      * Resolve the jwt class.
-     * 
+     *
      * @return \PHPOpenSourceSaver\JWTAuth\JWT
      */
     function jwt()

@@ -8,14 +8,14 @@ class UserRepository extends AbstractRepository
 {
     /**
      * The repository model.
-     * 
+     *
      * @var \App\Models\User
      */
     protected $model = User::class;
 
     /**
      * Find user by email.
-     * 
+     *
      * @param string $email
      * @return \App\Models\User
      */

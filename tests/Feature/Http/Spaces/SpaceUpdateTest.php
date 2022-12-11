@@ -21,21 +21,21 @@ class SpaceUpdateTest extends TestCase
 
     /**
      * The dummy user.
-     * 
+     *
      * @var \App\Models\User
      */
     private $user;
 
     /**
      * The dummy space.
-     * 
+     *
      * @var \App\Models\Space
      */
     private $space;
 
     /**
      * Setup new test environments.
-     * 
+     *
      * @return void
      */
     public function setUp(): void
@@ -48,7 +48,7 @@ class SpaceUpdateTest extends TestCase
 
     /**
      * Get valid spending payload.
-     * 
+     *
      * @return array
      */
     protected function getValidSpacePayload(): array
@@ -65,7 +65,7 @@ class SpaceUpdateTest extends TestCase
 
     /**
      * Test if can throw 404 if space doesn't exists.
-     * 
+     *
      * @return void
      */
     public function test_if_can_throw_not_found_if_space_doesnt_exists(): void
@@ -75,7 +75,7 @@ class SpaceUpdateTest extends TestCase
 
     /**
      * Test if can't update another user space.
-     * 
+     *
      * @return void
      */
     public function test_if_cant_update_another_user_space(): void
@@ -87,7 +87,7 @@ class SpaceUpdateTest extends TestCase
 
     /**
      * Test if can't update a space with tags that doesn't belongs to user.
-     * 
+     *
      * @return void
      */
     public function test_if_cant_update_a_space_with_tags_that_doesnt_belongs_to_user(): void
@@ -105,7 +105,7 @@ class SpaceUpdateTest extends TestCase
 
     /**
      * Test if can update a space without payload.
-     * 
+     *
      * @return void
      */
     public function test_if_can_update_a_space_without_payload(): void
@@ -115,7 +115,7 @@ class SpaceUpdateTest extends TestCase
 
     /**
      * Test if can update a space with valid payload.
-     * 
+     *
      * @return void
      */
     public function test_if_can_update_a_space_with_valid_payload(): void
@@ -125,7 +125,7 @@ class SpaceUpdateTest extends TestCase
 
     /**
      * Test if can save space correctly in database.
-     * 
+     *
      * @return void
      */
     public function test_if_can_save_space_correctly_in_database(): void
@@ -142,7 +142,7 @@ class SpaceUpdateTest extends TestCase
 
     /**
      * Test if can associate the tags in database.
-     * 
+     *
      * @return void
      */
     public function test_if_can_associate_the_tags_in_database(): void
@@ -162,7 +162,7 @@ class SpaceUpdateTest extends TestCase
 
     /**
      * Test if can return correctly json space structure.
-     * 
+     *
      * @return void
      */
     public function test_if_can_return_correctly_json_space_structure(): void
@@ -202,7 +202,7 @@ class SpaceUpdateTest extends TestCase
 
     /**
      * Test if can return correctly json spending on creation.
-     * 
+     *
      * @return void
      */
     public function test_if_can_return_correctly_json_spending_on_creation(): void

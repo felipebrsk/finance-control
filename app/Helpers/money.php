@@ -4,7 +4,7 @@
 if (!function_exists('formatCurrency')) {
     /**
      * Format the money to currency.
-     * 
+     *
      * @param int $amount
      * @param string $currency
      * @return string

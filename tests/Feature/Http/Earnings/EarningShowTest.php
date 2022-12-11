@@ -3,7 +3,6 @@
 namespace Tests\Feature\Http\Earnings;
 
 use Tests\TestCase;
-use Illuminate\Support\Str;
 use Tests\Traits\{HasDummySpace, HasDummyEarning, HasDummyTag, HasDummyUser};
 
 class EarningShowTest extends TestCase
@@ -15,35 +14,35 @@ class EarningShowTest extends TestCase
 
     /**
      * The dummy user.
-     * 
+     *
      * @var \App\Models\User
      */
     private $user;
 
     /**
      * The dummy space.
-     * 
+     *
      * @var \App\Models\Space
      */
     private $space;
 
     /**
      * The dummy earning.
-     * 
+     *
      * @var \App\Models\Earning
      */
     private $earning;
 
     /**
      * The dummy tag.
-     * 
+     *
      * @var \App\Models\Tag
      */
     private $tag;
 
     /**
      * Setup new test environments.
-     * 
+     *
      * @return void
      */
     public function setUp(): void
@@ -59,7 +58,7 @@ class EarningShowTest extends TestCase
 
     /**
      * Test if can get a earning details.
-     * 
+     *
      * @return void
      */
     public function test_if_can_get_a_earning_details(): void
@@ -69,7 +68,7 @@ class EarningShowTest extends TestCase
 
     /**
      * Test if can throw 404 if earning doesn't exists.
-     * 
+     *
      * @return void
      */
     public function test_if_can_throw_not_found_if_earning_doesnt_exists(): void
@@ -79,7 +78,7 @@ class EarningShowTest extends TestCase
 
     /**
      * Test if can't get a earning details if doesn't belongs to user space.
-     * 
+     *
      * @return void
      */
     public function test_if_cant_get_a_earning_details_if_doesnt_belongs_to_user_space(): void
@@ -93,7 +92,7 @@ class EarningShowTest extends TestCase
 
     /**
      * Test if can get a correctly earning details json structure.
-     * 
+     *
      * @return void
      */
     public function test_if_can_get_a_correctly_earning_details_json_structure(): void
@@ -165,7 +164,7 @@ class EarningShowTest extends TestCase
 
     /**
      * Test if can get the correctly earning details data.
-     * 
+     *
      * @return void
      */
     public function test_if_can_get_the_correctly_earning_details_data(): void

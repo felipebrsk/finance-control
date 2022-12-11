@@ -8,9 +8,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Currency extends Model
 {
+    use HasFactory;
     /**
      * The attributes that are mass assignable.
-     * 
+     *
      * @var array<string, string>
      */
     protected $fillable = [
@@ -18,8 +19,6 @@ class Currency extends Model
         'iso',
         'symbol',
     ];
-
-    use HasFactory;
 
     /**
      * Get all of the spaces for the Currency

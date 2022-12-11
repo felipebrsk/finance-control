@@ -6,35 +6,35 @@ class SlugOptions
 {
     /**
      * Generate the slug from column.
-     * 
+     *
      * @var array|\Closure
      */
     public $generateSlugFrom = 'name';
 
     /**
      * The slug field.
-     * 
+     *
      * @var string
      */
     public string $slugField = 'slug';
 
     /**
      * The slug max lenght.
-     * 
+     *
      * @var int
      */
     public int $maximumLength = 50;
 
     /**
      * Skip slug generation.
-     * 
+     *
      * @var bool
      */
     public bool $skipGenerate = false;
 
     /**
      * The create method.
-     * 
+     *
      * @return static
      */
     public static function create(): static
@@ -44,7 +44,7 @@ class SlugOptions
 
     /**
      * Generate the slug from given column.
-     * 
+     *
      * @param string|array|callable $fieldName
      * @return self
      */
@@ -61,7 +61,7 @@ class SlugOptions
 
     /**
      * Save slug to column.
-     * 
+     *
      * @param string $fieldName
      * @return self
      */
@@ -74,7 +74,7 @@ class SlugOptions
 
     /**
      * Prevent slugs longer than given value.
-     * 
+     *
      * @param int $maximunLenght
      * @return self
      */
@@ -87,7 +87,7 @@ class SlugOptions
 
     /**
      * Skip the slug generation when.
-     * 
+     *
      * @param callable $callable
      * @return self
      */

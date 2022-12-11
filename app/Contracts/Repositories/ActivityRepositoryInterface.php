@@ -9,7 +9,7 @@ interface ActivityRepositoryInterface extends BasicRepositoryInterface
 {
     /**
      * Get all with filter.
-     * 
+     *
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Pagination\LengthAwarePaginator
      */

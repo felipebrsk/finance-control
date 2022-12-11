@@ -12,14 +12,14 @@ class TagIndexTest extends TestCase
 
     /**
      * The dummy user.
-     * 
+     *
      * @var \App\Models\User
      */
     private $user;
 
     /**
      * Setup new test environments.
-     * 
+     *
      * @return void
      */
     public function setUp(): void
@@ -31,7 +31,7 @@ class TagIndexTest extends TestCase
 
     /**
      * Test if can get the tags route.
-     * 
+     *
      * @return void
      */
     public function test_if_can_get_the_tags_route(): void
@@ -41,7 +41,7 @@ class TagIndexTest extends TestCase
 
     /**
      * Test if can get the correctly json tags count.
-     * 
+     *
      * @return void
      */
     public function test_if_can_get_correctly_json_tags_count(): void
@@ -55,7 +55,7 @@ class TagIndexTest extends TestCase
 
     /**
      * Test if cant get another user tags count.
-     * 
+     *
      * @return void
      */
     public function test_if_cant_get_another_user_tags_count(): void
@@ -69,7 +69,7 @@ class TagIndexTest extends TestCase
 
     /**
      * Test if can get correctly json tags structure.
-     * 
+     *
      * @return void
      */
     public function test_if_can_get_correctly_json_tags_structure(): void
@@ -92,7 +92,7 @@ class TagIndexTest extends TestCase
 
     /**
      * Test if can get correctly json tag.
-     * 
+     *
      * @return void
      */
     public function test_if_can_get_correctly_json_tag(): void

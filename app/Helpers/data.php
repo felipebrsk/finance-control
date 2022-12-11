@@ -3,7 +3,7 @@
 if (!function_exists('issetGetter')) {
     /**
      * Get the given attribute from array if exists.
-     * 
+     *
      * @param array $data
      * @param string $attribute
      * @return mixed

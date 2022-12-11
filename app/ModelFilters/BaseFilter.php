@@ -9,14 +9,14 @@ abstract class BaseFilter extends ModelFilter
 {
     /**
      * The sortable attributes.
-     * 
+     *
      * @var array
      */
     protected $sortable = [];
 
     /**
      * Setup new class environments.
-     * 
+     *
      * @return void
      */
     public function setup(): void
@@ -32,7 +32,7 @@ abstract class BaseFilter extends ModelFilter
 
     /**
      * Sort by given column.
-     * 
+     *
      * @param string $column
      * @return void
      */
@@ -51,7 +51,7 @@ abstract class BaseFilter extends ModelFilter
 
     /**
      * Check if column is sortable.
-     * 
+     *
      * @param string $column
      * @return bool
      */

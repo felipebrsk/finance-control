@@ -25,7 +25,7 @@ class CategoryStoreRequestTest extends TestCase
 
     /**
      * Test name validation rules.
-     * 
+     *
      * @return void
      */
     public function test_name_validation_rules(): void
@@ -37,7 +37,7 @@ class CategoryStoreRequestTest extends TestCase
 
     /**
      * Test color validation rules.
-     * 
+     *
      * @return void
      */
     public function test_color_validation_rules(): void
@@ -48,7 +48,7 @@ class CategoryStoreRequestTest extends TestCase
 
     /**
      * Test space_id validation rules.
-     * 
+     *
      * @return void
      */
     public function test_space_id_validation_rules(): void

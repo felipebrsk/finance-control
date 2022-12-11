@@ -14,14 +14,14 @@ class SpaceService extends AbstractService implements SpaceServiceInterface
 {
     /**
      * The space repository interface.
-     * 
+     *
      * @var \App\Contracts\Repositories\SpaceRepositoryInterface
      */
     protected $repository = SpaceRepositoryInterface::class;
 
     /**
      * Get all auth user spaces.
-     * 
+     *
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Pagination\LengthAwarePaginator
      */
@@ -32,7 +32,7 @@ class SpaceService extends AbstractService implements SpaceServiceInterface
 
     /**
      * Create a new space.
-     * 
+     *
      * @param array $data
      * @return \App\Models\Space
      */
@@ -45,7 +45,7 @@ class SpaceService extends AbstractService implements SpaceServiceInterface
 
     /**
      * Update an space.
-     * 
+     *
      * @param array $data
      * @param mixed $id
      * @return \App\Models\Space
@@ -59,7 +59,7 @@ class SpaceService extends AbstractService implements SpaceServiceInterface
 
     /**
      * Assert can create a new Earning.
-     * 
+     *
      * @param array $data
      * @throws \App\Exceptions\Tag\TagDoesntBelongsToUserException
      * @return void
@@ -81,7 +81,7 @@ class SpaceService extends AbstractService implements SpaceServiceInterface
 
     /**
      * Assert can update a Earning.
-     * 
+     *
      * @param array $data
      * @throws \App\Exceptions\Tag\TagDoesntBelongsToUserException
      * @return void
@@ -103,7 +103,7 @@ class SpaceService extends AbstractService implements SpaceServiceInterface
 
     /**
      * Detach space tags.
-     * 
+     *
      * @param array $ids
      * @param mixed $id
      * @return \App\Models\Space

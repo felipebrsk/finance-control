@@ -13,9 +13,13 @@ use Illuminate\Support\Facades\DB;
 
 class Space extends Model
 {
+    use HasFactory;
+    use SoftDeletes;
+    use HasSlug;
+    use Filterable;
     /**
      * The attributes that are mass assignable.
-     * 
+     *
      * @var array<string, string>
      */
     protected $fillable = [
@@ -27,21 +31,16 @@ class Space extends Model
 
     /**
      * The attributes that should be date.
-     * 
+     *
      * @var array<string>
      */
     protected $dates = [
         'deleted_at',
     ];
 
-    use HasFactory;
-    use SoftDeletes;
-    use HasSlug;
-    use Filterable;
-
     /**
      * Get the options for generating the slug.
-     * 
+     *
      * @return \App\Helpers\SlugOptions
      */
     public function getSlugOptions(): SlugOptions
@@ -131,7 +130,7 @@ class Space extends Model
 
     /**
      * Delete the space with attachments.
-     * 
+     *
      * @return bool
      */
     public function delete(): bool
@@ -145,7 +144,7 @@ class Space extends Model
 
     /**
      * Create scope to auth user.
-     * 
+     *
      * @param \Illuminate\Database\Eloquent\Builder $query
      * @return \Illuminate\Database\Eloquent\Builder
      */
@@ -156,7 +155,7 @@ class Space extends Model
 
     /**
      * Get the monthly recurrings.
-     * 
+     *
      * @param int $year
      * @param int $month
      * @return int
@@ -178,7 +177,7 @@ class Space extends Model
 
     /**
      * Get the monthly balance.
-     * 
+     *
      * @param int $year
      * @param int $month
      * @return int
@@ -198,7 +197,7 @@ class Space extends Model
 
     /**
      * Get the monthly recurrings.
-     * 
+     *
      * @param int $year
      * @param int $month
      * @return int
@@ -220,7 +219,7 @@ class Space extends Model
 
     /**
      * Get the monthly recurrings.
-     * 
+     *
      * @param int $year
      * @param int $month
      * @return int

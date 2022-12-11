@@ -8,10 +8,9 @@ use Illuminate\Pagination\LengthAwarePaginator;
 
 interface EarningRepositoryInterface extends BasicRepositoryInterface, HasTagsRepositoryInterface
 {
-
     /**
      * Get all auth earning with space scope.
-     * 
+     *
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Pagination\LengthAwarePaginator
      */
@@ -19,7 +18,7 @@ interface EarningRepositoryInterface extends BasicRepositoryInterface, HasTagsRe
 
     /**
      * Create from process recurrings job.
-     * 
+     *
      * @param array $data
      * @return \Illuminate\Database\Eloquent\Model
      */

@@ -13,21 +13,21 @@ class EarningIndexTest extends TestCase
 
     /**
      * The dummy user.
-     * 
+     *
      * @var \App\Models\User
      */
     private $user;
 
     /**
      * The dummy space.
-     * 
+     *
      * @var \App\Models\Space
      */
     private $space;
 
     /**
      * Setup new test environments.
-     * 
+     *
      * @return void
      */
     public function setUp(): void
@@ -40,7 +40,7 @@ class EarningIndexTest extends TestCase
 
     /**
      * Test if can get the earnings route.
-     * 
+     *
      * @return void
      */
     public function test_if_can_get_the_earnings_route(): void
@@ -50,7 +50,7 @@ class EarningIndexTest extends TestCase
 
     /**
      * Test if can get the correctly json earnings count.
-     * 
+     *
      * @return void
      */
     public function test_if_can_get_correctly_json_earnings_count(): void
@@ -66,7 +66,7 @@ class EarningIndexTest extends TestCase
 
     /**
      * Test if cant get another user earnings count.
-     * 
+     *
      * @return void
      */
     public function test_if_cant_get_another_user_earnings_count(): void
@@ -80,7 +80,7 @@ class EarningIndexTest extends TestCase
 
     /**
      * Test if can get correctly json earnings structure.
-     * 
+     *
      * @return void
      */
     public function test_if_can_get_correctly_json_earnings_structure(): void
@@ -120,7 +120,7 @@ class EarningIndexTest extends TestCase
 
     /**
      * Test if can get correctly json earning.
-     * 
+     *
      * @return void
      */
     public function test_if_can_get_correctly_json_earning(): void

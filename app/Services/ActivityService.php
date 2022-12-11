@@ -11,14 +11,14 @@ class ActivityService extends AbstractService implements ActivityServiceInterfac
 {
     /**
      * The activity repository interface.
-     * 
+     *
      * @var \App\Contracts\Repositories\ActivityRepositoryInterface
      */
     protected $repository = ActivityRepositoryInterface::class;
 
     /**
      * Get all with filter.
-     * 
+     *
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Pagination\LengthAwarePaginator
      */

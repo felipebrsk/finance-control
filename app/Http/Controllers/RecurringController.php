@@ -18,14 +18,14 @@ class RecurringController extends Controller
 {
     /**
      * The recurring service interface.
-     * 
+     *
      * @var \App\Contracts\Services\RecurringServiceInterface
      */
     private $recurringServiceInterface;
 
     /**
      * Create a new class instance.
-     * 
+     *
      * @param \App\Contracts\Services\RecurringServiceInterface $recurringServiceInterface
      * @return void
      */
@@ -133,7 +133,7 @@ class RecurringController extends Controller
 
     /**
      * Detach tags from space.
-     * 
+     *
      * @param  \App\Http\Requests\Recurring\DetachRecurringTagsRequest  $request
      * @param mixed $id
      * @return \App\Http\Resources\RecurringResource

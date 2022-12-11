@@ -13,14 +13,14 @@ class CategoryRepository extends AbstractRepository implements CategoryRepositor
 {
     /**
      * The category model.
-     * 
+     *
      * @var \App\Models\Category
      */
     protected $model = Category::class;
 
     /**
      * Get all with filter.
-     * 
+     *
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Pagination\LengthAwarePaginator
      */
@@ -31,7 +31,7 @@ class CategoryRepository extends AbstractRepository implements CategoryRepositor
 
     /**
      * Find or fail a category.
-     * 
+     *
      * @param mixed $id
      * @return \App\Models\Category
      */
@@ -48,7 +48,7 @@ class CategoryRepository extends AbstractRepository implements CategoryRepositor
 
     /**
      * Update a category.
-     * 
+     *
      * @param array $data
      * @param mixed $id
      * @return \App\Models\Category
@@ -68,7 +68,7 @@ class CategoryRepository extends AbstractRepository implements CategoryRepositor
 
     /**
      * Delete a category.
-     * 
+     *
      * @param mixed $id
      * @return void
      */

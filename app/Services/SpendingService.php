@@ -22,14 +22,14 @@ class SpendingService extends AbstractService implements SpendingServiceInterfac
 {
     /**
      * The spending repository interface.
-     * 
+     *
      * @var \App\Contracts\Repositories\SpendingRepositoryInterface
      */
     protected $repository = SpendingRepositoryInterface::class;
 
     /**
      * Get all auth spendings.
-     * 
+     *
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Pagination\LengthAwarePaginator
      */
@@ -40,7 +40,7 @@ class SpendingService extends AbstractService implements SpendingServiceInterfac
 
     /**
      * Create a new spending.
-     * 
+     *
      * @param array $data
      * @return \App\Models\Spending
      */
@@ -53,7 +53,7 @@ class SpendingService extends AbstractService implements SpendingServiceInterfac
 
     /**
      * Update a spending.
-     * 
+     *
      * @param array $data
      * @param mixed $id
      * @return \App\Models\Spending
@@ -67,7 +67,7 @@ class SpendingService extends AbstractService implements SpendingServiceInterfac
 
     /**
      * Assert can create a new spending.
-     * 
+     *
      * @param array $data
      * @throws \App\Exceptions\Tag\TagDoesntBelongsToUserException
      * @throws \App\Exceptions\Category\CategoryDoesntBelongsToUserSpaceException
@@ -94,14 +94,14 @@ class SpendingService extends AbstractService implements SpendingServiceInterfac
 
         if ($associatingCategory && $associatingCategory->space->user->id !== Auth::id()) {
             throw new CategoryDoesntBelongsToUserSpaceException();
-        } else if (!Auth::user()->spaces->contains($data['space_id'])) {
+        } elseif (!Auth::user()->spaces->contains($data['space_id'])) {
             throw new SpaceDoesntBelongsToUserException();
         }
     }
 
     /**
      * Assert can update a spending.
-     * 
+     *
      * @param array $data
      * @throws \App\Exceptions\Tag\TagDoesntBelongsToUserException
      * @throws \App\Exceptions\Category\CategoryDoesntBelongsToUserSpaceException
@@ -130,14 +130,14 @@ class SpendingService extends AbstractService implements SpendingServiceInterfac
 
         if ($associatingCategory && $associatingCategory->space->user->id !== Auth::id()) {
             throw new CategoryDoesntBelongsToUserSpaceException();
-        } else if ($spaceId && !Auth::user()->spaces->contains($spaceId)) {
+        } elseif ($spaceId && !Auth::user()->spaces->contains($spaceId)) {
             throw new SpaceDoesntBelongsToUserException();
         }
     }
 
     /**
      * Detach spending tags.
-     * 
+     *
      * @param array $ids
      * @param mixed $id
      * @return \App\Models\Spending
@@ -149,7 +149,7 @@ class SpendingService extends AbstractService implements SpendingServiceInterfac
 
     /**
      * Create from process recurrings job.
-     * 
+     *
      * @param array $data
      * @return \Illuminate\Database\Eloquent\Model
      */

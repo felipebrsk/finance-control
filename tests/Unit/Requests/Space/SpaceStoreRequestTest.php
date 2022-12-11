@@ -27,7 +27,7 @@ class SpaceStoreRequestTest extends TestCase
 
     /**
      * Test name validation rules.
-     * 
+     *
      * @return void
      */
     public function test_name_validation_rules(): void
@@ -39,7 +39,7 @@ class SpaceStoreRequestTest extends TestCase
 
     /**
      * Test currency_id validation rules.
-     * 
+     *
      * @return void
      */
     public function test_currency_id_validation_rules(): void
@@ -54,7 +54,7 @@ class SpaceStoreRequestTest extends TestCase
 
     /**
      * Test tags validation rules.
-     * 
+     *
      * @return void
      */
     public function test_tags_validation_rules(): void
@@ -66,7 +66,7 @@ class SpaceStoreRequestTest extends TestCase
 
     /**
      * Test tag ids validation rules.
-     * 
+     *
      * @return void
      */
     public function test_tag_ids_validation_rules(): void

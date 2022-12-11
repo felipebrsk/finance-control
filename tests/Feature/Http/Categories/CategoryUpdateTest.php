@@ -14,28 +14,28 @@ class CategoryUpdateTest extends TestCase
 
     /**
      * The dummy user.
-     * 
+     *
      * @var \App\Models\User
      */
     private $user;
 
     /**
      * The dummy space.
-     * 
+     *
      * @var \App\Models\Space
      */
     private $space;
 
     /**
      * The dummy category.
-     * 
+     *
      * @var \App\Models\Category
      */
     private $category;
 
     /**
      * Setup new test environments.
-     * 
+     *
      * @return void
      */
     public function setUp(): void
@@ -49,7 +49,7 @@ class CategoryUpdateTest extends TestCase
 
     /**
      * Get the valid category payload.
-     * 
+     *
      * @return array
      */
     protected function getValidCategoryPayload(): array
@@ -62,7 +62,7 @@ class CategoryUpdateTest extends TestCase
 
     /**
      * Test if can throw 404 if category doesn't exists.
-     * 
+     *
      * @return void
      */
     public function test_if_can_throw_not_found_if_category_doesnt_exists(): void
@@ -72,7 +72,7 @@ class CategoryUpdateTest extends TestCase
 
     /**
      * Test if can't update a category that doesn't belongs to user space.
-     * 
+     *
      * @return void
      */
     public function test_if_cant_update_a_category_that_doesnt_belongs_to_user_space(): void
@@ -84,7 +84,7 @@ class CategoryUpdateTest extends TestCase
 
     /**
      * Test if can update a category without payload.
-     * 
+     *
      * @return void
      */
     public function test_if_can_update_a_category_without_payload(): void
@@ -94,7 +94,7 @@ class CategoryUpdateTest extends TestCase
 
     /**
      * Test if can update a category with correctly payload.
-     * 
+     *
      * @return void
      */
     public function test_if_can_update_a_category_with_correctly_payload(): void
@@ -104,7 +104,7 @@ class CategoryUpdateTest extends TestCase
 
     /**
      * Test if can update a category in database.
-     * 
+     *
      * @return void
      */
     public function test_if_can_update_a_category_in_database(): void
@@ -120,7 +120,7 @@ class CategoryUpdateTest extends TestCase
 
     /**
      * Test if can return correctly category json structure.
-     * 
+     *
      * @return void
      */
     public function test_if_can_return_correctly_category_json_structure(): void
@@ -157,7 +157,7 @@ class CategoryUpdateTest extends TestCase
 
     /**
      * Test if can return correctly category json.
-     * 
+     *
      * @return void
      */
     public function test_if_can_return_correctly_category_json(): void

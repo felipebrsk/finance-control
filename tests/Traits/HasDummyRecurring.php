@@ -9,7 +9,7 @@ trait HasDummyRecurring
 {
     /**
      * Create dummy recurring.
-     * 
+     *
      * @param array $data
      * @return \App\Models\Recurring
      */
@@ -20,7 +20,7 @@ trait HasDummyRecurring
 
     /**
      * Create dummy recurrings.
-     * 
+     *
      * @param int $times
      * @param array $data
      * @return \Illuminate\Database\Eloquent\Collection
@@ -32,7 +32,7 @@ trait HasDummyRecurring
 
     /**
      * Create dummy recurring to.
-     * 
+     *
      * @param \App\Models\Space $space
      * @param array $data
      * @return \App\Models\Recurring

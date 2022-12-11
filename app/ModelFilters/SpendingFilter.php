@@ -9,7 +9,7 @@ class SpendingFilter extends ModelFilter
 {
     /**
      * Filter by space.
-     * 
+     *
      * @param mixed $spaceId
      * @return void
      */
@@ -20,7 +20,7 @@ class SpendingFilter extends ModelFilter
 
     /**
      * Filter by category.
-     * 
+     *
      * @param mixed $categoryId
      * @return void
      */
@@ -31,7 +31,7 @@ class SpendingFilter extends ModelFilter
 
     /**
      * Filter by recurring.
-     * 
+     *
      * @param mixed $recurringId
      * @return void
      */
@@ -42,7 +42,7 @@ class SpendingFilter extends ModelFilter
 
     /**
      * Filter by when.
-     * 
+     *
      * @param string $date
      * @return void
      */
@@ -55,7 +55,7 @@ class SpendingFilter extends ModelFilter
 
     /**
      * Filter by description.
-     * 
+     *
      * @param string $description
      * @return void
      */

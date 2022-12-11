@@ -20,21 +20,21 @@ class SpaceDestroyTest extends TestCase
 
     /**
      * The dummy user.
-     * 
+     *
      * @var \App\Models\User
      */
     private $user;
 
     /**
      * The dummy space.
-     * 
+     *
      * @var \App\Models\Space
      */
     private $space;
 
     /**
      * Setup new test environments.
-     * 
+     *
      * @return void
      */
     public function setUp(): void
@@ -47,7 +47,7 @@ class SpaceDestroyTest extends TestCase
 
     /**
      * Test if can throw 404 if space doesn't exists.
-     * 
+     *
      * @return void
      */
     public function test_if_can_throw_not_found_if_space_doesnt_exists(): void
@@ -57,7 +57,7 @@ class SpaceDestroyTest extends TestCase
 
     /**
      * Test if can't destroy another user space space.
-     * 
+     *
      * @return void
      */
     public function test_if_cant_destroy_another_user_space_space(): void
@@ -69,7 +69,7 @@ class SpaceDestroyTest extends TestCase
 
     /**
      * Test if can destroy own space space.
-     * 
+     *
      * @return void
      */
     public function test_if_can_destroy_own_space_space(): void
@@ -79,7 +79,7 @@ class SpaceDestroyTest extends TestCase
 
     /**
      * Test if can soft delete space.
-     * 
+     *
      * @return void
      */
     public function test_if_can_soft_delete_space(): void
@@ -97,7 +97,7 @@ class SpaceDestroyTest extends TestCase
 
     /**
      * Test if can remove from index on deletion.
-     * 
+     *
      * @return void
      */
     public function test_if_can_remove_from_index_route_on_deletion(): void
@@ -111,7 +111,7 @@ class SpaceDestroyTest extends TestCase
 
     /**
      * Test if can delete the tags on space deletion.
-     * 
+     *
      * @return void
      */
     public function test_if_can_delete_the_tags_on_space_deletion(): void

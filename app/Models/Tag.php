@@ -12,9 +12,13 @@ use Illuminate\Database\Eloquent\Relations\{BelongsTo, MorphToMany};
 
 class Tag extends Model
 {
+    use HasFactory;
+    use SoftDeletes;
+    use HasSlug;
+    use Filterable;
     /**
      * The attributes that are mass assignable.
-     * 
+     *
      * @var array<string, string>
      */
     protected $fillable = [
@@ -26,21 +30,16 @@ class Tag extends Model
 
     /**
      * The attributes that should be date.
-     * 
+     *
      * @var array<string>
      */
     protected $dates = [
         'deleted_at',
     ];
 
-    use HasFactory;
-    use SoftDeletes;
-    use HasSlug;
-    use Filterable;
-
     /**
      * Get the options for generating the slug.
-     * 
+     *
      * @return \App\Helpers\SlugOptions
      */
     public function getSlugOptions(): SlugOptions
@@ -70,7 +69,7 @@ class Tag extends Model
 
     /**
      * Create scope from user.
-     * 
+     *
      * @param \Illuminate\Database\Eloquent\Builder $query
      * @return \Illuminate\Database\Eloquent\Builder
      */

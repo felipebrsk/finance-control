@@ -26,7 +26,7 @@ class RecurringUpdateRequestTest extends TestCase
 
     /**
      * Test description validation rules.
-     * 
+     *
      * @return void
      */
     public function test_description_validation_rules(): void
@@ -39,7 +39,7 @@ class RecurringUpdateRequestTest extends TestCase
 
     /**
      * Test amount validation rules.
-     * 
+     *
      * @return void
      */
     public function test_amount_validation_rules(): void
@@ -52,35 +52,35 @@ class RecurringUpdateRequestTest extends TestCase
 
     /**
      * Test type validation rules.
-     * 
+     *
      * @return void
      */
     public function test_type_validation_rules(): void
     {
         $this->assertFalse($this->validateField('type', '123'));
         $this->assertFalse($this->validateField('type', 123));
-        
+
         $this->assertTrue($this->validateField('type', ''));
         $this->assertTrue($this->validateField('type', fake()->randomElement(['spending', 'earning'])));
     }
 
     /**
      * Test interval validation rules.
-     * 
+     *
      * @return void
      */
     public function test_interval_validation_rules(): void
     {
         $this->assertFalse($this->validateField('interval', '123'));
         $this->assertFalse($this->validateField('interval', 123));
-        
+
         $this->assertTrue($this->validateField('interval', ''));
         $this->assertTrue($this->validateField('interval', fake()->randomElement(['daily', 'weekly', 'biweekly', 'monthly', 'yearly'])));
     }
 
     /**
      * Test start_date validation rules.
-     * 
+     *
      * @return void
      */
     public function test_start_date_validation_rules(): void
@@ -88,14 +88,14 @@ class RecurringUpdateRequestTest extends TestCase
         $this->assertFalse($this->validateField('start_date', '123'));
         $this->assertFalse($this->validateField('start_date', 123));
         $this->assertFalse($this->validateField('start_date', Carbon::today()->subMonth()->toDateString()));
-        
+
         $this->assertTrue($this->validateField('start_date', ''));
         $this->assertTrue($this->validateField('start_date', Carbon::today()->toDateString()));
     }
 
     /**
      * Test space_id validation rules.
-     * 
+     *
      * @return void
      */
     public function test_space_id_validation_rules(): void
@@ -103,14 +103,14 @@ class RecurringUpdateRequestTest extends TestCase
         $this->assertFalse($this->validateField('space_id', '123'));
         $this->assertFalse($this->validateField('space_id', 123));
         $this->assertFalse($this->validateField('space_id', 99999999));
-        
+
         $this->assertTrue($this->validateField('space_id', ''));
         $this->assertTrue($this->validateField('space_id', $this->createDummySpace()->id));
     }
 
     /**
      * Test category_id validation rules.
-     * 
+     *
      * @return void
      */
     public function test_category_id_validation_rules(): void
@@ -125,7 +125,7 @@ class RecurringUpdateRequestTest extends TestCase
 
     /**
      * Test tags validation rules.
-     * 
+     *
      * @return void
      */
     public function test_tags_validation_rules(): void
@@ -137,7 +137,7 @@ class RecurringUpdateRequestTest extends TestCase
 
     /**
      * Test tag ids validation rules.
-     * 
+     *
      * @return void
      */
     public function test_tag_ids_validation_rules(): void

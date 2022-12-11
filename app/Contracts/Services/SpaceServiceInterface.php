@@ -9,7 +9,7 @@ interface SpaceServiceInterface extends BasicServiceInterface, HasTagsServiceInt
 {
     /**
      * Get all auth user spaces.
-     * 
+     *
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Pagination\LengthAwarePaginator
      */

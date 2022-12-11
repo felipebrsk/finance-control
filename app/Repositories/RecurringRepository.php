@@ -15,14 +15,14 @@ class RecurringRepository extends AbstractRepository implements RecurringReposit
 {
     /**
      * The recurring model.
-     * 
+     *
      * @var \App\Models\Recurring
      */
     protected $model = Recurring::class;
 
     /**
      * Get all recurrings with filter.
-     * 
+     *
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Pagination\LengthAwarePaginator
      */
@@ -33,7 +33,7 @@ class RecurringRepository extends AbstractRepository implements RecurringReposit
 
     /**
      * Find or fail a recurring.
-     * 
+     *
      * @param mixed $id
      * @return \App\Models\Recurring
      */
@@ -50,7 +50,7 @@ class RecurringRepository extends AbstractRepository implements RecurringReposit
 
     /**
      * Create a new recurring.
-     * 
+     *
      * @param array $data
      * @return \App\Models\Recurring
      */
@@ -69,7 +69,7 @@ class RecurringRepository extends AbstractRepository implements RecurringReposit
 
     /**
      * Update a recurring.
-     * 
+     *
      * @param array $data
      * @param mixed $id
      * @return \App\Models\Recurring
@@ -95,7 +95,7 @@ class RecurringRepository extends AbstractRepository implements RecurringReposit
 
     /**
      * Delete a recurring.
-     * 
+     *
      * @param mixed $id
      * @return void
      */
@@ -112,7 +112,7 @@ class RecurringRepository extends AbstractRepository implements RecurringReposit
 
     /**
      * Get the yearly recurrings.
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Collection
      */
     public function getDueYearly(): Collection
@@ -131,7 +131,7 @@ class RecurringRepository extends AbstractRepository implements RecurringReposit
 
     /**
      * Get the monthly recurrings.
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Collection
      */
     public function getDueMonthly(): Collection
@@ -163,7 +163,7 @@ class RecurringRepository extends AbstractRepository implements RecurringReposit
 
     /**
      * Get the biweekly recurrings.
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Collection
      */
     public function getDueBiweekly(): Collection
@@ -182,7 +182,7 @@ class RecurringRepository extends AbstractRepository implements RecurringReposit
 
     /**
      * Get the weekly recurrings.
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Collection
      */
     public function getDueWeekly(): Collection
@@ -201,7 +201,7 @@ class RecurringRepository extends AbstractRepository implements RecurringReposit
 
     /**
      * Get the daily recurrings.
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Collection
      */
     public function getDueDaily(): Collection
@@ -219,7 +219,7 @@ class RecurringRepository extends AbstractRepository implements RecurringReposit
 
     /**
      * Detach a recurring tags.
-     * 
+     *
      * @param array $ids
      * @param mixed $id
      * @return \App\Models\Recurring
@@ -239,7 +239,7 @@ class RecurringRepository extends AbstractRepository implements RecurringReposit
 
     /**
      * Update from process recurrings job.
-     * 
+     *
      * @param array $data
      * @param mixed $id
      * @return \App\Models\Recurring

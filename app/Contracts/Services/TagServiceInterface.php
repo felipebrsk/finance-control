@@ -9,7 +9,7 @@ interface TagServiceInterface extends BasicServiceInterface
 {
     /**
      * Get all tags with filter.
-     * 
+     *
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Pagination\LengthAwarePaginator
      */

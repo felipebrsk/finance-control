@@ -25,21 +25,21 @@ class ActivityIndexTest extends TestCase
 
     /**
      * The dummy user.
-     * 
+     *
      * @var \App\Models\User
      */
     private $user;
 
     /**
      * The dummy space.
-     * 
+     *
      * @var \App\Models\Space
      */
     private $space;
 
     /**
      * Setup new test environments.
-     * 
+     *
      * @return void
      */
     public function setUp(): void
@@ -52,7 +52,7 @@ class ActivityIndexTest extends TestCase
 
     /**
      * Test if can get my activities.
-     * 
+     *
      * @return void
      */
     public function test_if_can_get_my_activities(): void
@@ -62,7 +62,7 @@ class ActivityIndexTest extends TestCase
 
     /**
      * Test if can get correctly activities count.
-     * 
+     *
      * @return void
      */
     public function test_if_can_get_correctly_activities_count(): void
@@ -78,7 +78,7 @@ class ActivityIndexTest extends TestCase
 
     /**
      * Test if can get correctly activities count with events.
-     * 
+     *
      * @return void
      */
     public function test_if_can_get_correctly_activities_count_with_activities(): void
@@ -112,7 +112,7 @@ class ActivityIndexTest extends TestCase
 
     /**
      * Test if can get correctly json structure.
-     * 
+     *
      * @return void
      */
     public function test_if_can_get_correctly_json_structure(): void
@@ -134,7 +134,7 @@ class ActivityIndexTest extends TestCase
 
     /**
      * Test if can get correctly earning activitable json structure.
-     * 
+     *
      * @return void
      */
     public function test_if_can_get_correctly_earning_activitable_json_structure(): void
@@ -179,7 +179,7 @@ class ActivityIndexTest extends TestCase
 
     /**
      * Test if can get correctly spending activitable json structure.
-     * 
+     *
      * @return void
      */
     public function test_if_can_get_correctly_spending_activitable_json_structure(): void
@@ -224,7 +224,7 @@ class ActivityIndexTest extends TestCase
 
     /**
      * Test if can get correctly recurring activitable json structure.
-     * 
+     *
      * @return void
      */
     public function test_if_can_get_correctly_recurring_activitable_json_structure(): void
@@ -266,7 +266,7 @@ class ActivityIndexTest extends TestCase
 
     /**
      * Test if can get correctly category activitable json structure.
-     * 
+     *
      * @return void
      */
     public function test_if_can_get_correctly_category_activitable_json_structure(): void
@@ -295,7 +295,7 @@ class ActivityIndexTest extends TestCase
 
     /**
      * Test if can create a new activity on recurring creation.
-     * 
+     *
      * @return void
      */
     public function test_if_can_create_a_new_activity_on_recurring_creation(): void
@@ -309,7 +309,7 @@ class ActivityIndexTest extends TestCase
 
     /**
      * Test if can create a new activity on category creation.
-     * 
+     *
      * @return void
      */
     public function test_if_can_create_a_new_activity_on_category_creation(): void
@@ -323,7 +323,7 @@ class ActivityIndexTest extends TestCase
 
     /**
      * Test if can create a new activity on spending creation.
-     * 
+     *
      * @return void
      */
     public function test_if_can_create_a_new_activity_on_spending_creation(): void
@@ -337,7 +337,7 @@ class ActivityIndexTest extends TestCase
 
     /**
      * Test if can create a new activity on earning creation.
-     * 
+     *
      * @return void
      */
     public function test_if_can_create_a_new_activity_on_earning_creation(): void

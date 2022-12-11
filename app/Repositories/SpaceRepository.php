@@ -13,14 +13,14 @@ class SpaceRepository extends AbstractRepository implements SpaceRepositoryInter
 {
     /**
      * The space model.
-     * 
+     *
      * @var \App\Models\Space
      */
     protected $model = Space::class;
 
     /**
      * Get all auth user spaces.
-     * 
+     *
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Pagination\LengthAwarePaginator
      */
@@ -31,7 +31,7 @@ class SpaceRepository extends AbstractRepository implements SpaceRepositoryInter
 
     /**
      * Create a new space.
-     * 
+     *
      * @param array $data
      * @return \App\Models\Space
      */
@@ -52,7 +52,7 @@ class SpaceRepository extends AbstractRepository implements SpaceRepositoryInter
 
     /**
      * Find or fail a space.
-     * 
+     *
      * @param mixed $id
      * @return \App\Models\Space
      */
@@ -69,7 +69,7 @@ class SpaceRepository extends AbstractRepository implements SpaceRepositoryInter
 
     /**
      * Update a space.
-     * 
+     *
      * @param array $data
      * @param mixed $id
      * @return \App\Models\Space
@@ -95,7 +95,7 @@ class SpaceRepository extends AbstractRepository implements SpaceRepositoryInter
 
     /**
      * Delete a space.
-     * 
+     *
      * @param mixed $id
      * @return void
      */
@@ -112,7 +112,7 @@ class SpaceRepository extends AbstractRepository implements SpaceRepositoryInter
 
     /**
      * Detach a space tags.
-     * 
+     *
      * @param array $ids
      * @param mixed $id
      * @return \App\Models\Space

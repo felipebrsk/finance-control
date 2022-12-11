@@ -8,7 +8,7 @@ interface UserRepositoryInterface extends BasicRepositoryInterface
 {
     /**
      * Find user by email.
-     * 
+     *
      * @param string $email
      * @return \App\Models\User
      */

@@ -11,14 +11,14 @@ class MeTest extends TestCase
 
     /**
      * The dummy user.
-     * 
+     *
      * @var \App\Models\User
      */
     private $user;
 
     /**
      * Setup new test environments.
-     * 
+     *
      * @return void
      */
     public function setUp(): void
@@ -30,7 +30,7 @@ class MeTest extends TestCase
 
     /**
      * Test if can access the me route.
-     * 
+     *
      * @return void
      */
     public function test_if_can_access_the_me_route(): void
@@ -40,7 +40,7 @@ class MeTest extends TestCase
 
     /**
      * Test if can get correctly json structure.
-     * 
+     *
      * @return void
      */
     public function test_if_can_get_correctly_json_structure(): void
@@ -60,7 +60,7 @@ class MeTest extends TestCase
 
     /**
      * Test if can get correctly user.
-     * 
+     *
      * @return void
      */
     public function test_if_can_get_correctly_user(): void
@@ -80,7 +80,7 @@ class MeTest extends TestCase
 
     /**
      * Test if can get correctly json attributes count.
-     * 
+     *
      * @return void
      */
     public function test_if_can_get_correctly_json_attributes_count(): void

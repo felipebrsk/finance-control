@@ -14,35 +14,35 @@ class SpendingShowTest extends TestCase
 
     /**
      * The dummy user.
-     * 
+     *
      * @var \App\Models\User
      */
     private $user;
 
     /**
      * The dummy space.
-     * 
+     *
      * @var \App\Models\Space
      */
     private $space;
 
     /**
      * The dummy spending.
-     * 
+     *
      * @var \App\Models\Spending
      */
     private $spending;
 
     /**
      * The dummy tag.
-     * 
+     *
      * @var \App\Models\Tag
      */
     private $tag;
 
     /**
      * Setup new test environments.
-     * 
+     *
      * @return void
      */
     public function setUp(): void
@@ -58,7 +58,7 @@ class SpendingShowTest extends TestCase
 
     /**
      * Test if can get a spending details.
-     * 
+     *
      * @return void
      */
     public function test_if_can_get_a_spending_details(): void
@@ -68,7 +68,7 @@ class SpendingShowTest extends TestCase
 
     /**
      * Test if can throw 404 if spending doesn't exists.
-     * 
+     *
      * @return void
      */
     public function test_if_can_throw_not_found_if_spending_doesnt_exists(): void
@@ -78,7 +78,7 @@ class SpendingShowTest extends TestCase
 
     /**
      * Test if can't get a spending details if doesn't belongs to user space.
-     * 
+     *
      * @return void
      */
     public function test_if_cant_get_a_spending_details_if_doesnt_belongs_to_user_space(): void
@@ -92,7 +92,7 @@ class SpendingShowTest extends TestCase
 
     /**
      * Test if can get a correctly spending details json structure.
-     * 
+     *
      * @return void
      */
     public function test_if_can_get_a_correctly_spending_details_json_structure(): void
@@ -165,7 +165,7 @@ class SpendingShowTest extends TestCase
 
     /**
      * Test if can get the correctly spending details data.
-     * 
+     *
      * @return void
      */
     public function test_if_can_get_the_correctly_spending_details_data(): void

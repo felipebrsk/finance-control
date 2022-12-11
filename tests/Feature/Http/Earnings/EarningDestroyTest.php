@@ -15,28 +15,28 @@ class EarningDestroyTest extends TestCase
 
     /**
      * The dummy user.
-     * 
+     *
      * @var \App\Models\User
      */
     private $user;
 
     /**
      * The dummy space.
-     * 
+     *
      * @var \App\Models\Space
      */
     private $space;
 
     /**
      * The dummy earning.
-     * 
+     *
      * @var \App\Models\Earning
      */
     private $earning;
 
     /**
      * Setup new test environments.
-     * 
+     *
      * @return void
      */
     public function setUp(): void
@@ -50,7 +50,7 @@ class EarningDestroyTest extends TestCase
 
     /**
      * Test if can throw 404 if earning doesn't exists.
-     * 
+     *
      * @return void
      */
     public function test_if_can_throw_not_found_if_earning_doesnt_exists(): void
@@ -60,7 +60,7 @@ class EarningDestroyTest extends TestCase
 
     /**
      * Test if can't destroy another user space earning.
-     * 
+     *
      * @return void
      */
     public function test_if_cant_destroy_another_user_space_earning(): void
@@ -72,7 +72,7 @@ class EarningDestroyTest extends TestCase
 
     /**
      * Test if can destroy own space earning.
-     * 
+     *
      * @return void
      */
     public function test_if_can_destroy_own_space_earning(): void
@@ -82,7 +82,7 @@ class EarningDestroyTest extends TestCase
 
     /**
      * Test if can soft delete earning.
-     * 
+     *
      * @return void
      */
     public function test_if_can_soft_delete_earning(): void
@@ -100,7 +100,7 @@ class EarningDestroyTest extends TestCase
 
     /**
      * Test if can create a new activity on earning deletion.
-     * 
+     *
      * @return void
      */
     public function test_if_can_create_a_new_activity_on_earning_deletion(): void
@@ -116,7 +116,7 @@ class EarningDestroyTest extends TestCase
 
     /**
      * Test if can remove from index on deletion.
-     * 
+     *
      * @return void
      */
     public function test_if_can_remove_from_index_route_on_deletion(): void
@@ -130,7 +130,7 @@ class EarningDestroyTest extends TestCase
 
     /**
      * Test if can delete the tags on earning deletion.
-     * 
+     *
      * @return void
      */
     public function test_if_can_delete_the_tags_on_earning_deletion(): void

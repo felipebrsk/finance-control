@@ -9,7 +9,7 @@ interface CategoryServiceInterface extends BasicServiceInterface
 {
     /**
      * Get all with filter.
-     * 
+     *
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Pagination\LengthAwarePaginator
      */

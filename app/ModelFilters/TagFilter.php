@@ -6,7 +6,7 @@ class TagFilter extends BaseFilter
 {
     /**
      * Filter by name.
-     * 
+     *
      * @param string $name
      * @return void
      */
@@ -17,7 +17,7 @@ class TagFilter extends BaseFilter
 
     /**
      * Filter by color.
-     * 
+     *
      * @param string $color
      * @return void
      */

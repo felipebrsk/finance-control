@@ -7,9 +7,10 @@ use Illuminate\Database\Eloquent\Relations\{BelongsTo, MorphTo, Pivot};
 
 class TaggableTag extends Pivot
 {
+    use HasFactory;
     /**
      * The attributes that are mass assignable.
-     * 
+     *
      * @var array<int, string>
      */
     protected $fillable = [
@@ -18,11 +19,9 @@ class TaggableTag extends Pivot
         'tag_id',
     ];
 
-    use HasFactory;
-
     /**
      * Get the morph taggable.
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\MorphTo
      */
     public function taggable(): MorphTo

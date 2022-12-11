@@ -19,35 +19,35 @@ class SpendingDetachTagsTest extends TestCase
 
     /**
      * The dummy user.
-     * 
+     *
      * @var \App\Models\User
      */
     private $user;
 
     /**
      * The dummy space.
-     * 
+     *
      * @var \App\Models\Space
      */
     private $space;
 
     /**
      * The dummy spending.
-     * 
+     *
      * @var \App\Models\Spending
      */
     private $spending;
 
     /**
      * The dummy tag ids.
-     * 
+     *
      * @var \Illuminate\Database\Eloquent\Collection
      */
     private $tags;
 
     /**
      * Setup new test environments.
-     * 
+     *
      * @return void
      */
     public function setUp(): void
@@ -65,7 +65,7 @@ class SpendingDetachTagsTest extends TestCase
 
     /**
      * Get valid detach tags payload.
-     * 
+     *
      * @return array
      */
     protected function getValidDetachTagsPayload(): array
@@ -77,7 +77,7 @@ class SpendingDetachTagsTest extends TestCase
 
     /**
      * Test if can throw 404 if spending doesn't exists.
-     * 
+     *
      * @return void
      */
     public function test_if_can_throw_not_found_if_spending_doesnt_exists(): void
@@ -87,7 +87,7 @@ class SpendingDetachTagsTest extends TestCase
 
     /**
      * Test if can't detach another user spending tags.
-     * 
+     *
      * @return void
      */
     public function test_if_cant_detach_another_user_spending_tags(): void
@@ -99,7 +99,7 @@ class SpendingDetachTagsTest extends TestCase
 
     /**
      * Test if can't detach spending tags without payload.
-     * 
+     *
      * @return void
      */
     public function test_if_cant_detach_spending_tags_without_payload(): void
@@ -111,7 +111,7 @@ class SpendingDetachTagsTest extends TestCase
 
     /**
      * Test if can detach spending tags with correctly payload.
-     * 
+     *
      * @return void
      */
     public function test_if_can_detach_spending_tags_with_correctly_payload(): void
@@ -121,7 +121,7 @@ class SpendingDetachTagsTest extends TestCase
 
     /**
      * Test if can detach spending tags in database.
-     * 
+     *
      * @return void
      */
     public function test_if_can_detach_spending_tags_in_database(): void

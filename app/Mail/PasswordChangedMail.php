@@ -10,11 +10,12 @@ use Illuminate\Mail\Mailables\{Content, Envelope};
 
 class PasswordChangedMail extends Mailable
 {
-    use Queueable, SerializesModels;
+    use Queueable;
+    use SerializesModels;
 
     /**
      * The mailable.
-     * 
+     *
      * @var \App\Models\User
      */
     public $user;

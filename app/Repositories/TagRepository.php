@@ -13,14 +13,14 @@ class TagRepository extends AbstractRepository implements TagRepositoryInterface
 {
     /**
      * The tag model.
-     * 
+     *
      * @var \App\Models\Tag
      */
     protected $model = Tag::class;
 
     /**
      * Get all tags with filter.
-     * 
+     *
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Pagination\LengthAwarePaginator
      */
@@ -31,7 +31,7 @@ class TagRepository extends AbstractRepository implements TagRepositoryInterface
 
     /**
      * Find or fail a tag.
-     * 
+     *
      * @param mixed $id
      * @return \App\Models\Tag
      */
@@ -48,7 +48,7 @@ class TagRepository extends AbstractRepository implements TagRepositoryInterface
 
     /**
      * Create a new tag.
-     * 
+     *
      * @param array $data
      * @return \App\Models\Tag
      */
@@ -61,7 +61,7 @@ class TagRepository extends AbstractRepository implements TagRepositoryInterface
 
     /**
      * Update a tag.
-     * 
+     *
      * @param array $data
      * @param mixed $id
      * @return \App\Models\Tag

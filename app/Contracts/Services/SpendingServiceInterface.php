@@ -10,7 +10,7 @@ interface SpendingServiceInterface extends BasicServiceInterface, HasTagsService
 {
     /**
      * Get all auth spendings.
-     * 
+     *
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Pagination\LengthAwarePaginator
      */
@@ -18,7 +18,7 @@ interface SpendingServiceInterface extends BasicServiceInterface, HasTagsService
 
     /**
      * Create from process recurrings job.
-     * 
+     *
      * @param array $data
      * @return \Illuminate\Database\Eloquent\Model
      */

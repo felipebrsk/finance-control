@@ -12,14 +12,14 @@ class SpaceIndexTest extends TestCase
 
     /**
      * The dummy user.
-     * 
+     *
      * @var \App\Models\User
      */
     private $user;
 
     /**
      * Setup new test environments.
-     * 
+     *
      * @return void
      */
     public function setUp(): void
@@ -31,7 +31,7 @@ class SpaceIndexTest extends TestCase
 
     /**
      * Test if can get spaces route.
-     * 
+     *
      * @return void
      */
     public function test_if_can_get_spaces_route(): void
@@ -41,7 +41,7 @@ class SpaceIndexTest extends TestCase
 
     /**
      * Test if can get correctly spaces json count.
-     * 
+     *
      * @return void
      */
     public function test_if_can_get_correctly_spaces_json_count(): void
@@ -55,7 +55,7 @@ class SpaceIndexTest extends TestCase
 
     /**
      * Test if can get correctly spaces json structure.
-     * 
+     *
      * @return void
      */
     public function test_if_can_get_correctly_spaces_json_structure(): void
@@ -79,7 +79,7 @@ class SpaceIndexTest extends TestCase
 
     /**
      * Test if can't get another user spaces on count.
-     * 
+     *
      * @return void
      */
     public function test_if_cant_get_another_user_spaces_on_count(): void
@@ -93,7 +93,7 @@ class SpaceIndexTest extends TestCase
 
     /**
      * Test if can get correctly json space.
-     * 
+     *
      * @return void
      */
     public function test_if_can_get_correctly_json_space(): void

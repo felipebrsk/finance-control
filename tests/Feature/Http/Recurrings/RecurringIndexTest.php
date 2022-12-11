@@ -13,21 +13,21 @@ class RecurringIndexTest extends TestCase
 
     /**
      * The dummy user.
-     * 
+     *
      * @var \App\Models\User
      */
     private $user;
 
     /**
      * The dummy space.
-     * 
+     *
      * @var \App\Models\Space
      */
     private $space;
 
     /**
      * Setup new test environments.
-     * 
+     *
      * @return void
      */
     public function setUp(): void
@@ -40,7 +40,7 @@ class RecurringIndexTest extends TestCase
 
     /**
      * Test if can get the recurrings route.
-     * 
+     *
      * @return void
      */
     public function test_if_can_get_the_recurrings_route(): void
@@ -50,7 +50,7 @@ class RecurringIndexTest extends TestCase
 
     /**
      * Test if can get the correctly json recurrings count.
-     * 
+     *
      * @return void
      */
     public function test_if_can_get_correctly_json_recurrings_count(): void
@@ -66,7 +66,7 @@ class RecurringIndexTest extends TestCase
 
     /**
      * Test if cant get another user recurrings count.
-     * 
+     *
      * @return void
      */
     public function test_if_cant_get_another_user_recurrings_count(): void
@@ -80,7 +80,7 @@ class RecurringIndexTest extends TestCase
 
     /**
      * Test if can get correctly json recurrings structure.
-     * 
+     *
      * @return void
      */
     public function test_if_can_get_correctly_json_recurrings_structure(): void
@@ -115,7 +115,7 @@ class RecurringIndexTest extends TestCase
 
     /**
      * Test if can get correctly json recurring.
-     * 
+     *
      * @return void
      */
     public function test_if_can_get_correctly_json_recurring(): void

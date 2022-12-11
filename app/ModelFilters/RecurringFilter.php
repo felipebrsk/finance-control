@@ -9,7 +9,7 @@ class RecurringFilter extends ModelFilter
 {
     /**
      * Filter by space.
-     * 
+     *
      * @param mixed $spaceId
      * @return void
      */
@@ -20,7 +20,7 @@ class RecurringFilter extends ModelFilter
 
     /**
      * Filter by category.
-     * 
+     *
      * @param mixed $categoryId
      * @return void
      */
@@ -31,7 +31,7 @@ class RecurringFilter extends ModelFilter
 
     /**
      * Filter by currency.
-     * 
+     *
      * @param mixed $currencyId
      * @return void
      */
@@ -42,7 +42,7 @@ class RecurringFilter extends ModelFilter
 
     /**
      * Filter by description.
-     * 
+     *
      * @param string $description
      * @return void
      */
@@ -53,7 +53,7 @@ class RecurringFilter extends ModelFilter
 
     /**
      * Filter by start date.
-     * 
+     *
      * @param string $startDate
      * @return void
      */
@@ -66,7 +66,7 @@ class RecurringFilter extends ModelFilter
 
     /**
      * Filter by end date.
-     * 
+     *
      * @param string $endDate
      * @return void
      */
@@ -79,7 +79,7 @@ class RecurringFilter extends ModelFilter
 
     /**
      * Filter by type.
-     * 
+     *
      * @param string $type
      * @return void
      */
@@ -92,7 +92,7 @@ class RecurringFilter extends ModelFilter
 
     /**
      * Filter by interval.
-     * 
+     *
      * @param string $interval
      * @return void
      */

@@ -9,7 +9,7 @@ trait HasDummyTag
 {
     /**
      * Create dummy tag.
-     * 
+     *
      * @param array $data
      * @return \App\Models\Tag
      */
@@ -20,7 +20,7 @@ trait HasDummyTag
 
     /**
      * Create dummy tags.
-     * 
+     *
      * @param int $times
      * @param array $data
      * @return \Illuminate\Database\Eloquent\Collection
@@ -32,7 +32,7 @@ trait HasDummyTag
 
     /**
      * Create dummy tag to.
-     * 
+     *
      * @param \App\Models\User $user
      * @param array $data
      * @return \App\Models\Tag

@@ -99,7 +99,7 @@ class AuthController extends Controller implements AuthControllerInterface
 
     /**
      * Get the auth user info.
-     * 
+     *
      * @return \App\Http\Resources\UserResource
      */
     public function me(): UserResource
@@ -128,7 +128,7 @@ class AuthController extends Controller implements AuthControllerInterface
 
     /**
      * Define the username to login.
-     * 
+     *
      * @return string
      */
     protected function username(): string

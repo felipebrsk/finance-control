@@ -12,11 +12,14 @@ use Illuminate\Queue\{InteractsWithQueue, SerializesModels};
 
 class PasswordChangedJob implements ShouldQueue
 {
-    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
+    use Dispatchable;
+    use InteractsWithQueue;
+    use Queueable;
+    use SerializesModels;
 
     /**
      * The mailable.
-     * 
+     *
      * @var \App\Models\User
      */
     public $user;

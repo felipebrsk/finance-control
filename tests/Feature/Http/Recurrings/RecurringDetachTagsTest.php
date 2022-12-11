@@ -1,6 +1,8 @@
 <?php
 
-namespace Tests\Feature\Http\Recurrings;;
+namespace Tests\Feature\Http\Recurrings;
+
+;
 
 use Tests\TestCase;
 use Tests\Traits\{
@@ -19,35 +21,35 @@ class RecurringDetachTagsTest extends TestCase
 
     /**
      * The dummy user.
-     * 
+     *
      * @var \App\Models\User
      */
     private $user;
 
     /**
      * The dummy space.
-     * 
+     *
      * @var \App\Models\Space
      */
     private $space;
 
     /**
      * The dummy recurring.
-     * 
+     *
      * @var \App\Models\Recurring
      */
     private $recurring;
 
     /**
      * The dummy tag ids.
-     * 
+     *
      * @var \Illuminate\Database\Eloquent\Collection
      */
     private $tags;
 
     /**
      * Setup new test environments.
-     * 
+     *
      * @return void
      */
     public function setUp(): void
@@ -65,7 +67,7 @@ class RecurringDetachTagsTest extends TestCase
 
     /**
      * Get valid detach tags payload.
-     * 
+     *
      * @return array
      */
     protected function getValidDetachTagsPayload(): array
@@ -77,7 +79,7 @@ class RecurringDetachTagsTest extends TestCase
 
     /**
      * Test if can throw 404 if recurring doesn't exists.
-     * 
+     *
      * @return void
      */
     public function test_if_can_throw_not_found_if_recurring_doesnt_exists(): void
@@ -87,7 +89,7 @@ class RecurringDetachTagsTest extends TestCase
 
     /**
      * Test if can't detach another user recurring recurring tags.
-     * 
+     *
      * @return void
      */
     public function test_if_cant_detach_another_user_recurring_recurring_tags(): void
@@ -99,7 +101,7 @@ class RecurringDetachTagsTest extends TestCase
 
     /**
      * Test if can't detach recurring tags without payload.
-     * 
+     *
      * @return void
      */
     public function test_if_cant_detach_recurring_tags_without_payload(): void
@@ -111,7 +113,7 @@ class RecurringDetachTagsTest extends TestCase
 
     /**
      * Test if can detach recurring tags with correctly payload.
-     * 
+     *
      * @return void
      */
     public function test_if_can_detach_recurring_tags_with_correctly_payload(): void
@@ -121,7 +123,7 @@ class RecurringDetachTagsTest extends TestCase
 
     /**
      * Test if can detach recurring tags in database.
-     * 
+     *
      * @return void
      */
     public function test_if_can_detach_recurring_tags_in_database(): void

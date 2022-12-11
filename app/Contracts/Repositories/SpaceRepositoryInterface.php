@@ -9,7 +9,7 @@ interface SpaceRepositoryInterface extends BasicRepositoryInterface, HasTagsRepo
 {
     /**
      * Get all auth user spaces.
-     * 
+     *
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Pagination\LengthAwarePaginator
      */

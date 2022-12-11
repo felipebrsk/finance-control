@@ -26,7 +26,7 @@ interface S3ServiceInterface
 
     /**
      * Get a file s3 path.
-     * 
+     *
      * @param ?string $path
      * @return ?string
      */

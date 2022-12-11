@@ -16,21 +16,21 @@ class EarningStoreTest extends TestCase
 
     /**
      * The dummy user.
-     * 
+     *
      * @var \App\Models\User
      */
     private $user;
 
     /**
      * The dummy space.
-     * 
+     *
      * @var \App\Models\Space
      */
     private $space;
 
     /**
      * Setup new test environments.
-     * 
+     *
      * @return void
      */
     public function setUp(): void
@@ -43,7 +43,7 @@ class EarningStoreTest extends TestCase
 
     /**
      * Get valid earning payload.
-     * 
+     *
      * @return array
      */
     protected function getValidEarningPayload(): array
@@ -65,7 +65,7 @@ class EarningStoreTest extends TestCase
 
     /**
      * Test if can't create a earning without payload.
-     * 
+     *
      * @return void
      */
     public function test_if_cant_create_a_earning_without_payload(): void
@@ -77,7 +77,7 @@ class EarningStoreTest extends TestCase
 
     /**
      * Test if can't create a earning with category that doesn't belongs to user.
-     * 
+     *
      * @return void
      */
     public function test_if_cant_create_a_earning_with_category_that_doesnt_belongs_to_user(): void
@@ -94,7 +94,7 @@ class EarningStoreTest extends TestCase
 
     /**
      * Test if can't create a earning with space that doesn't belongs to user.
-     * 
+     *
      * @return void
      */
     public function test_if_cant_create_a_earning_with_space_that_doesnt_belongs_to_user(): void
@@ -113,7 +113,7 @@ class EarningStoreTest extends TestCase
 
     /**
      * Test if can't associated tags that doesn't belongs to user to earning.
-     * 
+     *
      * @return void
      */
     public function test_if_cant_associate_tags_that_doesnt_belongs_to_user_to_earning(): void
@@ -136,7 +136,7 @@ class EarningStoreTest extends TestCase
 
     /**
      * Test if can create a earning with correctly payload.
-     * 
+     *
      * @return void
      */
     public function test_if_can_create_a_earning_with_correctly_payload(): void
@@ -146,7 +146,7 @@ class EarningStoreTest extends TestCase
 
     /**
      * Test if can create correctly earning in database.
-     * 
+     *
      * @return void
      */
     public function test_if_can_create_correctly_earning_in_database(): void
@@ -165,7 +165,7 @@ class EarningStoreTest extends TestCase
 
     /**
      * Test if can associate the tags in database.
-     * 
+     *
      * @return void
      */
     public function test_if_can_associate_the_tags_in_database(): void
@@ -185,7 +185,7 @@ class EarningStoreTest extends TestCase
 
     /**
      * Test if can return correctly json earning structure.
-     * 
+     *
      * @return void
      */
     public function test_if_can_return_correctly_json_earning_structure(): void
@@ -219,7 +219,7 @@ class EarningStoreTest extends TestCase
 
     /**
      * Test if can return correctly json earning on creation.
-     * 
+     *
      * @return void
      */
     public function test_if_can_return_correctly_json_earning_on_creation(): void
@@ -250,7 +250,7 @@ class EarningStoreTest extends TestCase
 
     /**
      * Test if can create a new activity on earning creation.
-     * 
+     *
      * @return void
      */
     public function test_if_can_create_a_new_activity_on_earning_creation(): void

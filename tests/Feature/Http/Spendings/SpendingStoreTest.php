@@ -22,21 +22,21 @@ class SpendingStoreTest extends TestCase
 
     /**
      * The dummy user.
-     * 
+     *
      * @var \App\Models\User
      */
     private $user;
 
     /**
      * The dummy space.
-     * 
+     *
      * @var \App\Models\Space
      */
     private $space;
 
     /**
      * Setup new test environments.
-     * 
+     *
      * @return void
      */
     public function setUp(): void
@@ -49,7 +49,7 @@ class SpendingStoreTest extends TestCase
 
     /**
      * Get valid spending payload.
-     * 
+     *
      * @return array
      */
     protected function getValidSpendingPayload(): array
@@ -71,7 +71,7 @@ class SpendingStoreTest extends TestCase
 
     /**
      * Test if can't create a spending without payload.
-     * 
+     *
      * @return void
      */
     public function test_if_cant_create_a_spending_without_payload(): void
@@ -83,7 +83,7 @@ class SpendingStoreTest extends TestCase
 
     /**
      * Test if can't create a spending with category that doesn't belongs to user.
-     * 
+     *
      * @return void
      */
     public function test_if_cant_create_a_spending_with_category_that_doesnt_belongs_to_user(): void
@@ -100,7 +100,7 @@ class SpendingStoreTest extends TestCase
 
     /**
      * Test if can't create a spending with space that doesn't belongs to user.
-     * 
+     *
      * @return void
      */
     public function test_if_cant_create_a_spending_with_space_that_doesnt_belongs_to_user(): void
@@ -119,7 +119,7 @@ class SpendingStoreTest extends TestCase
 
     /**
      * Test if can't associated tags that doesn't belongs to user to spending.
-     * 
+     *
      * @return void
      */
     public function test_if_cant_associate_tags_that_doesnt_belongs_to_user_to_spending(): void
@@ -142,7 +142,7 @@ class SpendingStoreTest extends TestCase
 
     /**
      * Test if can create a spending with correctly payload.
-     * 
+     *
      * @return void
      */
     public function test_if_can_create_a_spending_with_correctly_payload(): void
@@ -152,7 +152,7 @@ class SpendingStoreTest extends TestCase
 
     /**
      * Test if can create correctly spending in database.
-     * 
+     *
      * @return void
      */
     public function test_if_can_create_correctly_spending_in_database(): void
@@ -171,7 +171,7 @@ class SpendingStoreTest extends TestCase
 
     /**
      * Test if can associate the tags in database.
-     * 
+     *
      * @return void
      */
     public function test_if_can_associate_the_tags_in_database(): void
@@ -191,7 +191,7 @@ class SpendingStoreTest extends TestCase
 
     /**
      * Test if can return correctly json spending structure.
-     * 
+     *
      * @return void
      */
     public function test_if_can_return_correctly_json_spending_structure(): void
@@ -225,7 +225,7 @@ class SpendingStoreTest extends TestCase
 
     /**
      * Test if can return correctly json spending on creation.
-     * 
+     *
      * @return void
      */
     public function test_if_can_return_correctly_json_spending_on_creation(): void
@@ -256,7 +256,7 @@ class SpendingStoreTest extends TestCase
 
     /**
      * Test if can create a new activity on spending creation.
-     * 
+     *
      * @return void
      */
     public function test_if_can_create_a_new_activity_on_spending_creation(): void

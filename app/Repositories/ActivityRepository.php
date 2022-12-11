@@ -11,14 +11,14 @@ class ActivityRepository extends AbstractRepository implements ActivityRepositor
 {
     /**
      * The activity model.
-     * 
+     *
      * @var \App\Models\Activity
      */
     protected $model = Activity::class;
 
     /**
      * Get all with filter.
-     * 
+     *
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Pagination\LengthAwarePaginator
      */

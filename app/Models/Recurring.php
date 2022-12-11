@@ -14,9 +14,13 @@ use App\Events\Recurring\{RecurringCreated, RecurringDeleted, RecurringUpdated};
 
 class Recurring extends Model implements ShouldBelongsToSpaceInterface
 {
+    use HasFactory;
+    use SoftDeletes;
+    use HasScopeFromUserSpace;
+    use Filterable;
     /**
      * The attributes that are mass assignable.
-     * 
+     *
      * @var array<string, string>
      */
     protected $fillable = [
@@ -35,7 +39,7 @@ class Recurring extends Model implements ShouldBelongsToSpaceInterface
 
     /**
      * The attributes that should be date.
-     * 
+     *
      * @var array<string>
      */
     protected $dates = [
@@ -44,14 +48,9 @@ class Recurring extends Model implements ShouldBelongsToSpaceInterface
         'start_date',
     ];
 
-    use HasFactory;
-    use SoftDeletes;
-    use HasScopeFromUserSpace;
-    use Filterable;
-
     /**
      * Create model dispatchable events.
-     * 
+     *
      * @var array<string, string>
      */
     protected $dispatchesEvents = [
@@ -62,7 +61,7 @@ class Recurring extends Model implements ShouldBelongsToSpaceInterface
 
     /**
      * Get the supported recurring intervals.
-     * 
+     *
      * @return array
      */
     public function getSupportedIntervals(): array
@@ -78,7 +77,7 @@ class Recurring extends Model implements ShouldBelongsToSpaceInterface
 
     /**
      * Get the due date attribute.
-     * 
+     *
      * @return int
      */
     public function getDueDaysAttribute(): int
@@ -103,7 +102,7 @@ class Recurring extends Model implements ShouldBelongsToSpaceInterface
 
     /**
      * Get the status attribute.
-     * 
+     *
      * @return int
      */
     public function getStatusAttribute(): bool
@@ -115,7 +114,7 @@ class Recurring extends Model implements ShouldBelongsToSpaceInterface
 
     /**
      * Delete the recurring with attachments.
-     * 
+     *
      * @return bool
      */
     public function delete(): bool

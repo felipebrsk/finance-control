@@ -9,7 +9,7 @@ trait HasDummyEarning
 {
     /**
      * Create dummy earning.
-     * 
+     *
      * @param array $data
      * @return \App\Models\Earning
      */
@@ -20,7 +20,7 @@ trait HasDummyEarning
 
     /**
      * Create dummy earnings.
-     * 
+     *
      * @param int $times
      * @param array $data
      * @return \Illuminate\Database\Eloquent\Collection
@@ -32,7 +32,7 @@ trait HasDummyEarning
 
     /**
      * Create dummy earning to.
-     * 
+     *
      * @param \App\Models\Space $space
      * @param array $data
      * @return \App\Models\Earning

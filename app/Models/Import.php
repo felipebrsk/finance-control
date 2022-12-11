@@ -9,9 +9,10 @@ use Illuminate\Database\Eloquent\Relations\{BelongsTo, HasMany};
 
 class Import extends Model implements ShouldBelongsToSpaceInterface
 {
+    use HasFactory;
     /**
      * The attributes that are mass assignable.
-     * 
+     *
      * @var array<string, string>
      */
     protected $fillable = [
@@ -25,14 +26,12 @@ class Import extends Model implements ShouldBelongsToSpaceInterface
 
     /**
      * The attributes that should be date.
-     * 
+     *
      * @var array<string>
      */
     protected $dates = [
         'end_date',
     ];
-
-    use HasFactory;
 
     /**
      * Get the space that owns the Import

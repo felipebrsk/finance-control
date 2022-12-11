@@ -15,14 +15,14 @@ class ForgotPasswordTest extends TestCase
 
     /**
      * The dummy user.
-     * 
+     *
      * @var \App\Models\User
      */
     private $user;
 
     /**
      * Setup new test environments.
-     * 
+     *
      * @return void
      */
     public function setUp(): void
@@ -34,7 +34,7 @@ class ForgotPasswordTest extends TestCase
 
     /**
      * Test if can't send a reset link to an inexistent email.
-     * 
+     *
      * @return void
      */
     public function test_if_cant_send_a_reset_link_to_an_inexistent_email(): void
@@ -48,7 +48,7 @@ class ForgotPasswordTest extends TestCase
 
     /**
      * Test if can send a reset link to an existent email.
-     * 
+     *
      * @return void
      */
     public function test_if_can_send_a_reset_link_to_an_existent_email(): void
@@ -60,7 +60,7 @@ class ForgotPasswordTest extends TestCase
 
     /**
      * Test if can send the reset email link notification.
-     * 
+     *
      * @return void
      */
     public function test_if_can_send_the_reset_email_link_notification(): void
@@ -76,7 +76,7 @@ class ForgotPasswordTest extends TestCase
 
     /**
      * Test if can save the request in database.
-     * 
+     *
      * @return void
      */
     public function test_if_can_save_the_request_in_database(): void
@@ -92,7 +92,7 @@ class ForgotPasswordTest extends TestCase
 
     /**
      * Test if can't request password forgot many times at once.
-     * 
+     *
      * @return void
      */
     public function test_if_cant_request_password_forgot_many_times_at_once(): void

@@ -14,14 +14,14 @@ class CategoryController extends Controller
 {
     /**
      * The category service interface.
-     * 
+     *
      * @var \App\Contracts\Services\CategoryServiceInterface
      */
     private $categoryServiceInterface;
 
     /**
      * Create a new class instance.
-     * 
+     *
      * @param \App\Contracts\Services\CategoryServiceInterface $categoryServiceInterface
      * @return void
      */

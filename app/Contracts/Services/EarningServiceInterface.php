@@ -10,7 +10,7 @@ interface EarningServiceInterface extends BasicServiceInterface, HasTagsServiceI
 {
     /**
      * Get all auth earnings with space scope.
-     * 
+     *
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Pagination\LengthAwarePaginator
      */
@@ -18,7 +18,7 @@ interface EarningServiceInterface extends BasicServiceInterface, HasTagsServiceI
 
     /**
      * Create from process recurrings job.
-     * 
+     *
      * @param array $data
      * @return \Illuminate\Database\Eloquent\Model
      */

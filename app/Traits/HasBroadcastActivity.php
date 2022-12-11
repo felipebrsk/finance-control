@@ -8,14 +8,14 @@ trait HasBroadcastActivity
 {
     /**
      * The created activity.
-     * 
+     *
      * @var \App\Models\Activity
      */
     protected $activity;
 
     /**
      * The channel to be dispatched the event.
-     * 
+     *
      * @var string
      */
     protected $broadcastChannel;

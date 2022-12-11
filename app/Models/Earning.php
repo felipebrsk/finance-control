@@ -13,9 +13,13 @@ use Illuminate\Support\Facades\DB;
 
 class Earning extends Model implements ShouldBelongsToSpaceInterface
 {
+    use HasFactory;
+    use Filterable;
+    use SoftDeletes;
+    use HasScopeFromUserSpace;
     /**
      * The attributes that are mass assignable.
-     * 
+     *
      * @var array<string, string>
      */
     protected $fillable = [
@@ -29,21 +33,16 @@ class Earning extends Model implements ShouldBelongsToSpaceInterface
 
     /**
      * The attributes that should be date.
-     * 
+     *
      * @var array<string>
      */
     protected $dates = [
         'deleted_at',
     ];
 
-    use HasFactory;
-    use Filterable;
-    use SoftDeletes;
-    use HasScopeFromUserSpace;
-
     /**
      * Create model dispatchable events.
-     * 
+     *
      * @var array<string, string>
      */
     protected $dispatchesEvents = [
@@ -84,7 +83,7 @@ class Earning extends Model implements ShouldBelongsToSpaceInterface
 
     /**
      * Delete the earning.
-     * 
+     *
      * @return bool
      */
     public function delete(): bool

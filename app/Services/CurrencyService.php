@@ -9,14 +9,14 @@ class CurrencyService extends AbstractService implements CurrencyServiceInterfac
 {
     /**
      * The currency repository interface.
-     * 
+     *
      * @var \App\Contracts\Repositories\CurrencyRepositoryInterface
      */
     protected $repository = CurrencyRepositoryInterface::class;
 
     /**
      * Get converted value.
-     * 
+     *
      * @param string $baseCurrencyIso
      * @param string $targetCurrencyIso
      * @param int $amount

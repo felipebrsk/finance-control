@@ -10,14 +10,14 @@ class UserService extends AbstractService implements UserServiceInterface
 {
     /**
      * The user repository.
-     * 
+     *
      * @var \App\Contracts\Repositories\UserRepositoryInterface
      */
     protected $repository = UserRepositoryInterface::class;
 
     /**
      * Find the user by email.
-     * 
+     *
      * @param string $email
      * @return \App\Models\User
      */

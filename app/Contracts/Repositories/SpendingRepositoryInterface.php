@@ -10,7 +10,7 @@ interface SpendingRepositoryInterface extends BasicRepositoryInterface, HasTagsR
 {
     /**
      * Get all auth spendings.
-     * 
+     *
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Pagination\LengthAwarePaginator
      */
@@ -18,7 +18,7 @@ interface SpendingRepositoryInterface extends BasicRepositoryInterface, HasTagsR
 
     /**
      * Create from process recurrings job.
-     * 
+     *
      * @param array $data
      * @return \Illuminate\Database\Eloquent\Model
      */

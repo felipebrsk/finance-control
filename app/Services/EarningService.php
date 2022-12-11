@@ -22,14 +22,14 @@ class EarningService extends AbstractService implements EarningServiceInterface
 {
     /**
      * The earning repository interface.
-     * 
+     *
      * @var \App\Contracts\Repositories\EarningRepositoryInterface
      */
     protected $repository = EarningRepositoryInterface::class;
 
     /**
      * Get all auth Earnings.
-     * 
+     *
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Pagination\LengthAwarePaginator
      */
@@ -40,7 +40,7 @@ class EarningService extends AbstractService implements EarningServiceInterface
 
     /**
      * Create a new earning.
-     * 
+     *
      * @param array $data
      * @return \App\Models\Earning
      */
@@ -53,7 +53,7 @@ class EarningService extends AbstractService implements EarningServiceInterface
 
     /**
      * Update an earning.
-     * 
+     *
      * @param array $data
      * @param mixed $id
      * @return \App\Models\Earning
@@ -67,7 +67,7 @@ class EarningService extends AbstractService implements EarningServiceInterface
 
     /**
      * Assert can create a new Earning.
-     * 
+     *
      * @param array $data
      * @throws \App\Exceptions\Tag\TagDoesntBelongsToUserException
      * @throws \App\Exceptions\Category\CategoryDoesntBelongsToUserSpaceException
@@ -93,14 +93,14 @@ class EarningService extends AbstractService implements EarningServiceInterface
 
         if ($associatingCategory && $associatingCategory->space->user->id !== Auth::id()) {
             throw new CategoryDoesntBelongsToUserSpaceException();
-        } else if (!Auth::user()->spaces->contains($data['space_id'])) {
+        } elseif (!Auth::user()->spaces->contains($data['space_id'])) {
             throw new SpaceDoesntBelongsToUserException();
         }
     }
 
     /**
      * Assert can update a Earning.
-     * 
+     *
      * @param array $data
      * @throws \App\Exceptions\Tag\TagDoesntBelongsToUserException
      * @throws \App\Exceptions\Category\CategoryDoesntBelongsToUserSpaceException
@@ -129,14 +129,14 @@ class EarningService extends AbstractService implements EarningServiceInterface
 
         if ($associatingCategory && $associatingCategory->space->user->id !== Auth::id()) {
             throw new CategoryDoesntBelongsToUserSpaceException();
-        } else if ($spaceId && !Auth::user()->spaces->contains($spaceId)) {
+        } elseif ($spaceId && !Auth::user()->spaces->contains($spaceId)) {
             throw new SpaceDoesntBelongsToUserException();
         }
     }
 
     /**
      * Detach earning tags.
-     * 
+     *
      * @param array $ids
      * @param mixed $id
      * @return \App\Models\Earning
@@ -148,7 +148,7 @@ class EarningService extends AbstractService implements EarningServiceInterface
 
     /**
      * Create from process recurrings job.
-     * 
+     *
      * @param array $data
      * @return \App\Models\Earning
      */

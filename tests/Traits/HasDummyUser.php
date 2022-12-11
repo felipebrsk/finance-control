@@ -9,7 +9,7 @@ trait HasDummyUser
 {
     /**
      * Create dummy user.
-     * 
+     *
      * @param array $data
      * @return \App\Models\User
      */
@@ -20,7 +20,7 @@ trait HasDummyUser
 
     /**
      * Create dummy users.
-     * 
+     *
      * @param int $times
      * @param array $data
      * @return \Illuminate\Database\Eloquent\Collection
@@ -32,7 +32,7 @@ trait HasDummyUser
 
     /**
      * Acting as dummy user.
-     * 
+     *
      * @param array $data
      * @return \App\Models\User
      */

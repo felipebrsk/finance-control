@@ -12,7 +12,7 @@ class ActivityFactory extends Factory
 {
     /**
      * The allowed activitables.
-     * 
+     *
      * @var array
      */
     private const ALLOWED_ACTIVITABLES = [

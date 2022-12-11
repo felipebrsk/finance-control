@@ -13,14 +13,14 @@ class SpendingRepository extends AbstractRepository implements SpendingRepositor
 {
     /**
      * The spending model.
-     * 
+     *
      * @var \App\Models\Spending
      */
     protected $model = Spending::class;
 
     /**
      * Get all auth spendings.
-     * 
+     *
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Pagination\LengthAwarePaginator
      */
@@ -31,7 +31,7 @@ class SpendingRepository extends AbstractRepository implements SpendingRepositor
 
     /**
      * Create a new spending.
-     * 
+     *
      * @param array $data
      * @return \App\Models\Spending
      */
@@ -50,7 +50,7 @@ class SpendingRepository extends AbstractRepository implements SpendingRepositor
 
     /**
      * Create from process recurrings job.
-     * 
+     *
      * @param array $data
      * @return \Illuminate\Database\Eloquent\Model
      */
@@ -61,7 +61,7 @@ class SpendingRepository extends AbstractRepository implements SpendingRepositor
 
     /**
      * Find or fail a spending.
-     * 
+     *
      * @param mixed $id
      * @return \App\Models\Spending
      */
@@ -78,7 +78,7 @@ class SpendingRepository extends AbstractRepository implements SpendingRepositor
 
     /**
      * Update a spending.
-     * 
+     *
      * @param array $data
      * @param mixed $id
      * @return \App\Models\Spending
@@ -104,7 +104,7 @@ class SpendingRepository extends AbstractRepository implements SpendingRepositor
 
     /**
      * Delete a spending.
-     * 
+     *
      * @param mixed $id
      * @return void
      */
@@ -121,7 +121,7 @@ class SpendingRepository extends AbstractRepository implements SpendingRepositor
 
     /**
      * Detach a spending tags.
-     * 
+     *
      * @param array $ids
      * @param mixed $id
      * @return \App\Models\Spending

@@ -10,14 +10,14 @@ abstract class AbstractService
 {
     /**
      * The abstract repository.
-     * 
+     *
      * @var object
      */
     protected $repository;
 
     /**
      * Create a new repository instance.
-     * 
+     *
      * @return void
      */
     public function __construct()
@@ -27,7 +27,7 @@ abstract class AbstractService
 
     /**
      * Get all repository records.
-     * 
+     *
      * @return \Illuminate\Pagination\LengthAwarePaginator
      */
     public function all(): LengthAwarePaginator
@@ -37,7 +37,7 @@ abstract class AbstractService
 
     /**
      * Create a repository record.
-     * 
+     *
      * @param array $data
      * @return \Illuminate\Database\Eloquent\Model
      */
@@ -48,7 +48,7 @@ abstract class AbstractService
 
     /**
      * Find a repository record.
-     * 
+     *
      * @param mixed $id
      * @return ?\Illuminate\Database\Eloquent\Model
      */
@@ -59,7 +59,7 @@ abstract class AbstractService
 
     /**
      * Find a model collection where in array.
-     * 
+     *
      * @param array $ids
      * @return \Illuminate\Database\Eloquent\Collection
      */
@@ -70,7 +70,7 @@ abstract class AbstractService
 
     /**
      * Find or fail a repository record.
-     * 
+     *
      * @param mixed $id
      * @return \Illuminate\Database\Eloquent\Model
      */
@@ -81,7 +81,7 @@ abstract class AbstractService
 
     /**
      * Update a repository record.
-     * 
+     *
      * @param array $data
      * @param mixed $id
      * @return \Illuminate\Database\Eloquent\Model
@@ -93,7 +93,7 @@ abstract class AbstractService
 
     /**
      * Delete the repository record.
-     * 
+     *
      * @param mixed $id
      * @return void
      */
@@ -104,8 +104,8 @@ abstract class AbstractService
 
     /**
      * Resolve the repository instance.
-     * 
-     * @return 
+     *
+     * @return
      */
     public function resolve(): object
     {

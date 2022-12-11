@@ -11,21 +11,21 @@ trait HasSlug
 {
     /**
      * Get the slug options
-     * 
+     *
      * @var \App\Helpers\SlugOptions
      */
     protected SlugOptions $slugOptions;
 
     /**
      * Get the slug options.
-     * 
+     *
      * @return \App\Helpers\SlugOptions
      */
     abstract public function getSlugOptions(): SlugOptions;
 
     /**
      * Boot the model events.
-     * 
+     *
      * @method static creating(\Closure $callback)
      * @return void
      */
@@ -43,7 +43,7 @@ trait HasSlug
 
     /**
      * Generate the slug on model creation.
-     * 
+     *
      * @return void
      */
     protected function generateSlugOnCreate(): void
@@ -59,7 +59,7 @@ trait HasSlug
 
     /**
      * Generate the slug on model updating.
-     * 
+     *
      * @return void
      */
     protected function generateSlugOnUpdate(): void
@@ -75,7 +75,7 @@ trait HasSlug
 
     /**
      * Generate the model slug.
-     * 
+     *
      * @return void
      */
     public function generateSlug(): void
@@ -87,7 +87,7 @@ trait HasSlug
 
     /**
      * Add the model slug.
-     * 
+     *
      * @return void
      */
     protected function createSlug(): void
@@ -105,7 +105,7 @@ trait HasSlug
 
     /**
      * Generate a non unique slug.
-     * 
+     *
      * @return string
      */
     protected function generateNonUniqueSlug(): string
@@ -121,7 +121,7 @@ trait HasSlug
 
     /**
      * Get the bool of custom slug been used.
-     * 
+     *
      * @return bool
      */
     protected function hasCustomSlugBeenUsed(): bool
@@ -133,7 +133,7 @@ trait HasSlug
 
     /**
      * Get the slug source string.
-     * 
+     *
      * @return string
      */
     protected function getSlugSourceString(): string
@@ -153,7 +153,7 @@ trait HasSlug
 
     /**
      * Get the slug source string from a callable function.
-     * 
+     *
      * @return string
      */
     protected function getSlugSourceStringFromCallable(): string
@@ -163,7 +163,7 @@ trait HasSlug
 
     /**
      * Make the slug unique.
-     * 
+     *
      * @param string $slug
      * @return string
      */
@@ -182,7 +182,7 @@ trait HasSlug
 
     /**
      * Check if other record exists with given slug.
-     * 
+     *
      * @param string $slug
      * @return bool
      */
@@ -204,7 +204,7 @@ trait HasSlug
 
     /**
      * Use soft deletes.
-     * 
+     *
      * @return bool
      */
     protected function usesSoftDeletes(): bool
@@ -214,7 +214,7 @@ trait HasSlug
 
     /**
      * Check if slug is valid.
-     * 
+     *
      * @return void
      */
     protected function ensureValidSlugService(): void
@@ -234,7 +234,7 @@ trait HasSlug
 
     /**
      * Handle multi-bytes strings if the module mb_substr is present.
-     * 
+     *
      * @param mixed $slugSourceString
      * @return string
      */

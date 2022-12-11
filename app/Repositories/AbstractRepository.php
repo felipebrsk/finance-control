@@ -10,21 +10,21 @@ abstract class AbstractRepository
 {
     /**
      * The quantity of items per page.
-     * 
+     *
      * @var int
      */
     protected const PER_PAGE = 20;
 
     /**
      * The abstract model.
-     * 
+     *
      * @var \Illuminate\Database\Eloquent\Model
      */
     protected $model;
 
     /**
      * Create a new repository instance.
-     * 
+     *
      * @return void
      */
     public function __construct()
@@ -34,7 +34,7 @@ abstract class AbstractRepository
 
     /**
      * Get all model records.
-     * 
+     *
      * @return \Illuminate\Pagination\LengthAwarePaginator
      */
     public function all(): LengthAwarePaginator
@@ -44,7 +44,7 @@ abstract class AbstractRepository
 
     /**
      * Create a model record.
-     * 
+     *
      * @param array $data
      * @return \Illuminate\Database\Eloquent\Model
      */
@@ -55,7 +55,7 @@ abstract class AbstractRepository
 
     /**
      * Find a model record.
-     * 
+     *
      * @param mixed $id
      * @return ?\Illuminate\Database\Eloquent\Model
      */
@@ -66,7 +66,7 @@ abstract class AbstractRepository
 
     /**
      * Find a model collection where in array.
-     * 
+     *
      * @param array $ids
      * @return \Illuminate\Database\Eloquent\Collection
      */
@@ -77,7 +77,7 @@ abstract class AbstractRepository
 
     /**
      * Find or fail a model record.
-     * 
+     *
      * @param mixed $id
      * @return \Illuminate\Database\Eloquent\Model
      */
@@ -88,7 +88,7 @@ abstract class AbstractRepository
 
     /**
      * Update a model record.
-     * 
+     *
      * @param array $data
      * @param mixed $id
      * @return \Illuminate\Database\Eloquent\Model
@@ -104,7 +104,7 @@ abstract class AbstractRepository
 
     /**
      * Delete the model record.
-     * 
+     *
      * @param mixed $id
      * @return void
      */
@@ -117,7 +117,7 @@ abstract class AbstractRepository
 
     /**
      * Resolve the model instance.
-     * 
+     *
      * @return object
      */
     public function resolve(): object

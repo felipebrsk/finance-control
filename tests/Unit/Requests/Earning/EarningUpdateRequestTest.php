@@ -26,7 +26,7 @@ class EarningUpdateRequestTest extends TestCase
 
     /**
      * Test description validation rules.
-     * 
+     *
      * @return void
      */
     public function test_description_validation_rules(): void
@@ -39,7 +39,7 @@ class EarningUpdateRequestTest extends TestCase
 
     /**
      * Test amount validation rules.
-     * 
+     *
      * @return void
      */
     public function test_amount_validation_rules(): void
@@ -52,7 +52,7 @@ class EarningUpdateRequestTest extends TestCase
 
     /**
      * Test space_id validation rules.
-     * 
+     *
      * @return void
      */
     public function test_space_id_validation_rules(): void
@@ -67,7 +67,7 @@ class EarningUpdateRequestTest extends TestCase
 
     /**
      * Test category_id validation rules.
-     * 
+     *
      * @return void
      */
     public function test_category_id_validation_rules(): void
@@ -82,7 +82,7 @@ class EarningUpdateRequestTest extends TestCase
 
     /**
      * Test tags validation rules.
-     * 
+     *
      * @return void
      */
     public function test_tags_validation_rules(): void
@@ -94,7 +94,7 @@ class EarningUpdateRequestTest extends TestCase
 
     /**
      * Test tag ids validation rules.
-     * 
+     *
      * @return void
      */
     public function test_tag_ids_validation_rules(): void

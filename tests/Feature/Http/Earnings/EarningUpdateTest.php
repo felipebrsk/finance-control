@@ -15,28 +15,28 @@ class EarningUpdateTest extends TestCase
 
     /**
      * The dummy user.
-     * 
+     *
      * @var \App\Models\User
      */
     private $user;
 
     /**
      * The dummy space.
-     * 
+     *
      * @var \App\Models\Space
      */
     private $space;
 
     /**
      * The dummy earning.
-     * 
+     *
      * @var \App\Models\earning
      */
     private $earning;
 
     /**
      * Setup new test environments.
-     * 
+     *
      * @return void
      */
     public function setUp(): void
@@ -50,7 +50,7 @@ class EarningUpdateTest extends TestCase
 
     /**
      * Get valid earning payload.
-     * 
+     *
      * @return array
      */
     protected function getValidearningPayload(): array
@@ -70,7 +70,7 @@ class EarningUpdateTest extends TestCase
 
     /**
      * Test if can update a earning without payload.
-     * 
+     *
      * @return void
      */
     public function test_if_can_update_a_earning_without_payload(): void
@@ -80,7 +80,7 @@ class EarningUpdateTest extends TestCase
 
     /**
      * Test if can throw 404 if earning doesn't exists.
-     * 
+     *
      * @return void
      */
     public function test_if_can_throw_not_found_if_earning_doesnt_exists(): void
@@ -90,7 +90,7 @@ class EarningUpdateTest extends TestCase
 
     /**
      * Test if can't update a earning that doesnt belongs to user spaces.
-     * 
+     *
      * @return void
      */
     public function test_if_cant_update_a_earning_that_doesnt_belongs_to_user_spaces(): void
@@ -102,7 +102,7 @@ class EarningUpdateTest extends TestCase
 
     /**
      * Test if can't update a earning category with category that doesn't belongs to user space.
-     * 
+     *
      * @return void
      */
     public function test_if_cant_update_a_earning_category_with_category_that_doesnt_belongs_to_user_space(): void
@@ -110,12 +110,13 @@ class EarningUpdateTest extends TestCase
         $this->putJson(route('earnings.update', $this->earning->id), [
             'category_id' => $this->createDummyCategory()->id,
         ])->assertForbidden()
-            ->assertSee('Esta categoria n\u00e3o pertence \u00e0 nenhum dos seus espa\u00e7os. Nenhuma opera\u00e7\u00e3o pode ser realizada.');;
+            ->assertSee('Esta categoria n\u00e3o pertence \u00e0 nenhum dos seus espa\u00e7os. Nenhuma opera\u00e7\u00e3o pode ser realizada.');
+            ;
     }
 
     /**
      * Test if can't update a earning space with space that doesn't belongs to user.
-     * 
+     *
      * @return void
      */
     public function test_if_cant_update_a_earning_space_with_space_that_doesnt_belongs_to_user(): void
@@ -128,7 +129,7 @@ class EarningUpdateTest extends TestCase
 
     /**
      * Test if can update a earning with correctly payload.
-     * 
+     *
      * @return void
      */
     public function test_if_can_update_a_earning_with_correctly_payload(): void
@@ -138,7 +139,7 @@ class EarningUpdateTest extends TestCase
 
     /**
      * Test if can save updated earning data in database.
-     * 
+     *
      * @return void
      */
     public function test_if_can_save_payload_correctly_in_database(): void
@@ -157,7 +158,7 @@ class EarningUpdateTest extends TestCase
 
     /**
      * Test if can retrieve correctly json earning structure on update.
-     * 
+     *
      * @return void
      */
     public function test_if_can_retrieve_correctly_json_earning_structure_on_update(): void
@@ -193,7 +194,7 @@ class EarningUpdateTest extends TestCase
 
     /**
      * Test if can retrieve correctly json updated earning.
-     * 
+     *
      * @return void
      */
     public function test_if_can_retrieve_correctly_json_updated_earning(): void
@@ -212,7 +213,7 @@ class EarningUpdateTest extends TestCase
 
     /**
      * Test if can create a new activity on earning update.
-     * 
+     *
      * @return void
      */
     public function test_if_can_create_a_new_activity_on_earning_update(): void
@@ -228,7 +229,7 @@ class EarningUpdateTest extends TestCase
 
     /**
      * Test if can associate new tags to earning.
-     * 
+     *
      * @return void
      */
     public function test_if_can_associate_new_tags_to_earning(): void
@@ -248,7 +249,7 @@ class EarningUpdateTest extends TestCase
 
     /**
      * Test if can't update earning tags with a tag that doesn't belongs to user.
-     * 
+     *
      * @return void
      */
     public function test_if_cant_update_earning_tags_with_a_tag_that_doesnt_belongs_to_user(): void

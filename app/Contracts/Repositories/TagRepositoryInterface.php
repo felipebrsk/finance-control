@@ -9,7 +9,7 @@ interface TagRepositoryInterface extends BasicRepositoryInterface
 {
     /**
      * Get all tags with filter.
-     * 
+     *
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Pagination\LengthAwarePaginator
      */

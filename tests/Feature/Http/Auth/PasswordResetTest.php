@@ -17,21 +17,21 @@ class PasswordResetTest extends TestCase
 
     /**
      * The dummy user.
-     * 
+     *
      * @var \App\Models\User
      */
     private $user;
 
     /**
      * The dummy token.
-     * 
+     *
      * @var string
      */
     private $token;
 
     /**
      * Setup new test environments.
-     * 
+     *
      * @return void
      */
     public function setUp(): void
@@ -50,7 +50,7 @@ class PasswordResetTest extends TestCase
 
     /**
      * Test if can't reset password with inexistent token.
-     * 
+     *
      * @return void
      */
     public function test_if_cant_reset_password_with_inexistent_token(): void
@@ -66,7 +66,7 @@ class PasswordResetTest extends TestCase
 
     /**
      * Test if can't reset password with inexistent email.
-     * 
+     *
      * @return void
      */
     public function test_if_cant_reset_password_with_inexistent_email(): void
@@ -82,7 +82,7 @@ class PasswordResetTest extends TestCase
 
     /**
      * Test if can reset password with existent reset token.
-     * 
+     *
      * @return void
      */
     public function test_if_can_reset_password_with_existent_reset_token(): void
@@ -98,7 +98,7 @@ class PasswordResetTest extends TestCase
 
     /**
      * Test if can reset password in database.
-     * 
+     *
      * @return void
      */
     public function test_if_can_reset_password_in_database(): void
@@ -118,7 +118,7 @@ class PasswordResetTest extends TestCase
 
     /**
      * Test if can login with new password.
-     * 
+     *
      * @return void
      */
     public function test_if_can_login_with_new_password(): void
@@ -144,7 +144,7 @@ class PasswordResetTest extends TestCase
 
     /**
      * Test if can send the email reset notification.
-     * 
+     *
      * @return void
      */
     public function test_if_can_send_the_email_reset_notification(): void
@@ -164,7 +164,7 @@ class PasswordResetTest extends TestCase
 
     /**
      * Test if the job was pushed to queue.
-     * 
+     *
      * @return void
      */
     public function test_if_the_job_was_pushed_to_queue(): void
@@ -186,7 +186,7 @@ class PasswordResetTest extends TestCase
 
     /**
      * Test if the job was dispatched.
-     * 
+     *
      * @return void
      */
     public function test_if_the_job_was_dispatched(): void

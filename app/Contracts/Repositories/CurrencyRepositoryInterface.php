@@ -6,7 +6,7 @@ interface CurrencyRepositoryInterface extends BasicRepositoryInterface
 {
     /**
      * Get converted value.
-     * 
+     *
      * @param string $baseCurrencyIso
      * @param string $targetCurrencyIso
      * @param int $amount

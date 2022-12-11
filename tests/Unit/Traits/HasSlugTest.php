@@ -12,7 +12,7 @@ class HasSlugTest extends TestCase
 
     /**
      * Setup new test environments.
-     * 
+     *
      * @return void
      */
     public function setUp(): void
@@ -22,7 +22,7 @@ class HasSlugTest extends TestCase
 
     /**
      * Test if can create a model with slug automatically.
-     * 
+     *
      * @return void
      */
     public function test_if_can_create_a_model_with_slug_automatically(): void
@@ -34,7 +34,7 @@ class HasSlugTest extends TestCase
 
     /**
      * Test if can create the slug correctly with name column.
-     * 
+     *
      * @return void
      */
     public function test_if_can_create_the_slug_correctly_with_name_column(): void
@@ -48,7 +48,7 @@ class HasSlugTest extends TestCase
 
     /**
      * Test if can auto increment num after repeated slug created.
-     * 
+     *
      * @return void
      */
     public function test_if_can_auto_increment_number_after_repeated_slug_created(): void

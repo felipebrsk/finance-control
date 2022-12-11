@@ -13,21 +13,21 @@ class TagUpdateTest extends TestCase
 
     /**
      * The dummy user.
-     * 
+     *
      * @var \App\Models\User
      */
     private $user;
 
     /**
      * The dummy tag.
-     * 
+     *
      * @var \App\Models\Tag
      */
     private $tag;
 
     /**
      * Setup new test environments.
-     * 
+     *
      * @return void
      */
     public function setUp(): void
@@ -40,7 +40,7 @@ class TagUpdateTest extends TestCase
 
     /**
      * Get valid tag payload.
-     * 
+     *
      * @return array
      */
     protected function getValidTagPayload(): array
@@ -53,7 +53,7 @@ class TagUpdateTest extends TestCase
 
     /**
      * Test if can throw 404 if tag doesn't exists.
-     * 
+     *
      * @return void
      */
     public function test_if_can_throw_not_found_if_tag_doesnt_exists(): void
@@ -63,7 +63,7 @@ class TagUpdateTest extends TestCase
 
     /**
      * Test if can't update another user tag.
-     * 
+     *
      * @return void
      */
     public function test_if_cant_update_another_user_tag(): void
@@ -75,7 +75,7 @@ class TagUpdateTest extends TestCase
 
     /**
      * Test if can update a tag without payload.
-     * 
+     *
      * @return void
      */
     public function test_if_can_update_a_tag_without_payload(): void
@@ -85,7 +85,7 @@ class TagUpdateTest extends TestCase
 
     /**
      * Test if can update a tag with valid payload.
-     * 
+     *
      * @return void
      */
     public function test_if_can_update_a_tag_with_valid_payload(): void
@@ -95,7 +95,7 @@ class TagUpdateTest extends TestCase
 
     /**
      * Test if can correctly update a tag in database.
-     * 
+     *
      * @return void
      */
     public function test_if_can_correctly_update_a_tag_in_database(): void
@@ -111,7 +111,7 @@ class TagUpdateTest extends TestCase
 
     /**
      * Test if can get correctly tag json structure on update.
-     * 
+     *
      * @return void
      */
     public function test_if_can_get_correctly_tag_json_structure_on_update(): void
@@ -130,7 +130,7 @@ class TagUpdateTest extends TestCase
 
     /**
      * Test if can get correctly updated tag json on update.
-     * 
+     *
      * @return void
      */
     public function test_if_can_get_correctly_updated_tag_json_on_update(): void

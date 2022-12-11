@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace App\ModelFilters;
 
@@ -6,7 +6,7 @@ class CategoryFilter extends BaseFilter
 {
     /**
      * Filter by space.
-     * 
+     *
      * @param mixed $spaceId
      * @return void
      */
@@ -17,7 +17,7 @@ class CategoryFilter extends BaseFilter
 
     /**
      * Filter by name.
-     * 
+     *
      * @param string $name
      * @return void
      */

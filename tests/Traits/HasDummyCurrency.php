@@ -9,7 +9,7 @@ trait HasDummyCurrency
 {
     /**
      * Create dummy currency.
-     * 
+     *
      * @param array $data
      * @return \App\Models\Currency
      */
@@ -20,7 +20,7 @@ trait HasDummyCurrency
 
     /**
      * Create dummy currencies.
-     * 
+     *
      * @param int $times
      * @param array $data
      * @return \Illuminate\Database\Eloquent\Collection

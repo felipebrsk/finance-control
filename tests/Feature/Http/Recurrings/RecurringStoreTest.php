@@ -23,21 +23,21 @@ class RecurringStoreTest extends TestCase
 
     /**
      * The dummy user.
-     * 
+     *
      * @var \App\Models\User
      */
     private $user;
 
     /**
      * The dummy space.
-     * 
+     *
      * @var \App\Models\Space
      */
     private $space;
 
     /**
      * Setup new test environments.
-     * 
+     *
      * @return void
      */
     public function setUp(): void
@@ -50,7 +50,7 @@ class RecurringStoreTest extends TestCase
 
     /**
      * Get valid spending payload.
-     * 
+     *
      * @return array
      */
     protected function getValidRecurringPayload(): array
@@ -73,7 +73,7 @@ class RecurringStoreTest extends TestCase
 
     /**
      * Test if can't create a recurring without payload.
-     * 
+     *
      * @return void
      */
     public function test_if_cant_create_a_recurring_without_payload(): void
@@ -85,7 +85,7 @@ class RecurringStoreTest extends TestCase
 
     /**
      * Test if can't create a recurring with category that doesn't belongs to user.
-     * 
+     *
      * @return void
      */
     public function test_if_cant_create_a_recurring_with_category_that_doesnt_belongs_to_user(): void
@@ -105,7 +105,7 @@ class RecurringStoreTest extends TestCase
 
     /**
      * Test if can't create a recurring with space that doesn't belongs to user.
-     * 
+     *
      * @return void
      */
     public function test_if_cant_create_a_recurring_with_space_that_doesnt_belongs_to_user(): void
@@ -125,7 +125,7 @@ class RecurringStoreTest extends TestCase
 
     /**
      * Test if can't associated tags that doesn't belongs to user to recurring.
-     * 
+     *
      * @return void
      */
     public function test_if_cant_associate_tags_that_doesnt_belongs_to_user_to_recurring(): void
@@ -149,7 +149,7 @@ class RecurringStoreTest extends TestCase
 
     /**
      * Test if can create a recurring with correctly payload.
-     * 
+     *
      * @return void
      */
     public function test_if_can_create_a_recurring_with_correctly_payload(): void
@@ -159,7 +159,7 @@ class RecurringStoreTest extends TestCase
 
     /**
      * Test if can create correctly recurring in database.
-     * 
+     *
      * @return void
      */
     public function test_if_can_create_correctly_recurring_in_database(): void
@@ -181,7 +181,7 @@ class RecurringStoreTest extends TestCase
 
     /**
      * Test if can associate the tags in database.
-     * 
+     *
      * @return void
      */
     public function test_if_can_associate_the_tags_in_database(): void
@@ -201,7 +201,7 @@ class RecurringStoreTest extends TestCase
 
     /**
      * Test if can return correctly json recurring structure.
-     * 
+     *
      * @return void
      */
     public function test_if_can_return_correctly_json_recurring_structure(): void
@@ -251,7 +251,7 @@ class RecurringStoreTest extends TestCase
 
     /**
      * Test if can return correctly json recurring on creation.
-     * 
+     *
      * @return void
      */
     public function test_if_can_return_correctly_json_recurring_on_creation(): void
@@ -277,7 +277,7 @@ class RecurringStoreTest extends TestCase
 
     /**
      * Test if can create a new activity on spending creation.
-     * 
+     *
      * @return void
      */
     public function test_if_can_create_a_new_activity_on_spending_creation(): void

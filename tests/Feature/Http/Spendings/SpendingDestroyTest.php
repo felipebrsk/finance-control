@@ -14,28 +14,28 @@ class SpendingDestroyTest extends TestCase
 
     /**
      * The dummy user.
-     * 
+     *
      * @var \App\Models\User
      */
     private $user;
 
     /**
      * The dummy space.
-     * 
+     *
      * @var \App\Models\Space
      */
     private $space;
 
     /**
      * The dummy spending.
-     * 
+     *
      * @var \App\Models\Spending
      */
     private $spending;
 
     /**
      * Setup new test environments.
-     * 
+     *
      * @return void
      */
     public function setUp(): void
@@ -49,7 +49,7 @@ class SpendingDestroyTest extends TestCase
 
     /**
      * Test if can throw 404 if spending doesn't exists.
-     * 
+     *
      * @return void
      */
     public function test_if_can_throw_not_found_if_spending_doesnt_exists(): void
@@ -59,7 +59,7 @@ class SpendingDestroyTest extends TestCase
 
     /**
      * Test if can't destroy another user space spending.
-     * 
+     *
      * @return void
      */
     public function test_if_cant_destroy_another_user_space_spending(): void
@@ -71,7 +71,7 @@ class SpendingDestroyTest extends TestCase
 
     /**
      * Test if can destroy own space spending.
-     * 
+     *
      * @return void
      */
     public function test_if_can_destroy_own_space_spending(): void
@@ -81,7 +81,7 @@ class SpendingDestroyTest extends TestCase
 
     /**
      * Test if can soft delete spending.
-     * 
+     *
      * @return void
      */
     public function test_if_can_soft_delete_spending(): void
@@ -95,7 +95,7 @@ class SpendingDestroyTest extends TestCase
 
     /**
      * Test if can create a new activity on spending deletion.
-     * 
+     *
      * @return void
      */
     public function test_if_can_create_a_new_activity_on_spending_deletion(): void
@@ -111,7 +111,7 @@ class SpendingDestroyTest extends TestCase
 
     /**
      * Test if can remove from index on deletion.
-     * 
+     *
      * @return void
      */
     public function test_if_can_remove_from_index_route_on_deletion(): void
@@ -125,7 +125,7 @@ class SpendingDestroyTest extends TestCase
 
     /**
      * Test if can delete the tags on spending deletion.
-     * 
+     *
      * @return void
      */
     public function test_if_can_delete_the_tags_on_spending_deletion(): void

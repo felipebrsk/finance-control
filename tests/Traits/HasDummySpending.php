@@ -9,7 +9,7 @@ trait HasDummySpending
 {
     /**
      * Create dummy spending.
-     * 
+     *
      * @param array $data
      * @return \App\Models\Spending
      */
@@ -20,7 +20,7 @@ trait HasDummySpending
 
     /**
      * Create dummy spendings.
-     * 
+     *
      * @param int $times
      * @param array $data
      * @return \Illuminate\Database\Eloquent\Collection
@@ -32,7 +32,7 @@ trait HasDummySpending
 
     /**
      * Create dummy spending to.
-     * 
+     *
      * @param \App\Models\Space $space
      * @param array $data
      * @return \App\Models\Spending

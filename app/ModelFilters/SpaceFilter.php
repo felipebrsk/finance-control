@@ -6,7 +6,7 @@ class SpaceFilter extends BaseFilter
 {
     /**
      * Filter by name.
-     * 
+     *
      * @param string $name
      * @return void
      */
@@ -17,7 +17,7 @@ class SpaceFilter extends BaseFilter
 
     /**
      * Filter by currency.
-     * 
+     *
      * @param mixed $currencyId
      * @return void
      */

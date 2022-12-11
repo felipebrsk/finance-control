@@ -11,14 +11,14 @@ class CurrencyRepository extends AbstractRepository implements CurrencyRepositor
 {
     /**
      * The currency model.
-     * 
+     *
      * @var \App\Models\Currency
      */
     protected $model = Currency::class;
 
     /**
      * Get converted value.
-     * 
+     *
      * @param string $baseCurrencyIso
      * @param string $targetCurrencyIso
      * @param int $amount
@@ -26,7 +26,7 @@ class CurrencyRepository extends AbstractRepository implements CurrencyRepositor
      */
     public function convert(string $baseCurrencyIso, string $targetCurrencyIso, int $amount): int
     {
-        $response = (new Client)->get("https://www.valutafx.com/{$baseCurrencyIso}-{$targetCurrencyIso}.htm");
+        $response = (new Client())->get("https://www.valutafx.com/{$baseCurrencyIso}-{$targetCurrencyIso}.htm");
 
         $result = (new Crawler($response->getBody()->__toString()))->filter('.converter-result > .rate-value')->first()->text();
 

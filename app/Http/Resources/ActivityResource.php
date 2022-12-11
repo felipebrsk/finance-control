@@ -10,7 +10,7 @@ class ActivityResource extends JsonResource
 {
     /**
      * Map the activitable type.
-     * 
+     *
      * @var array<string, string>
      */
     private const MAP_ACTIVITABLE_TYPE = [

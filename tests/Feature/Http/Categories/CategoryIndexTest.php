@@ -13,21 +13,21 @@ class CategoryIndexTest extends TestCase
 
     /**
      * The dummy user.
-     * 
+     *
      * @var \App\Models\User
      */
     private $user;
 
     /**
      * The dummy space.
-     * 
+     *
      * @var \App\Models\Space
      */
     private $space;
 
     /**
      * Setup new test environments.
-     * 
+     *
      * @return void
      */
     public function setUp(): void
@@ -40,7 +40,7 @@ class CategoryIndexTest extends TestCase
 
     /**
      * Test if can get categories route.
-     * 
+     *
      * @return void
      */
     public function test_if_can_get_categories_route(): void
@@ -50,7 +50,7 @@ class CategoryIndexTest extends TestCase
 
     /**
      * Test if can get correctly categories json count.
-     * 
+     *
      * @return void
      */
     public function test_if_can_get_correctly_categories_json_count(): void
@@ -64,7 +64,7 @@ class CategoryIndexTest extends TestCase
 
     /**
      * Test if can get correctly categories json structure.
-     * 
+     *
      * @return void
      */
     public function test_if_can_get_correctly_categories_json_structure(): void
@@ -106,7 +106,7 @@ class CategoryIndexTest extends TestCase
 
     /**
      * Test if can't get another user categories on count.
-     * 
+     *
      * @return void
      */
     public function test_if_cant_get_another_user_categories_on_count(): void
@@ -120,7 +120,7 @@ class CategoryIndexTest extends TestCase
 
     /**
      * Test if can get correctly json space.
-     * 
+     *
      * @return void
      */
     public function test_if_can_get_correctly_json_space(): void

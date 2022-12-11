@@ -9,14 +9,14 @@ interface BasicServiceInterface
 {
     /**
      * Should have method all.
-     * 
+     *
      * @return \Illuminate\Pagination\LengthAwarePaginator
      */
     public function all(): LengthAwarePaginator;
 
     /**
      * Should have the create method.
-     * 
+     *
      * @param array $data
      * @return \Illuminate\Database\Eloquent\Model
      */
@@ -24,7 +24,7 @@ interface BasicServiceInterface
 
     /**
      * Should have method find.
-     * 
+     *
      * @param mixed $id
      * @return ?\Illuminate\Database\Eloquent\Model
      */
@@ -32,7 +32,7 @@ interface BasicServiceInterface
 
     /**
      * Find a model collection where in array.
-     * 
+     *
      * @param array $ids
      * @return \Illuminate\Database\Eloquent\Collection
      */
@@ -40,7 +40,7 @@ interface BasicServiceInterface
 
     /**
      * Should have method find or fail.
-     * 
+     *
      * @param mixed $id
      * @return \Illuminate\Database\Eloquent\Model
      */
@@ -48,7 +48,7 @@ interface BasicServiceInterface
 
     /**
      * Should have update method.
-     * 
+     *
      * @param array $data
      * @param mixed $id
      * @return \Illuminate\Database\Eloquent\Model
@@ -57,7 +57,7 @@ interface BasicServiceInterface
 
     /**
      * Should have delete method.
-     * 
+     *
      * @param mixed $id
      * @return void
      */
