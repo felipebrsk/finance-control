@@ -2,6 +2,7 @@
 
 namespace App\Contracts\Repositories;
 
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 
 interface UserRepositoryInterface extends BasicRepositoryInterface
@@ -13,4 +14,11 @@ interface UserRepositoryInterface extends BasicRepositoryInterface
      * @return \App\Models\User
      */
     public function findByEmail(string $email): Model;
+
+    /**
+     * All users to weekly report.
+     * 
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
+    public function allToWeeklyReport(): Collection;
 }

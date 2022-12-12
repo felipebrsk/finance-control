@@ -38,7 +38,7 @@ trait HasDummyUser
      */
     public function actingAsDummyUser(array $data = []): User
     {
-        $user = $this->createDummyUser();
+        $user = $this->createDummyUser($data);
 
         $this->actingAs($user);
 
