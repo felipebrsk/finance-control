@@ -26,11 +26,11 @@ class UserService extends AbstractService implements UserServiceInterface
     {
         return $this->repository->findByEmail($email);
     }
-    
+
 
     /**
      * All users to weekly report.
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Collection
      */
     public function allToWeeklyReport(): Collection

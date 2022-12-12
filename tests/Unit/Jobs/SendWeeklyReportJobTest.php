@@ -74,7 +74,7 @@ class SendWeeklyReportJobTest extends TestCase
 
     /**
      * Test if email was sent on job dispatch.
-     * 
+     *
      * @return void
      */
     public function test_if_email_was_sent_on_job_dispatch(): void
@@ -88,7 +88,7 @@ class SendWeeklyReportJobTest extends TestCase
 
     /**
      * Test if can send the email with correctly data.
-     * 
+     *
      * @return void
      */
     public function test_if_can_send_the_email_with_correctly_data(): void

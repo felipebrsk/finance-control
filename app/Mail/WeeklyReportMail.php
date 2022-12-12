@@ -10,32 +10,33 @@ use Illuminate\Mail\Mailables\{Content, Envelope};
 
 class WeeklyReportMail extends Mailable
 {
-    use Queueable, SerializesModels;
+    use Queueable;
+    use SerializesModels;
 
     /**
      * The reportable space.
-     * 
+     *
      * @var \App\Models\Space
      */
     public $space;
 
     /**
      * The reportable week.
-     * 
+     *
      * @var int
      */
     public $week;
 
     /**
      * The weekly total spent.
-     * 
+     *
      * @var int
      */
     public $totalSpent;
 
     /**
      * The highest spent of the week.
-     * 
+     *
      * @var \App\Models\Spending
      */
     public $highestSpent;

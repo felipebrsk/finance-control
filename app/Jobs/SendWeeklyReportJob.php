@@ -14,7 +14,10 @@ use Illuminate\Queue\{SerializesModels, InteractsWithQueue};
 
 class SendWeeklyReportJob implements ShouldQueue
 {
-    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
+    use Dispatchable;
+    use InteractsWithQueue;
+    use Queueable;
+    use SerializesModels;
 
     /**
      * Execute the job.

@@ -17,7 +17,7 @@ interface UserRepositoryInterface extends BasicRepositoryInterface
 
     /**
      * All users to weekly report.
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Collection
      */
     public function allToWeeklyReport(): Collection;

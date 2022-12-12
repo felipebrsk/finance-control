@@ -28,7 +28,7 @@ class UserRepository extends AbstractRepository implements UserRepositoryInterfa
 
     /**
      * All users to weekly report.
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Collection
      */
     public function allToWeeklyReport(): Collection
