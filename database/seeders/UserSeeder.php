@@ -19,7 +19,7 @@ class UserSeeder extends Seeder
             'name' => 'Admin',
             'username' => 'admin',
             'email' => 'admin@gmail.com',
-            'weekly_report' => true,
+            'weekly_report' => false,
             'first_day_of_week' => 'monday',
         ]);
 

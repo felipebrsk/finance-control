@@ -87,6 +87,8 @@ You can call API routes in http://localhost:8000/ or change the port in `docker-
 -   [x] Configure the cron job and scheduling tasks for the container;
 -   [x] Implement the user profile update;
 -   [x] Translate application to pt_BR;
+-   [x] Implement the weekly report - partial;
+-   [ ] Improve the report with graphics - check possibilities;
 -   [ ] Check the possibility of spaces limitations (quantity of spaces per user - subscription or something else);
 -   [ ] Get attachmentables.
 
