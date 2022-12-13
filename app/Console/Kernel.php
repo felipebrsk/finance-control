@@ -2,8 +2,8 @@
 
 namespace App\Console;
 
-use App\Jobs\ProcessRecurringsJob;
 use Illuminate\Console\Scheduling\Schedule;
+use App\Jobs\{ProcessRecurringsJob, SendWeeklyReportJob};
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
 class Kernel extends ConsoleKernel
@@ -17,6 +17,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->job(new ProcessRecurringsJob())->daily();
+        $schedule->job(new SendWeeklyReportJob())->weeklyOn(5, '19:00');
     }
 
     /**

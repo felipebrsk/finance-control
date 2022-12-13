@@ -2,6 +2,7 @@
 
 namespace App\Contracts\Services;
 
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 
 interface UserServiceInterface extends BasicServiceInterface
@@ -13,4 +14,11 @@ interface UserServiceInterface extends BasicServiceInterface
      * @return \Illuminate\Database\Eloquent\Model
      */
     public function findByEmail(string $email): Model;
+
+    /**
+     * All users to weekly report.
+     *
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
+    public function allToWeeklyReport(): Collection;
 }
