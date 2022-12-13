@@ -42,6 +42,6 @@ class PasswordChangedJob implements ShouldQueue
      */
     public function handle(): void
     {
-        Mail::to($this->user->email)->send(new PasswordChangedMail($this->user));
+        Mail::to($this->user->email)->queue(new PasswordChangedMail($this->user));
     }
 }

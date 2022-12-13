@@ -3,6 +3,7 @@
 namespace App\Observers;
 
 use App\Models\{User, Currency};
+use App\Events\User\UserPasswordUpdated;
 
 class UserObserver
 {
@@ -33,7 +34,9 @@ class UserObserver
      */
     public function updated(User $user)
     {
-        //
+        if ($user->isDirty('password')) {
+            event(new UserPasswordUpdated($user));
+        }
     }
 
     /**

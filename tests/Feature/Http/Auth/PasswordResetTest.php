@@ -2,13 +2,14 @@
 
 namespace Tests\Feature\Http\Auth;
 
+use App\Events\User\UserPasswordUpdated;
 use Tests\TestCase;
 use Tests\Traits\HasDummyUser;
 use Illuminate\Support\Carbon;
 use App\Jobs\PasswordChangedJob;
 use App\Mail\PasswordChangedMail;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Support\Facades\{Bus, DB, Hash, Mail, Queue};
+use Illuminate\Support\Facades\{Bus, DB, Event, Hash, Mail, Queue};
 
 class PasswordResetTest extends TestCase
 {
@@ -159,7 +160,7 @@ class PasswordResetTest extends TestCase
         ])->assertOk()
             ->assertSee('Sua senha foi redefinida!');
 
-        Mail::assertSent(PasswordChangedMail::class, 1);
+        Mail::assertQueued(PasswordChangedMail::class, 1);
     }
 
     /**
@@ -204,5 +205,47 @@ class PasswordResetTest extends TestCase
         Bus::assertDispatched(PasswordChangedJob::class, function (PasswordChangedJob $job) {
             return $this->user->id === $job->user->id;
         });
+    }
+
+    /**
+     * Test if can dispatch the user password updated event on password change.
+     *
+     * @return void
+     */
+    public function test_if_can_dispatch_the_user_password_updated_event_on_password_change(): void
+    {
+        Event::fake([UserPasswordUpdated::class]);
+
+        $this->postJson(route('password.reset'), [
+            'email' => $this->user->email,
+            'token' => $this->token,
+            'password' => 'secret1234',
+            'password_confirmation' => 'secret1234',
+        ])->assertOk()
+            ->assertSee('Sua senha foi redefinida!');
+
+        Event::assertDispatched(UserPasswordUpdated::class);
+    }
+
+    /**
+     * Test if can generate a new activity on password change.
+     *
+     * @return void
+     */
+    public function test_if_can_generate_a_new_activity_on_password_change(): void
+    {
+        $this->postJson(route('password.reset'), [
+            'email' => $this->user->email,
+            'token' => $this->token,
+            'password' => 'secret1234',
+            'password_confirmation' => 'secret1234',
+        ])->assertOk()
+            ->assertSee('Sua senha foi redefinida!');
+
+        $this->assertDatabaseHas('activities', [
+            'activitable_id' => $this->user->id,
+            'activitable_type' => $this->user::class,
+            'action' => 'password.changed',
+        ]);
     }
 }
