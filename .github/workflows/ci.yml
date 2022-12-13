@@ -93,6 +93,10 @@ jobs:
 
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v4
+        permissions:
+          contents: write
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           commit_message: ${{ steps.last-commit-message.outputs.msg }}
           commit_options: '--amend --no-edit'
