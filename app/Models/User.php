@@ -118,7 +118,7 @@ class User extends Authenticatable implements JWTSubject
 
     /**
      * Get all of the activities for the Space
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\MorphMany
      */
     public function activities(): MorphMany
