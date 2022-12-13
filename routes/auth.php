@@ -47,6 +47,6 @@ Route::delete('earnings/{id}/detach', [EarningController::class, 'detachTags'])-
 Route::delete('spendings/{id}/detach', [SpendingController::class, 'detachTags'])->name('spendings.detach.tags');
 Route::delete('recurrings/{id}/detach', [RecurringController::class, 'detachTags'])->name('recurrings.detach.tags');
 
-Route::get('tests', function () {
+Route::get('auth/tests', function () {
     //
 });

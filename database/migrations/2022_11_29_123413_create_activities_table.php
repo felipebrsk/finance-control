@@ -16,7 +16,7 @@ return new class () extends Migration {
             $table->id();
             $table->string('action');
             $table->morphs('activitable');
-            $table->foreignId('space_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('space_id')->nullable()->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->timestamps();
         });
     }

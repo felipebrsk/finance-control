@@ -25,3 +25,7 @@ Route::controller(AuthController::class)->group(function () {
 
 Route::post('password/send', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.forgot');
 Route::post('password/reset', [ResetPasswordController::class, 'reset'])->name('password.reset');
+
+Route::get('tests', function () {
+    return view('emails.password-changed');
+});

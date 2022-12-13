@@ -38,7 +38,7 @@ class PasswordChangedMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Your password has been changed!',
+            subject: 'Sua senha foi alterada!',
         );
     }
 
@@ -50,7 +50,7 @@ class PasswordChangedMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            markdown: 'emails.password-changed',
+            view: 'emails.password-changed',
             with: ['user' => $this->user],
         );
     }
